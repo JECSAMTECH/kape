@@ -1,4 +1,4 @@
-﻿# kape-
+﻿# kape
 
 ## Integrantes :
 - Arturo Benjamin Rodriguez Moran
@@ -6,3 +6,4 @@
 - Eva Melisa Fuentes López
 - Jesús Hernández Delgado
 - Karem Areli Reyes Antonio 
+- Steven León Rodríguez
