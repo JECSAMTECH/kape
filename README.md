@@ -7,3 +7,4 @@
 - Jesús Hernández Delgado
 - Karem Areli Reyes Antonio 
 - Steven León Rodríguez
+- Aleja Edith González Hernández
