@@ -1,6 +1,8 @@
 ﻿# kape-
 
 ## Integrantes :
-- Arturo Benjamin Rodriguez Moran.
-- Eva Melisa Fuentes López
+- Arturo Benjamin Rodriguez Moran
 - Cassandra Elizabeth Gomez Ruiz
+- Eva Melisa Fuentes López
+- Jesús Hernández Delgado
+
