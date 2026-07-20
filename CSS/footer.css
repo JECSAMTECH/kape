@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+.custom-footer {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FAF6F3; 
+  color: #705A4F;
+  border-top: 3px solid #6C1E23; /* separacion*/
+}
+
+/* Ajustes del Logo */
+.footer-logo {
+  max-height: 70px;
+  width: auto;
+}
+
+/* Textos */
+.footer-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 380px;
+  color: #7A6559;
+}
+
+/* Título de sección (Explora) */
+.footer-title {
+  color: #6C1E23; /* Rojo quemado / Guinda */
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+}
+
+/* Enlaces de navegación */
+.footer-links a {
+  color: #7A6559;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #6C1E23; /* Cambio sutil al pasar el cursor */
+}
+
+/* Iconos de redes sociales */
+.social-icon {
+  color: #A96B43; /* Color terracota / marrón del icono */
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+  color: #6C1E23;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid #EAE1D9; 
+}
+
+.copyright-text, 
+.bottom-links a {
+  font-size: 0.85rem;
+  color: #7A6559;
+  text-decoration: none;
+}
+
+.bottom-links a:hover {
+  color: #6C1E23;
+}
