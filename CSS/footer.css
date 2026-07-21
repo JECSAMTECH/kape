@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sora:wght@600;700&display=swap');
 
+/*colores 
+#222222
+#D8C7A1
+#7A1F2D
+#F8F5EF
+#8F4A2C
+*/
 .custom-footer {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #FAF6F3; 
-  color: #705A4F;
-  border-top: 3px solid #6C1E23; /* separacion*/
+  font-family: 'Poppins', sans-serif;
+  background-color: #F8F5EF; 
+  color: #D8C7A1;
+  border-top: 3px solid #7A1F2D; /* separacion*/
 }
 
 /* Ajustes del Logo */
@@ -23,7 +31,8 @@
 
 /* Título de sección (Explora) */
 .footer-title {
-  color: #6C1E23; /* Rojo quemado / Guinda */
+  font-family: 'Sora', sans-serif;
+  color: #7A1F2D;
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: 1px;
@@ -38,24 +47,24 @@
 }
 
 .footer-links a:hover {
-  color: #6C1E23; /* Cambio sutil al pasar el cursor */
+  color: #7A1F2D; /* Cambio sutil al pasar el cursor */
 }
 
-/* Iconos de redes sociales */
+/* iconos de redes*/
 .social-icon {
-  color: #A96B43; /* Color terracota / marrón del icono */
+  color: #8F4A2C;
   font-size: 1.25rem;
   text-decoration: none;
   transition: transform 0.2s, color 0.2s;
 }
 
 .social-icon:hover {
-  color: #6C1E23;
+  color: #7A1F2D;
   transform: scale(1.1);
 }
 
 .footer-bottom {
-  border-top: 1px solid #EAE1D9; 
+  border-top: 1px solid #F8F5EF; 
 }
 
 .copyright-text, 
@@ -66,5 +75,5 @@
 }
 
 .bottom-links a:hover {
-  color: #6C1E23;
+  color: #7A1F2D;
 }
