@@ -5,11 +5,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
+
+    <link rel="preload" href="../CSS/normalize.css">
+    <link rel="stylesheet" href="../CSS/normalize.css">
+
+    <link rel="preload" href="../CSS/inicio.css">
+    <link rel="stylesheet" href="../CSS/inicio.css">
+
+    <!-- Tipográfia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!--  Bootstrap  -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <title>Document</title>
+
+    <!--    -->
 </head>
 
 <body>
 
+    <header class="header">
+        <nav class="nav-bar container">
+
+            <div class="nav-top">
+                <div class="nav-element-logo">
+                    <a href="">
+                        <img src="../IMG/transparent_logo.png" alt="imagen logo">
+                    </a>
+                </div>
+
+                <form class="nav-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21 21-4.34-4.34" />
+                        <circle cx="11" cy="11" r="8" />
+                    </svg>
+
+                    <input type="search" placeholder="Busca en Kápe Café">
+                </form>
+
+                <div class="nav-element-icons">
+
+                    <button class="hamburger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-menu-icon lucide-menu">
+                            <path d="M4 5h16" />
+                            <path d="M4 12h16" />
+                            <path d="M4 19h16" />
+                        </svg>
+                    </button>
+
+                    <a class="nav-element-icon" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                            <circle cx="8" cy="21" r="1" />
+                            <circle cx="19" cy="21" r="1" />
+                            <path
+                                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                        </svg>
+                    </a>
+
+                    <a class="nav-element-icon" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-icon lucide-user">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div> <!---  nav-top   -->
+
+            <div class="nav-bottom">
+                <div class="nav-element-links">
+                    <a class="nav-element-link nav-element-link--active" href="">Inicio</a>
+                    <a class="nav-element-link" href="">Catálogo</a>
+                    <a class="nav-element-link" href="">Contáctanos</a>
+                    <a class="nav-element-link" href="">Nosotros</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <div class="mobile-menu ">
+
+        <nav class="mobile-links">
+            <a class="nav-element-link nav-element-link--active" href="">Inicio</a>
+            <a class="nav-element-link" href="">Catálogo</a>
+            <a class="nav-element-link" href="">Contáctanos</a>
+            <a class="nav-element-link" href="">Nosotros</a>
+        </nav>
+
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-header-two">Cosecha de Temporada</h2>
+            <h1 class="hero-header-one">El arte del café, <br> desde el origen.</h1>
+            <p class="hero-text">
+                Descubre granos seleccionados a mano <br>
+                por maestros caficultores. Tostado <br>
+                artesanal en pequeños lotes para <br>
+                preservar el alma de cada finca.
+            </p>
+            <div class="hero-buttons">
+                <button class="hero-button--collection">Explorar Colección</button>
+                <button class="hero-button--history">Nuestra Historia</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-grid container">
+        <section class="main-section">
+            <div class="main-featured-products">
+                <h2>Productos Destacados</h2>
+                <p class="main-featured-products-text">
+                    Nuestra selección curada para los <br>
+                    paladares más exigentes.
+                </p>
+            </div>
+
+            <div class="main-featured-product">
+                <div class="main-featured-product--image">
+                    <img src="../IMG/coffee.png" alt="coffee image">
+                </div>
+                <div class="main-coffee-details">
+                    <h3>Espresso Bourbon Rojo</h3>
+                    <p>$430.05</p>
+                </div>
+                <p class="main-featured-product-text">
+                    Notas de chocolate amargo, cereza negra y un final
+                    sedoso. Finca La Esperanza, 1800m.
+                </p>
+                <a href="">Añadir al carrito →</a>
+            </div>
+
+        </section>
+
+
+        <article class="article-section">
+
+            <div class="article-catalog">
+                <button>Ver todo el catálogo</button>
+            </div>
+
+            <div class="article-coffees">
+                <div class="article-cuturra">
+                    <div class="article-coffee-image">
+                        <img src="../IMG/panama.png" alt="coffee cuturra image">
+                    </div>
+
+                    <div class="article-coffee-details">
+                        <p class="article-coffee-edition">Edición Limitada</p>
+                        <p class="article-coffee-name">Geisha Panameño</p>
+                        <p class="article-coffee-price">$737.37</p>
+                    </div>
+                </div>
+
+                <div class="article-panama">
+                    <div class="article-coffee-image">
+                        <img src="../IMG/cultura.png" alt="coffee panama image">
+                    </div>
+
+                    <div class="article-coffee-details">
+                        <p class="article-coffee-edition">Tueste Medio</p>
+                        <p class="article-coffee-name">Caturra Lavado</p>
+                        <p class="article-coffee-price">$331.82</p>
+                    </div>
+
+                </div>
+
+            </div> <!--  article-coffees  -->
+
+            <div class="article-subscription">
+                <h2>Suscripción Kápe</h2>
+                <p>
+                    Recibe café fresco cada mes en tu
+                    puerta. Ahorra 15%.
+                </p>
+                <button>Empezar Ahora</button>
+            </div>
+
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="../JS/scrips.js"></script>
 </body>
 
 </html>
