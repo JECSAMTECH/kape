@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kápe - Crear Cuenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="CrearCuenta.css">
+</head>
+<body>
+
+<div class="container-fluid min-vh-100 d-flex p-0">
+    <div class="row g-0 w-100">
+        
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center text-center bg-sidebar p-5 text-white position-relative">
+            <div class="overlay"></div> <!-- Capa de color vino -->
+            <div class="position-relative z-1">
+                <h1 class="display-1 fw-bold brand-title">kápe</h1>
+                <p class="fs-4 px-4 subtitle-left">Únete a nuestra comunidad de amantes del café artesanal y descubre el origen de cada grano.</p>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center bg-white p-4 p-md-5">
+            <div class="form-container w-100" style="max-width: 480px;">
+                
+                <h2 class="fw-bold main-title mb-1">Crear una cuenta</h2>
+                <p class="text-muted small mb-4">Comienza tu viaje sensorial con nosotros hoy.</p>
+
+                <form>
+                    <!-- Campo: Nombre Completo -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold input-label">Nombre Completo</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control border-start-0 ps-0" placeholder="Tu nombre">
+                        </div>
+                    </div>
+
+                    <!-- Campo: Email -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold input-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control border-start-0 ps-0" placeholder="ejemplo@kape.com">
+                        </div>
+                    </div>
+
+                    <!-- Campo: Contraseña -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold input-label">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                            <input type="password" class="form-control border-start-0 ps-0" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <!-- Confirmar Contraseña -->
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold input-label">Confirmar Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-shield-lock"></i></span>
+                            <input type="password" class="form-control border-start-0 ps-0" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <!-- Checkbox: Términos y condiciones -->
+                    <div class="form-check mb-4">
+                        <input class="form-check-input custom-checkbox" type="checkbox" id="terms">
+                        <label class="form-check-label small text-secondary" for="terms">
+                            Acepto los <a href="#" class="text-wine fw-semibold text-decoration-none">Términos y Condiciones</a> y la <a href="#" class="text-wine fw-semibold text-decoration-none">Política de Privacidad</a>.
+                        </label>
+                    </div>
+
+                    <!-- Botón Registrarse -->
+                    <button type="submit" class="btn btn-register w-100 py-2.5 text-white fw-semibold mb-4">Registrarse</button>
+
+                    <!-- Login link -->
+                    <p class="text-center small text-muted">
+                        ¿Ya tienes una cuenta? <a href="#" class="text-wine fw-bold text-decoration-none">Iniciar Sesión</a>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
