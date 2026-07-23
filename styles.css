@@ -1,0 +1,12 @@
+:root {
+    --color-primario: #222222;
+    /* negro → fuerte, elegante */
+    --color-secundario: #D8C7A1;
+    /* beige → suave */
+    --color-terciario: #7A1F2D;
+    /* vino → acento */
+    --color-cuaternario: #F8F5EF;
+    /*fondo */
+    --color-texto: #8F4A2C;
+    /*texto */
+}
