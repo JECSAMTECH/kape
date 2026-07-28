@@ -34,7 +34,7 @@ function ValidarForm() {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var emailValido = regexEmail.test(email);
         if (emailValido == false) {
-            appendAlert('Comprueba que tu nombre correo sea valido. ejemplo@correo.com')
+            appendAlert('Comprueba que tu correo sea valido. ejemplo@correo.com')
         }
     }
     
@@ -42,7 +42,7 @@ function ValidarForm() {
         const regex = /^[0-9]{10}$/;
         var telValido = regex.test(telefono);
         if (telValido == false) {
-            appendAlert('Comprueba que tu teléfono tenga 10 dígitos')
+            appendAlert('Comprueba que tu teléfono sean solo digitos númericos y tenga 10 dígitos')
         }
     }
 
