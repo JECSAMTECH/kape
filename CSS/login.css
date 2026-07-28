@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sora:wght@700&family=Nunito+Rounded:wght@700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #F8F5EF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+/*Logotipo*/
+.logo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-header img {
+    max-width: 300%;
+    width: 100%;  
+    height: auto;
+}
+/*Diseño responsivo*/
+/*  en tablets */
+@media (max-width: 768px) {
+    .logo-header img {
+        max-width: 300px; 
+                }
+    .formulario{
+        max-width: 95%;
+        padding: 3rem;
+    }
+}
+/*  móviles */
+@media (max-width: 480px) {
+    .logo-header img {
+        max-width: 200px; 
+    }
+    .formulario{
+        max-width: 100%;
+        padding: 2rem;
+    }
+
+    .formulario h1 {
+        font-size: 1.5rem;      
+        margin-bottom: 2rem;
+    }
+
+    .formulario h4 {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .password-label-row {
+        flex-direction: column;   
+        align-items: flex-start;
+    }
+
+    .password-label-row .olvidar {
+        margin-left: 0;           
+        margin-top: 0.3rem;       
+    }
+
+    button {
+        font-size: 0.9rem;      
+        padding: 10px;
+    }
+}
+/*---------------------------------------*/
+
+/*Caja de Formulario*/
+.formulario{
+    padding: 4rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(34,34,34,0.2);
+    max-width: 500px;
+    width: 100%;
+    background: #FFF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    }
+
+/*Títulos*/
+.formulario h1 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    margin-bottom: 100px;
+    color: #222222;
+    text-align: left;
+}
+
+.formulario h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-top: -90px;
+    margin-bottom: 50px;
+    color: #666;
+    font-weight: normal;
+    text-align: left;
+}
+
+/*Inputs*/
+.inputuser{
+    margin-bottom: 2rem;
+    
+}
+
+.inputuser .campo {
+    flex: 1;
+}
+
+.inputuser label{
+display: block;
+text-align: left;
+margin-bottom: 0.5rem;
+font-weight: 700;
+color: #7A1F2D;
+}
+
+.inputuser input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #D8C7A1; 
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.inputuser input:focus {
+    border-color: #8F4A2C; 
+}
+
+/*enlaces*/
+.registrarse a {
+    color: #7A1F2D;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.registrarse a:hover {
+    text-decoration: underline;
+}
+
+.password-label-row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.password-label-row label {
+    font-weight: 700;
+    color: #7A1F2D;
+}
+
+.password-label-row .olvidar {
+    margin-left: auto;
+    font-size: 0.7rem;
+    color: #7A1F2D;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+
+.password-label-row .olvidar:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-family: "Nunito Rounded", sans-serif;
+    font-weight: 700;
+    background:  #8F4A2C; 
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #7A1F2D 
+}
+
+/* Registro */
+.registrarse {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    color: #222222;
+}
