@@ -1,89 +1,135 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
-<!-- parte invisible de la página,  aqui se hace la configuración como estilos, titulo de la pestaña, etc.-->
 
 <head>
-    <meta charset="UTF-8"> <!--<meta> is a HTML tag that contains metadata about a web page,
- charset is an HTML attribute that defines the character encoding for your browser to use when displaying the website content.
- utf-8 is a specific character encoding..-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- responsable de la vista del navegador-->
-    <title> </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-
-    <style>
-        body {
-            background-color: #f4f6f9;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 24px 16px;
-            margin: 0;
-        }
-
-        .custom-footer {
-            background-color: #222;
-            color: white;
-        }
-
-        .footer-text {
-            font-size: 1rem;
-        }
-
-        .footer-logo {
-            max-width: 180px;
-        }
-
-        /* Separador sutil entre secciones, usando el beige de la paleta */
-        .mi-seccion {
-            border-top: 1px solid var(--color-secundario);
-        }
-
-        /* Estilo de card simple para los ítems de la sección */
-        .card-seccion img.img-seccion {
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid var(--color-secundario);
-            object-fit: cover;
-            aspect-ratio: 1/1;
-        }
-    </style>
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kápe · Café de Especialidad</title>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
 
-    <nav class="breadcrumb-custom mb-4">
-        Inicio · Café de Especialidad ·
-        <span class="activo">SORA</span> <!-- último nivel resaltado -->
-    </nav>
+    <div class="pagina-producto">
 
+        <!-- ===================== MIGAS (navegacion arriba) ===================== -->
+        <nav class="migas-de-pan">
+            <a href="#">Inicio</a>
+            <span class="migas-separador">·</span>
+            <a href="#">Café de Especialidad</a>
+            <span class="migas-separador">·</span>
+            <span class="migas-actual">KÁPE</span>
+        </nav>
 
+        <!-- ===================== CONTENEDOR DEL PRODUCTO (2 columnas) ===================== -->
+        <div class="producto-contenedor">
 
+            <!-- ---------- COLUMNA IZQUIERDA: GALERIA DE IMAGENES ---------- -->
+            <div class="producto-galeria">
 
-    <!-- caja de información -->
+                <!-- imagen principal del empaque -->
+                <div class="galeria-imagen-principal">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=800&fit=crop"
+                        alt="Bolsa de café Kápe 700" />
+                </div>
 
-    <div class="container">
-        <div class="contact-card">
-            <h2>Contáctenos</h2>
-            <p class="subtitle">Llena posible.</p>
-            <div class="caja-historia mt-4">
-                <h6 class="mb-2">Nuestra Historia Marago</h6>
-                <p class="mb-0">
-                    Proveniente de alta montaña, este café representa nuestra búsqueda
-                    de la perfección en el tueste. Cada grano es seleccionado
-                    manualmente y procesado por vía húmeda para preservar su
-                    perfil floral distintivo y su acidez brillante.
-                </p>
+                <!-- miniaturas debajo de la imagen principal -->
+                <div class="galeria-miniaturas">
+                    <div class="galeria-miniatura">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop"
+                            alt="Granos de café tostados" />
+                    </div>
+                    <div class="galeria-miniatura">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop"
+                            alt="Barista preparando café" />
+                    </div>
+                </div>
             </div>
-            </head>
 
+            <!-- ---------- COLUMNA DERECHA: INFORMACION Y COMPRA ---------- -->
+            <div class="producto-informacion">
+
+                <!-- etiqueta pequeña arriba del titulo -->
+                <p class="producto-etiqueta">Edición de Origen Único</p>
+
+                <!-- nombre del producto / marca -->
+                <h1 class="producto-titulo">KÁPE</h1>
+
+                <!-- precio y calificacion en la misma linea -->
+                <div class="producto-precio-fila">
+                    <span class="producto-precio">$430.12</span>
+                    <span class="producto-estrellas">★★★★★</span>
+                    <span class="producto-resenas">(48 reseñas)</span>
+                </div>
+
+                <!-- fila de datos: origen e intensidad -->
+                <div class="producto-datos-fila">
+                    <div class="producto-dato">
+                        <p class="producto-dato-titulo">⌾ ORIGEN</p>
+                        <p class="producto-dato-valor">VERACRUZ</p>
+                    </div>
+                    <div class="producto-dato">
+                        <p class="producto-dato-titulo">⚡ INTENSIDAD</p>
+                        <div class="producto-barra-intensidad">
+                            <span class="barra-llena"></span>
+                            <span class="barra-vacia"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fila de datos: tueste y notas -->
+                <div class="producto-datos-fila">
+                    <div class="producto-dato">
+                        <p class="producto-dato-titulo">☕ TUESTE</p>
+                        <p class="producto-dato-valor">Medio-Claro (Artesanal)</p>
+                    </div>
+                    <div class="producto-dato">
+                        <p class="producto-dato-titulo">✿ NOTAS</p>
+                        <p class="producto-dato-valor">Jazmín, Bergamota, Miel</p>
+                    </div>
+                </div>
+
+                <!-- seleccion de molienda -->
+                <div class="producto-molienda">
+                    <p class="producto-molienda-titulo">MOLIENDA DEL GRANO</p>
+                    <div class="producto-molienda-botones">
+                        <button class="molienda-boton molienda-seleccionada">Grano Entero</button>
+                        <button class="molienda-boton">Molienda Gruesa</button>
+                        <button class="molienda-boton">Molienda Media</button>
+                        <button class="molienda-boton">Molienda Fina</button>
+                    </div>
+                </div>
+
+                <!-- cantidad + boton de agregar al carrito -->
+                <div class="producto-compra-fila">
+                    <div class="producto-cantidad">
+                        <button class="cantidad-boton" aria-label="Restar">−</button>
+                        <span class="cantidad-numero">1</span>
+                        <button class="cantidad-boton" aria-label="Sumar">+</button>
+                    </div>
+
+                    <button class="producto-agregar-boton">
+                        <span class="agregar-icono">🛍</span> Agregar al carrito
+                    </button>
+                </div>
+
+                <!-- enlace para agregar a lista de deseos -->
+                <a href="#" class="producto-deseos">♡ Añadir a deseos</a>
+
+                <!-- bloque de historia de la marca -->
+                <div class="producto-historia">
+                    <h2 class="historia-titulo">Nuestra Historia Kápe</h2>
+                    <p class="historia-texto">
+                        Proveniente de alta montaña, Kápe representa nuestra búsqueda de la perfección en el tueste.
+                        Cada grano es seleccionado manualmente y procesado por vía húmeda para preservar su perfil
+                        floral distintivo y su acidez brillante.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </body>
 
-
 </html>
-=======
-//task 4
->>>>>>> 8542a736261ffb312f7c471b66c152b47cec123f

@@ -1,12 +1,294 @@
 :root {
-    --color-primario: #222222;
-    /* negro → fuerte, elegante */
-    --color-secundario: #D8C7A1;
-    /* beige → suave */
-    --color-terciario: #7A1F2D;
-    /* vino → acento */
-    --color-cuaternario: #F8F5EF;
-    /*fondo */
-    --color-texto: #8F4A2C;
-    /*texto */
+    --color-fondo: #faf6f2;
+    --color-texto: #2b2320;
+    --color-texto-suave: #7a7069;
+    --color-marca: #8a1f3b;
+    /* rojo vino, color de la marca Kápe */
+    --color-borde: #e5ddd4;
+    --color-boton-seleccionado: #f6ecec;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===================== GENERAL DE LA PAGINA ===================== */
+.pagina-producto {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 32px 60px;
+}
+
+/* ===================== MIGAS DE PAN ===================== */
+.migas-de-pan {
+    font-size: 13px;
+    color: var(--color-texto-suave);
+    margin-bottom: 32px;
+}
+
+.migas-de-pan a {
+    color: var(--color-texto-suave);
+    text-decoration: none;
+}
+
+.migas-separador {
+    margin: 0 6px;
+}
+
+.migas-actual {
+    color: var(--color-marca);
+    font-weight: 600;
+}
+
+/* ===================== CONTENEDOR DEL PRODUCTO (2 columnas) ===================== */
+.producto-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+}
+
+/* ===================== COLUMNA IZQUIERDA: GALERIA ===================== */
+.galeria-imagen-principal {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ece4da;
+}
+
+.galeria-imagen-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.galeria-miniaturas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.galeria-miniatura {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.galeria-miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===================== COLUMNA DERECHA: INFORMACION ===================== */
+.producto-etiqueta {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-marca);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.producto-titulo {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--color-marca);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* precio + estrellas */
+.producto-precio-fila {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.producto-precio {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.producto-estrellas {
+    color: #d9a441;
+    font-size: 14px;
+}
+
+.producto-resenas {
+    font-size: 13px;
+    color: var(--color-texto-suave);
+}
+
+/* filas de datos: origen / intensidad / tueste / notas */
+.producto-datos-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--color-borde);
+}
+
+.producto-dato-titulo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--color-texto-suave);
+    margin-bottom: 6px;
+}
+
+.producto-dato-valor {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.producto-barra-intensidad {
+    display: flex;
+    gap: 4px;
+}
+
+.barra-llena,
+.barra-vacia {
+    height: 4px;
+    width: 40px;
+    border-radius: 2px;
+}
+
+.barra-llena {
+    background-color: var(--color-marca);
+}
+
+.barra-vacia {
+    background-color: var(--color-borde);
+}
+
+/* seleccion de molienda */
+.producto-molienda {
+    padding: 20px 0;
+    border-top: 1px solid var(--color-borde);
+}
+
+.producto-molienda-titulo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.producto-molienda-botones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.molienda-boton {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: transparent;
+    color: var(--color-texto);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.molienda-seleccionada {
+    border-color: var(--color-marca);
+    background-color: var(--color-boton-seleccionado);
+    color: var(--color-marca);
+    font-weight: 600;
+}
+
+/* fila de compra: cantidad + agregar al carrito */
+.producto-compra-fila {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.producto-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+}
+
+.cantidad-boton {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--color-texto);
+}
+
+.cantidad-numero {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.producto-agregar-boton {
+    flex: 1;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-marca);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.producto-agregar-boton:hover {
+    opacity: 0.9;
+}
+
+/* enlace de deseos */
+.producto-deseos {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--color-texto-suave);
+    text-decoration: none;
+}
+
+/* bloque de historia */
+.producto-historia {
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #f1ebe4;
+    border-radius: 12px;
+}
+
+.historia-titulo {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.historia-texto {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-texto-suave);
+}
+
+/* ===================== CONTENEDOR ===================== */
+@media (max-width: 768px) {
+    .producto-contenedor {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
 }
