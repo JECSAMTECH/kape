@@ -1,204 +1,273 @@
 :root {
-  --color-primario: #222222;
-  --color-secundario: #D8C7A1;
-  --color-terciario: #7A1F2D;
-  --color-cuaternario: #F8F5EF;
-  --color-texto: #8F4A2C;
+--color-primario: #222222;
+--color-secundario: #D8C7A1;
+--color-terciario: #7A1F2D;
+--color-cuaternario: #F8F5EF;
+--color-texto: #8F4A2C;
 }
 
-body{
+/* ==========================================
+TIPOGRAFÍA GENERAL Y ENCABEZADOS
+========================================== */
+body {
     background: var(--color-cuaternario);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Texto por defecto en Poppins */
+}
+
+p, span, a, li, .subtitulo, .card-text, .card-back p {
+    font-family: 'Poppins', sans-serif; /* Asegura Poppins en párrafos y textos */
+}
+
+/* Aplicar Sora a todos los títulos de la página */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
 }
 
 /*======================
         HEADER
 =======================*/
 
-.nosotros .header{
-    padding:4rem 1rem;
+.nosotros .header {
+    padding: 4rem 1rem;
 }
 
-.header h1{
-    color:var(--color-terciario);
-    font-size:clamp(2rem,6vw,4.5rem);
-    font-weight:700;
+.header h1 {
+    color: var(--color-terciario);
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 700;
 }
 
-.header p{
-    color:#A39E93;
-    font-size:clamp(.9rem,2vw,1rem);
-    font-style:italic;
+.header p {
+    color: #A39E93;
+    font-size: clamp(.9rem, 2vw, 1rem);
+    font-style: italic;
 }
 
-.space{
-    height:5rem;
+.space {
+    height: 5rem;
 }
 
 /*======================
       GENTE KAPÉ
 =======================*/
 
-.gente-kape h3{
-    font-family:'Sora',sans-serif;
-    font-weight:600;
+.gente-kape h3 {
+    font-weight: 600;
 }
 
-.gente-kape hr{
-    width:60px;
-    border:0;
-    border-top:3px solid #8B0000;
-    opacity:1;
-    margin:auto;
+.gente-kape hr {
+    width: 60px;
+    border: 0;
+    border-top: 3px solid #8B0000;
+    opacity: 1;
+    margin: auto;
 }
 
 /*======================
        TARJETAS
 =======================*/
-.card-wrapper{
-    width:100%;
-    min-height:320px;
-    perspective:1000px;
+.card-wrapper {
+    width: 100%;
+    min-height: 320px;
+    perspective: 1000px;
 }
 
-
-.card-inner{
-    position:relative;
-    width:100%;
-    height:100%;
-    transition:transform .8s;
-    transform-style:preserve-3d;
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .8s;
+    transform-style: preserve-3d;
 }
 
-.card-wrapper:hover .card-inner{
-    transform:rotateY(180deg);
+.card-wrapper:hover .card-inner {
+    transform: rotateY(180deg);
 }
 
 .card-front,
-.card-back{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
+.card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    background:#fff;
-    border:1px solid #dee2e6;
-    border-radius:12px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
 
-    backface-visibility:hidden;
+    backface-visibility: hidden;
 
-    padding:1rem;
+    padding: 1rem;
 }
 
-.card-back{
-    transform:rotateY(180deg);
+.card-back {
+    transform: rotateY(180deg);
+    overflow: auto;
 }
 
-.rounded-circle{
-    width:130px;
-    height:130px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
+.card-back p {
+    margin: 0;
+    font-size: .85rem;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
 }
 
-.rounded-circle img{
-    width:100%;
-    max-width:110px;
-    height:auto;
-    object-fit:cover;
+.rounded-circle {
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.rounded-circle img {
+    width: 100%;
+    max-width: 110px;
+    height: auto;
+    object-fit: cover;
 }
 
 /*======================
-        TEXTOS
+        TEXTOS CARDS
 =======================*/
 
-.card-title{
-    font-size:clamp(1rem,2vw,1.2rem);
-    font-weight:700;
-    margin-top:1rem;
+.card-title {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 700;
+    margin-top: 1rem;
 }
 
-.card-text{
-    color:#6B4226;
-    text-transform:uppercase;
-    font-size:clamp(.8rem,1.5vw,.9rem);
-    font-weight:600;
+.card-text {
+    color: #6B4226;
+    text-transform: uppercase;
+    font-size: clamp(.8rem, 1.5vw, .9rem);
+    font-weight: 600;
 }
 
-.card-back p{
-    font-size:.95rem;
-    line-height:1.5;
-    text-align:center;
+/*======================
+    CULTURA HUMANA
+=======================*/
+
+.subtitulo-proposito {
+    font-family: 'Sora', sans-serif; /* Aplicado Sora al tag de PROPÓSITO */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-terciario);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.titulo-cultura {
+    font-weight: 700;
+    color: var(--color-primario);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.cultura-texto p {
+    color: #4A4A4A;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+/*======================
+       CARRUSEL
+=======================*/
+
+#carouselExample {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#carouselExample .carousel-item {
+    height: 320px; 
+}
+
+#carouselExample img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /*======================
        RESPONSIVE
 =======================*/
 
-@media (max-width:768px){
-
-    .space{
-        height:3rem;
+@media (max-width: 991px) {
+    #carouselExample .carousel-item {
+        height: 280px; 
     }
-
-    .rounded-circle{
-        width:100px;
-        height:100px;
-    }
-
-    .rounded-circle img{
-        max-width:85px;
-    }
-
 }
 
-@media (max-width:576px){
-
-    .header{
-        padding:3rem 1rem;
+@media (max-width: 768px) {
+    .space {
+        height: 3rem;
     }
 
-    .card-wrapper{
-        min-height:270px;
+    .rounded-circle {
+        width: 100px;
+        height: 100px;
     }
 
-    .rounded-circle{
-        width:80px;
-        height:80px;
+    .rounded-circle img {
+        max-width: 85px;
     }
-
-    .rounded-circle img{
-        max-width:70px;
-    }
-
-    .card-title{
-        font-size:.95rem;
-    }
-
-    .card-text{
-        font-size:.75rem;
-    }
-
 }
 
+@media (max-width: 576px) {
+    .header {
+        padding: 3rem 1rem;
+    }
 
-.card-back{
-    overflow:auto;
+    .card-wrapper {
+        min-height: 270px;
+    }
+
+    .rounded-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .rounded-circle img {
+        max-width: 70px;
+    }
+
+    .card-title {
+        font-size: .95rem;
+    }
+
+    .card-text {
+        font-size: .75rem;
+    }
+
+    #carouselExample .carousel-item {
+        height: 200px; 
+    }
 }
 
-.card-back p{
-    margin:0;
-    font-size:.85rem;
-    line-height:1.4;
-    overflow-wrap:break-word;
-    word-break:break-word;
+#carouselExample .carousel-item-next:not(.carousel-item-start),
+#carouselExample .active.carousel-item-end {
+    transform: translateX(-100%);
+}
+
+#carouselExample .carousel-item-prev:not(.carousel-item-end),
+#carouselExample .active.carousel-item-start {
+    transform: translateX(100%);
 }
