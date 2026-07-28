@@ -1,0 +1,89 @@
+@import url('https://fonts.google.com/specimen/Poppins');
+
+body {
+    font-family: Poppins, Sans-serif;
+    color: #8F4A2C;
+}
+
+/*--COLUMNA IZQUIERDA--*/
+.bg-sidebar {
+    background-image: url('Imagenes/Background\ Decorative\ Image.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/*--Capa rojiza sobre la imagen--*/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(122, 30, 44, 0.85);
+}
+
+.brand-title {
+    font-size: 5rem;
+    letter-spacing: -1px;
+}
+
+.subtitle-left {
+    max-width: 450px;
+    font-weight: 300;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/*--FORMULARIO--*/
+.main-title {
+    color: #7A1F2D; /* Vino */
+    font-size: 2rem;
+}
+
+.input-label {
+    color: #8F4A2C; /* Tono café claro para etiquetas */
+    font-size: 0.9rem;
+}
+
+/* Estilo para los inputs con icono integrado de Bootstrap */
+.input-group-text, .form-control {
+    border-color: #F8F5EF; /* Borde suave */
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: #8F4A2C;
+    box-shadow: none;
+}
+
+.input-group-text i {
+    font-size: 1.1rem;
+    color: #bfa391;
+}
+
+/* Checkbox */
+.custom-checkbox:checked {
+    background-color: #7A1F2D;
+    border-color: #7A1F2D;
+}
+
+/* Botón de Registro */
+.btn-register {
+    background-color: #7A1F2D; /* Color vino principal del botón */
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-register:hover {
+    background-color: #7A1F2D;
+}
+
+
+.text-wine {
+    color: #7A1F2D;
+}
+.text-wine:hover {
+    text-decoration: underline !important;
+}
