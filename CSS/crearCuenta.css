@@ -7,7 +7,7 @@ body {
 
 /*--COLUMNA IZQUIERDA--*/
 .bg-sidebar {
-    background-image: url('Imagenes/Background\ Decorative\ Image.png');
+    background-image: url('../assets/images/CrearCuenta/Background Decorative Image.png');
     background-size: cover;
     background-position: center;
 }
