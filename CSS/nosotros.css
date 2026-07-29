@@ -1,0 +1,204 @@
+:root {
+  --color-primario: #222222;
+  --color-secundario: #D8C7A1;
+  --color-terciario: #7A1F2D;
+  --color-cuaternario: #F8F5EF;
+  --color-texto: #8F4A2C;
+}
+
+body{
+    background: var(--color-cuaternario);
+    font-family: 'Poppins', sans-serif;
+}
+
+/*======================
+        HEADER
+=======================*/
+
+.nosotros .header{
+    padding:4rem 1rem;
+}
+
+.header h1{
+    color:var(--color-terciario);
+    font-size:clamp(2rem,6vw,4.5rem);
+    font-weight:700;
+}
+
+.header p{
+    color:#A39E93;
+    font-size:clamp(.9rem,2vw,1rem);
+    font-style:italic;
+}
+
+.space{
+    height:5rem;
+}
+
+/*======================
+      GENTE KAPÉ
+=======================*/
+
+.gente-kape h3{
+    font-family:'Sora',sans-serif;
+    font-weight:600;
+}
+
+.gente-kape hr{
+    width:60px;
+    border:0;
+    border-top:3px solid #8B0000;
+    opacity:1;
+    margin:auto;
+}
+
+/*======================
+       TARJETAS
+=======================*/
+.card-wrapper{
+    width:100%;
+    min-height:320px;
+    perspective:1000px;
+}
+
+
+.card-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .8s;
+    transform-style:preserve-3d;
+}
+
+.card-wrapper:hover .card-inner{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff;
+    border:1px solid #dee2e6;
+    border-radius:12px;
+
+    backface-visibility:hidden;
+
+    padding:1rem;
+}
+
+.card-back{
+    transform:rotateY(180deg);
+}
+
+.rounded-circle{
+    width:130px;
+    height:130px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.rounded-circle img{
+    width:100%;
+    max-width:110px;
+    height:auto;
+    object-fit:cover;
+}
+
+/*======================
+        TEXTOS
+=======================*/
+
+.card-title{
+    font-size:clamp(1rem,2vw,1.2rem);
+    font-weight:700;
+    margin-top:1rem;
+}
+
+.card-text{
+    color:#6B4226;
+    text-transform:uppercase;
+    font-size:clamp(.8rem,1.5vw,.9rem);
+    font-weight:600;
+}
+
+.card-back p{
+    font-size:.95rem;
+    line-height:1.5;
+    text-align:center;
+}
+
+/*======================
+       RESPONSIVE
+=======================*/
+
+@media (max-width:768px){
+
+    .space{
+        height:3rem;
+    }
+
+    .rounded-circle{
+        width:100px;
+        height:100px;
+    }
+
+    .rounded-circle img{
+        max-width:85px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .header{
+        padding:3rem 1rem;
+    }
+
+    .card-wrapper{
+        min-height:270px;
+    }
+
+    .rounded-circle{
+        width:80px;
+        height:80px;
+    }
+
+    .rounded-circle img{
+        max-width:70px;
+    }
+
+    .card-title{
+        font-size:.95rem;
+    }
+
+    .card-text{
+        font-size:.75rem;
+    }
+
+}
+
+
+.card-back{
+    overflow:auto;
+}
+
+.card-back p{
+    margin:0;
+    font-size:.85rem;
+    line-height:1.4;
+    overflow-wrap:break-word;
+    word-break:break-word;
+}
