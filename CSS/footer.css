@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sora:wght@600;700&display=swap');
+
+/*colores 
+#222222
+#D8C7A1
+#7A1F2D
+#F8F5EF
+#8F4A2C
+*/
+.custom-footer {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F8F5EF; 
+  color: #D8C7A1;
+  border-top: 3px solid #7A1F2D; /* separacion*/
+}
+
+/* Ajustes del Logo */
+.footer-logo {
+  max-height: 70px;
+  width: auto;
+}
+
+/* Textos */
+.footer-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 380px;
+  color: #7A6559;
+}
+
+/* Título de sección (Explora) */
+.footer-title {
+  font-family: 'Sora', sans-serif;
+  color: #7A1F2D;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+}
+
+/* Enlaces de navegación */
+.footer-links a {
+  color: #7A6559;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #7A1F2D; /* Cambio sutil al pasar el cursor */
+}
+
+/* iconos de redes*/
+.social-icon {
+  color: #8F4A2C;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+  color: #7A1F2D;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid #F8F5EF; 
+}
+
+.copyright-text, 
+.bottom-links a {
+  font-size: 0.85rem;
+  color: #7A6559;
+  text-decoration: none;
+}
+
+.bottom-links a:hover {
+  color: #7A1F2D;
+}
