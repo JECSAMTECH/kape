@@ -1,0 +1,33 @@
+div {
+    margin: 0em;
+    padding: 2em;
+}
+#drop_zone {
+    border: 2px solid blue;
+    border-style: dashed;
+    border-radius: 10px;
+    width:  100%;
+    height: 5%;
+}
+
+.formAgregar{
+    border: 2px solid #e4e2e2;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.formAgregarEsp{
+    border-radius: 10px;  
+    background-color: #f5f3f3;
+}
+
+.formAgregarEsp label{
+    font-family: 'Nunito Rounded', sans-serif;
+    text-transform: uppercase;
+    font-weight:600;
+    color: #4A4A4A;
+}
+
+.formAgregar .titleEsp{
+    color: #5B0519;
+}
