@@ -28,8 +28,8 @@
 <body>
     <section>
         <div class="container">
-            <h2>Detalles Agregar Producto  </h2>
-            <p>Complete la información técnica y sensorial del nuevo grano para actualizar el 
+            <h2 class="main-title fw-bold mb-1">Detalles Agregar Producto  </h2>
+            <p class="text-muted small mb-4">Complete la información técnica y sensorial del nuevo grano para actualizar el 
                 catálogo de especialidad con los mejores estándares de calidad.</p>
             <form id="formAgregarProducto">
                 <div class="formAgregar">  
@@ -44,11 +44,12 @@
                 </div>
                 
                 <div class="mb-3" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-                    <div class="">
-                        <p>Imagen del producto</p>
+                    <div class="drop-content">
+                        <p id="drop-title">Imagen del producto</p>
                         <i class="bi bi-card-image"></i>
-                        <span id="file-status">File</span>
-                        <p>Formatos permitidos: JPG, PNG. Máx 5MB.</p>
+                        <p id="file-status">File</p>
+                        <small>Formatos permitidos: JPG, PNG. Máx 5MB.</small>
+                        <!--<input type="file" id="imagen" accept=".jpg,.jpeg,.png" hidden>-->
                     </div>
                 </div>
                 
@@ -59,28 +60,32 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Etiquetas</label>
-                        <button>Especialidad x</button>
-                        <button>Especialidad x</button>
-                        <button>Especialidad x</button>
-                        <button>Especialidad</button>
+                        <button class="tag">Especialidad x</button>
+                        <button class="tag">Orgánico x</button>
+                        <button class="tag">Descafeinado x</button>
+                        <button class="tag">Bruto x</button>
+                        <button class="tag-añadir">+ Añadir</button>
                     </div>
                 </div>
                 <div class="formAgregarEsp">
                     <i class="bi bi-gear-fill"></i>
                     <span class="titleEsp"> Especificaciones Técnicas</span>
-                    <div class="mb-3">
-                        <label class="form-label">Tueste</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccionar nivel de tueste</option>
-                            <option value="1">Ligero</option>
-                            <option value="2">Medio</option>
-                            <option value="3">Obscuro</option>
-                        </select>
+                    <div class="d-flex">
+                        <div class="mb-3">
+                            <label class="form-label">Tueste</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccionar nivel de tueste</option>
+                                <option value="1">Ligero</option>
+                                <option value="2">Medio</option>
+                                <option value="3">Obscuro</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Origen</label>
+                            <input type="text" class="form-control">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Origen</label>
-                        <input type="text" class="form-control">
-                    </div>
+                    
                     <div class="mb-3">
                         <label class="form-label">Precio (mx) </label>
                         <input type="number" name="price" min="0.00" max="10000.00" step="0.01">
@@ -88,14 +93,9 @@
                     <div class="mb-3">
                         <label class="form-label">Intensidad del perfil</label>
                         <div class="mb-4 w-100">
-                            <!-- Título del control -->
-                            <label for="customRange" class="form-label fw-bold text-secondary" style="font-size: 1rem; letter-spacing: 0.5px;">
-                                INTENSIDAD DEL PERFIL
-                            </label>
                             <div class="w-100">
                                 <!-- Control deslizante de Bootstrap con altura y tamaño incrementados -->
-                                <input type="range" class="form-range w-100" min="0" max="100" step="50" id="customRange"
-                                    style="height: 1.5rem; cursor: pointer;">
+                                <input type="range" class="form-range w-100" min="0" max="100" step="50" id="customRange" >
                                 <!-- Etiquetas inferiores con fuente más grande -->
                                 <div class="d-flex justify-content-between text-muted px-1" style="font-size: 0.95rem;">
                                     <span>Suave</span>
@@ -108,65 +108,12 @@
 
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Agregar Nuevo Producto</button>
+                <button type="submit" class="btn btn-agregar">Agregar Nuevo Producto</button>
                 <button class="btn">Cancelar</button>
             </form>
         </div>
     </section>
 
-    <section>
-        <div id="form-agregar" class="container min-vh-100 d-flex justify-content-center align-items-center py-5" >
-            <form id="nuevoProducto">
-                <!-- usar formData -->
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">tag del producto</label>
-                    <input type="input" class="form-control" id="input-tag">
-                </div>
-                <div class="mb-3">
-                    <label for="input-imagen" class="form-label">Imagen del producto</label>
-                    <input type="file" class="form-control" id="img-producto">
-                    <div id="drop_zone" ondrop="dropHandler(event);">
-                        <p>Arrastra y suelta uno o más archivos a esta zona ...</p>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Nombre del producto</label>
-                    <input type="input" class="form-control" id="input-nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Descripción</label>
-                    <input type="input" class="form-control" id="input-descripcion">
-                </div>
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Tueste</label>
-                    <select class="form-select" aria-label="Default select example" id="select-tueste">
-                        <option selected></option>
-                        <option value="1">Ligero</option>
-                        <option value="2">Medio</option>
-                        <option value="3">Oscuro</option>
-                    </select>
-                </div>
-        
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Origen</label>
-                    <input type="input" class="form-control" id="input-origen">
-                </div>
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Precio</label>
-                    <input type="number" name="price" min="0.00" max="10000.00" step="0.01" class="form-control" id="input-precio">
-                </div>
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Notas</label>
-                    <input type="input" class="form-control" id="input-notas">
-                </div>
-                <div class="mb-3">
-                    <label for="input-tag" class="form-label">Intensidad</label>
-                    <input type="range" min="1" max="3" step="1" class="form-control" id="input-intensidad">
-                </div>
-                <button type="submit" class="btn btn-primary">Agregar</button>
-                </form>
-        </div>
-    </section>
 
     <script src="../JS/itemsController.js"></script>
     <script src="../JS/Producto.js"></script>
