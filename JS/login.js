@@ -6,5 +6,5 @@ togglePassword.addEventListener('click', () => {
   passwordInput.type = isPassword ? 'text' : 'password';
 
   // Cambia el texto interno del span
-  togglePassword.textContent = isPassword ? 'visibility_off' : 'visibility';
+  togglePassword.textContent = passwordInput.type === 'text' ? 'visibility_off' : 'visibility';
 });
