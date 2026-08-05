@@ -38,7 +38,10 @@
                     <label for="password">Contraseña</label>
                     <a href="#" class="olvidar"> ¿Olvidaste tu contraseña? </a> <!--Para ir al formulario-->
                 </div>
-                <input type="password" placeholder="********" required>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="********" required>
+                    <span class="material-symbols-outlined toggle-password">visibility</span>
+                </div>
             </div>
                 <button type="submit">Iniciar Sesión</button>
         </form>
@@ -49,5 +52,7 @@
                 <a href="#">Crear una cuenta </a> <!--esto se vincula a registro-->
         </div>
     </div>
+
+    <script src="../JS/login.js"></script>
 </body>
 </html>
