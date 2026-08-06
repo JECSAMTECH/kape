@@ -143,7 +143,7 @@ Actualmente el proyecto se encuentra en construcción y continúa agregando nuev
 
 Este proyecto fue desarrollado con fines académicos y de aprendizaje.
 
-## Desarrolladores :
+# Desarrolladores :
 
 <p align="center">
 Este proyecto fue planeado, diseñado y desarrollado gracias al trabajo colaborativo del siguiente equipo:
