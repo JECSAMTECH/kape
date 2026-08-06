@@ -145,10 +145,6 @@ Este proyecto fue desarrollado con fines académicos y de aprendizaje.
 
 # Desarrolladores
 
-<p align="center">
-Este proyecto fue planeado, diseñado y desarrollado gracias al trabajo colaborativo del siguiente equipo:
-</p>
-
 <table align="center">
     <tr>
         <td align="center"><a href="https://github.com/Superfier"><img src="./assets/images/nosotros/foto09.png" width="100px;" alt="Steven León Rodríguez"/><br /><sub><b>Steven León Rodríguez</b></sub></a></td>
