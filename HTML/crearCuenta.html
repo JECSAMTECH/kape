@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kápe - Crear Cuenta</title>
     <link rel="icon" type="image/x-icon" href="../assets/images/IcoLogo1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Bootstrap Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="../CSS/crearCuenta.css">
 </head>
-<body>
 
+<body>
 <div class="container-fluid min-vh-100 d-flex p-0">
     <div class="row g-0 w-100">
         
@@ -31,6 +34,9 @@
                 
                 <h2 class="fw-bold main-title mb-1">Crear una cuenta</h2>
                 <p class="text-muted small mb-4">Comienza tu viaje sensorial con nosotros hoy.</p>
+                <div id="alertContainer"></div>
+                <!--Alerta-->
+                <div id="liveAlertPlaceholder"></div>
 
                 <form>
                     <!-- Campo: Nombre Completo -->
@@ -38,7 +44,7 @@
                         <label class="form-label fw-semibold input-label">Nombre Completo</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-person"></i></span>
-                            <input type="text" class="form-control border-start-0 ps-0" placeholder="Tu nombre">
+                            <input type="text" id="nombre" class="form-control border-start-0 ps-0" placeholder="Nombre Completo">
                         </div>
                     </div>
 
@@ -47,7 +53,16 @@
                         <label class="form-label fw-semibold input-label">Email</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
-                            <input type="email" class="form-control border-start-0 ps-0" placeholder="ejemplo@kape.com">
+                            <input type="email" id="email" required class="form-control border-start-0 ps-0" placeholder="ejemplo@kape.com">
+                        </div>
+                    </div>
+
+                    <!-- Campo: Num. de Telefono -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold input-label">Teléfono</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-phone"></i></span>
+                            <input type="tel" id="telefono" inputmode="numeric" maxlength="10" class="form-control border-start-0 ps-0" placeholder="Ingresa 10 dígitos">
                         </div>
                     </div>
 
@@ -56,7 +71,7 @@
                         <label class="form-label fw-semibold input-label">Contraseña</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-lock"></i></span>
-                            <input type="password" class="form-control border-start-0 ps-0" placeholder="••••••••">
+                            <input type="password" id="password" required class="form-control border-start-0 ps-0" placeholder="••••••••">
                         </div>
                     </div>
 
@@ -65,7 +80,7 @@
                         <label class="form-label fw-semibold input-label">Confirmar Contraseña</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-shield-lock"></i></span>
-                            <input type="password" class="form-control border-start-0 ps-0" placeholder="••••••••">
+                            <input type="password" id="confirmPassword" required class="form-control border-start-0 ps-0" placeholder="••••••••">
                         </div>
                     </div>
 
@@ -78,7 +93,7 @@
                     </div>
 
                     <!-- Botón Registrarse -->
-                    <button type="submit" class="btn btn-register w-100 py-2.5 text-white fw-semibold mb-4">Registrarse</button>
+                    <button type="submit" onclick="ValidarForm()" class="btn btn-register w-100 py-2.5 text-white fw-semibold mb-4">Registrarse</button>
 
                     <!-- Login link -->
                     <p class="text-center small text-muted">
@@ -92,5 +107,9 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../JS/crearCuenta.js"></script>
+
 </body>
+
 </html>
