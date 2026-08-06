@@ -151,7 +151,7 @@ Este proyecto fue planeado, diseñado y desarrollado gracias al trabajo colabora
 
 <table align="center">
     <tr>
-        <td align="center"><a href="https://github.com/Superfier"><img src="./assets/images/nosotros/foto09.png" alt="Steven León Rodríguez"/><br /><sub><b>Steven León Rodríguez</b></sub></a></td>
+        <td align="center"><a href="https://github.com/Superfier"><img src="./assets/images/nosotros/foto09.png" width="100px;" alt="Steven León Rodríguez"/><br /><sub><b>Steven León Rodríguez</b></sub></a></td>
         <td align="center"><a href="https://github.com/NinjatoTim"><img src="./assets/images/nosotros/foto04.png" width="100px;" alt="Eva Melisa Fuentes"/><br /><sub><b>Eva Melisa Fuentes</b></sub></a></td>
         <td align="center"><a href="https://github.com/JesusHernandezDl"><img src="https://github.com/JesusHernandezDl.png" width="100px;" alt="Jesús Hernández"/><br /><sub><b>Jesús Hernández</b></sub></a></td>
     </tr>
