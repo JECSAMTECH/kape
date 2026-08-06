@@ -151,19 +151,19 @@ Este proyecto fue planeado, diseñado y desarrollado gracias al trabajo colabora
 
 <table align="center">
     <tr>
-        <td align="center"><a href="https://github.com/Superfier"><img src="https://github.com/Superfier" width="100px;" alt="Steven León Rodríguez"/><br /><sub><b>Steven León Rodríguez</b></sub></a></td>
-        <td align="center"><a href="https://github.com/NinjatoTim"><img src="https://github.com/NinjatoTim" width="100px;" alt="Eva Melisa Fuentes"/><br /><sub><b>Eva Melisa Fuentes</b></sub></a></td>
+        <td align="center"><a href="https://github.com/Superfier"><img src="./assets/images/nosotros/foto09.png" alt="Steven León Rodríguez"/><br /><sub><b>Steven León Rodríguez</b></sub></a></td>
+        <td align="center"><a href="https://github.com/NinjatoTim"><img src="./assets/images/nosotros/foto04.png" width="100px;" alt="Eva Melisa Fuentes"/><br /><sub><b>Eva Melisa Fuentes</b></sub></a></td>
         <td align="center"><a href="https://github.com/JesusHernandezDl"><img src="https://github.com/JesusHernandezDl.png" width="100px;" alt="Jesús Hernández"/><br /><sub><b>Jesús Hernández</b></sub></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/MargaritaMtnzStgo"><img src="https://github.com/MargaritaMtnzStgo.png" width="100px;" alt="Margarita Martínez"/><br /><sub><b>Margarita Martínez</b></sub></a></td>
-        <td align="center"><a href="https://github.com/aedithgonzalez"><img src="https://github.com/aedithgonzalez" width="100px;" alt="Aleja Edith González"/><br /><sub><b>Aleja Edith González</b></sub></a></td>
-        <td align="center"><a href="https://github.com/Artkiing"><img src="https://github.com/Artkiing" width="100px;" alt="Arturo Benjamín Rodríguez"/><br /><sub><b>Arturo Benjamín Rodríguez</b></sub></a></td>
+        <td align="center"><a href="https://github.com/aedithgonzalez"><img src="./assets/images/nosotros/foto03.png" width="100px;" alt="Aleja Edith González"/><br /><sub><b>Aleja Edith González</b></sub></a></td>
+        <td align="center"><a href="https://github.com/Artkiing"><img src="./assets/images/nosotros/foto01.png" width="100px;" alt="Arturo Benjamín Rodríguez"/><br /><sub><b>Arturo Benjamín Rodríguez</b></sub></a></td>
     </tr>
      <tr>
-        <td align="center"><a href="https://github.com/LilProgrammer-stack"><img src="https://github.com/LilProgrammer-stack" width="100px;" alt="Jose Miguel Flores"/><br /><sub><b>Jose Miguel Flores</b></sub></a></td>
-        <td align="center"><a href="https://github.com/keremereyes-droid"><img src="https://github.com/keremereyes-droid" width="100px;" alt="Karem Areli Reyes"/><br /><sub><b>Karem Areli Reyes</b></sub></a></td>
-        <td align="center"><a href="https://github.com/deceivedword"><img src="https://github.com/deceivedword" width="100px;" alt="Cassandra Elizabeth Gomez"/><br /><sub><b>Cassandra Elizabeth Gomez</b></sub></a></td>
+        <td align="center"><a href="https://github.com/LilProgrammer-stack"><img src="./assets/images/nosotros/foto06.png" width="100px;" alt="Jose Miguel Flores"/><br /><sub><b>Jose Miguel Flores</b></sub></a></td>
+        <td align="center"><a href="https://github.com/keremereyes-droid"><img src="./assets/images/nosotros/foto08.png" width="100px;" alt="Karem Areli Reyes"/><br /><sub><b>Karem Areli Reyes</b></sub></a></td>
+        <td align="center"><a href="https://github.com/deceivedword"><img src="./assets/images/nosotros/foto02.png" width="100px;" alt="Cassandra Elizabeth Gomez"/><br /><sub><b>Cassandra Elizabeth Gomez</b></sub></a></td>
     </tr>
 
 </table>
