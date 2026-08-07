@@ -1,6 +1,11 @@
-const myModal = document.getElementById('modal')
-const myInput = document.getElementById('myInput')
+export function iniciarNavbar() {
+    const modalNavbar = document.getElementById('modal-navbar')
+    const inputNavbarSearch = document.getElementById('input-navbar-search');
 
-myModal.addEventListener('shown.bs.modal', () => {
-    myInput.focus()
-})
+    modalNavbar.addEventListener('shown.bs.modal', () => {
+        inputNavbarSearch.focus();
+    });
+}
+
+
+

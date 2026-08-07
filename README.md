@@ -1,4 +1,4 @@
-﻿ # KAPE
+# KAPE
 
 Plataforma de comercio electrónico enfocada en conectar directamente a productores de café mexicanos con consumidores y empresas, eliminando intermediarios para promover un comercio más justo, transparente y rentable.
 
@@ -143,11 +143,7 @@ Actualmente el proyecto se encuentra en construcción y continúa agregando nuev
 
 Este proyecto fue desarrollado con fines académicos y de aprendizaje.
 
-## Desarrolladores :
-
-<p align="center">
-Este proyecto fue planeado, diseñado y desarrollado gracias al trabajo colaborativo del siguiente equipo:
-</p>
+# Desarrolladores
 
 <table align="center">
     <tr>
