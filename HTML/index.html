@@ -1,143 +1,141 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kápe · Café de Especialidad</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <link rel="preload" href="../CSS/normalize.css">
+    <link rel="stylesheet" href="../CSS/normalize.css">
+
+    <link rel="preload" href="../CSS/inicio.css">
+    <link rel="stylesheet" href="../CSS/inicio.css">
+
+    <!-- Tipográfia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!--  Bootstrap  -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <title>Document</title>
+
+    <!--    -->
 </head>
 
 <body>
 
-    <div class="pagina-producto">
-
-        <!-- ===================== MIGAS (navegacion arriba) ===================== -->
-        <nav class="migas-de-pan">
-            <a href="#">Inicio</a>
-            <span class="migas-separador">·</span>
-            <a href="#">Café de Especialidad</a>
-            <span class="migas-separador">·</span>
-            <span class="migas-actual">KÁPE</span>
-        </nav>
-
-        <!-- ===================== CONTENEDOR DEL PRODUCTO (2 columnas) ===================== -->
-        <div class="producto-contenedor">
-
-            <!-- ---------- COLUMNA IZQUIERDA: GALERIA DE IMAGENES ---------- -->
-            <div class="producto-galeria">
-
-                <!-- imagen principal del empaque -->
-                <div class="galeria-imagen-principal">
-                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=800&fit=crop"
-                        alt="Bolsa de café Kápe 700" />
-                </div>
-
-                <!-- miniaturas debajo de la imagen principal -->
-                <div class="galeria-miniaturas">
-                    <div class="galeria-miniatura">
-                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop"
-                            alt="Granos de café tostados" />
-                    </div>
-                    <div class="galeria-miniatura">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop"
-                            alt="Barista preparando café" />
-                    </div>
-                </div>
-            </div>
-
-            <!-- ---------- COLUMNA DERECHA: INFORMACION Y COMPRA ---------- -->
-            <div class="producto-informacion">
-
-                <!-- etiqueta pequeña arriba del titulo -->
-                <p class="producto-etiqueta">Edición de Origen Único</p>
-
-                <!-- nombre del producto / marca -->
-                <h1 class="producto-titulo">KÁPE</h1>
-
-                <!-- precio y calificacion en la misma linea -->
-                <div class="producto-precio-fila">
-                    <span class="producto-precio">$430.12</span>
-                    <span class="producto-estrellas">★★★★★</span>
-                    <span class="producto-resenas">(48 reseñas)</span>
-                </div>
-
-                <!-- fila de datos: origen e intensidad -->
-                <div class="producto-datos-fila">
-                    <div class="producto-dato">
-                        <p class="producto-dato-titulo">⌾ ORIGEN</p>
-                        <p class="producto-dato-valor">VERACRUZ</p>
-                    </div>
-                    <div class="producto-dato">
-                        <p class="producto-dato-titulo">⚡ INTENSIDAD</p>
-                        <div class="producto-barra-intensidad">
-                            <span class="barra-llena"></span>
-                            <span class="barra-llena"></span>
-                            <span class="barra-llena"></span>
-                            <span class="barra-llena"></span>
-                            <span class="barra-llena"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- fila de datos: tueste y notas -->
-                <div class="producto-datos-fila">
-                    <div class="producto-dato">
-                        <p class="producto-dato-titulo">☕ TUESTE</p>
-                        <p class="producto-dato-valor">Medio-Claro (Artesanal)</p>
-                    </div>
-                    <div class="producto-dato">
-                        <p class="producto-dato-titulo">✿ NOTAS</p>
-                        <p class="producto-dato-valor">Jazmín, Bergamota, Miel</p>
-                    </div>
-                </div>
-
-                <!-- seleccion de molienda -->
-                <div class="producto-molienda">
-                    <p class="producto-molienda-titulo">MOLIENDA DEL GRANO</p>
-                    <div class="producto-molienda-botones">
-                        <button class="molienda-boton molienda-seleccionada">Grano Entero</button>
-                        <button class="molienda-boton">Molienda Gruesa</button>
-                        <button class="molienda-boton">Molienda Media</button>
-                        <button class="molienda-boton">Molienda Fina</button>
-                    </div>
-                </div>
-
-                <!-- cantidad + boton de agregar al carrito -->
-                <div class="producto-compra-fila">
-                    <div class="producto-cantidad">
-                        <button class="cantidad-boton" aria-label="Restar">−</button>
-                        <span class="cantidad-numero">1</span>
-                        <button class="cantidad-boton" aria-label="Sumar">+</button>
-                    </div>
-
-                    <button class="producto-agregar-boton">
-                        <span class="agregar-icono">🛍</span> Agregar al carrito
-                    </button>
-                </div>
-
-                <!-- enlace para agregar a lista de deseos -->
-                <a href="#" class="producto-deseos">♡ Añadir a deseos</a>
-
-                <!-- bloque de historia de la marca -->
-                <div class="producto-historia">
-                    <h2 class="historia-titulo">Nuestra Historia Kápe</h2>
-                    <p class="historia-texto">
-                        Proveniente de alta montaña, Kápe representa nuestra búsqueda de la perfección en el tueste.
-                        Cada grano es seleccionado manualmente y procesado por vía húmeda para preservar su perfil
-                        floral distintivo y su acidez brillante.
-                    </p>
-                </div>
-
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-header-two">Cosecha de Temporada</h2>
+            <h1 class="hero-header-one">El arte del café, <br> desde el origen.</h1>
+            <p class="hero-text">
+                Descubre granos seleccionados a mano <br>
+                por maestros caficultores. Tostado <br>
+                artesanal en pequeños lotes para <br>
+                preservar el alma de cada finca.
+            </p>
+            <div class="hero-buttons">
+                <button class="hero-button--collection">Explorar Colección</button>
+                <button class="hero-button--history">Nuestra Historia</button>
             </div>
         </div>
-    </div>
+    </section>
 
+    <main class="main-grid my-container">
+        <section class="main-section">
+            <div class="main-featured-products">
+                <h2>Productos Destacados</h2>
+                <p class="main-featured-products-text">
+                    Nuestra selección curada para los <br>
+                    paladares más exigentes.
+                </p>
+            </div>
+
+            <div class="main-featured-product">
+                <div class="main-featured-product--image">
+                    <img src="../IMG/coffee.png" alt="coffee image">
+                </div>
+                <div class="main-coffee-details">
+                    <h3>Espresso Bourbon Rojo</h3>
+                    <p>$430.05</p>
+                </div>
+                <p class="main-featured-product-text">
+                    Notas de chocolate amargo, cereza negra y un final
+                    sedoso. Finca La Esperanza, 1800m.
+                </p>
+                <a href="">Añadir al carrito →</a>
+            </div>
+
+        </section>
+
+
+        <article class="article-section">
+
+            <div class="article-catalog">
+                <button>Ver todo el catálogo</button>
+            </div>
+
+            <div class="article-coffees">
+                <div class="article-cuturra">
+                    <div class="article-coffee-image">
+                        <img src="../IMG/panama.png" alt="coffee cuturra image">
+                    </div>
+
+                    <div class="article-coffee-details">
+                        <p class="article-coffee-edition">Edición Limitada</p>
+                        <p class="article-coffee-name">Geisha Panameño</p>
+                        <p class="article-coffee-price">$737.37</p>
+                    </div>
+                </div>
+
+                <div class="article-panama">
+                    <div class="article-coffee-image">
+                        <img src="../IMG/cultura.png" alt="coffee panama image">
+                    </div>
+
+                    <div class="article-coffee-details">
+                        <p class="article-coffee-edition">Tueste Medio</p>
+                        <p class="article-coffee-name">Caturra Lavado</p>
+                        <p class="article-coffee-price">$331.82</p>
+                    </div>
+
+                </div>
+
+            </div> <!--  article-coffees  -->
+
+            <div class="article-subscription">
+                <h2>Suscripción Kápe</h2>
+                <p>
+                    Recibe café fresco cada mes en tu
+                    puerta. Ahorra 15%.
+                </p>
+                <button>Empezar Ahora</button>
+            </div>
+
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="../JS/scrips.js"></script>
 </body>
 
 </html>
