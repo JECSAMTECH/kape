@@ -1,33 +1,187 @@
+/* No uses estilos globales para todos los div */
+/*
 div {
-    margin: 0em;
+    margin: 0;
     padding: 2em;
 }
-#drop_zone {
-    border: 2px solid blue;
-    border-style: dashed;
-    border-radius: 10px;
-    width:  100%;
-    height: 5%;
+*/
+
+.main-title {
+    color: #7A1F2D;
+    font-size: 2rem;
 }
 
-.formAgregar{
+.formAgregar,
+.formAgregarEsp {
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.formAgregar {
     border: 2px solid #e4e2e2;
-    border-style: solid;
-    border-radius: 10px;
 }
 
-.formAgregarEsp{
-    border-radius: 10px;  
+.formAgregarEsp {
     background-color: #f5f3f3;
 }
 
-.formAgregarEsp label{
-    font-family: 'Nunito Rounded', sans-serif;
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: "Nunito Rounded", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #4A4A4A;
     text-transform: uppercase;
-    font-weight:600;
+}
+
+.titleEsp,
+.formAgregarEsp i {
+    color: #5B0519;
+}
+
+/* Zona de imagen */
+
+#drop_zone {
+    width: 100%;
+    min-height: 180px;
+    padding: 1.5rem;
+    border: 2px dashed #e4e2e2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.drop-content {
+    font-family: "Poppins", sans-serif;
+    color: #877273;
+    text-align: center;
+}
+
+.drop-content #drop-title {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
     color: #4A4A4A;
 }
 
-.formAgregar .titleEsp{
-    color: #5B0519;
+.drop-content i {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    color: #CFA8A0;
+}
+
+.drop-content small {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* Etiquetas */
+
+.tag,
+.tag-añadir {
+    padding: 0.35rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.tag {
+    color: white;
+    background-color: #8c4327;
+    border: 1px solid #8c4327;
+    font-size: small;
+}
+
+.tag-añadir {
+    color: #877273;
+    background-color: transparent;
+    border: 1px dashed #877273;
+    font-size: small;
+}
+
+/* Precio */
+
+.precio-group {
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.precio-icono {
+    color: #7A1F2D;
+    font-weight: 700;
+    background-color: white;
+    border: none;
+}
+
+.precio-group .form-control {
+    border: none;
+    box-shadow: none;
+}
+
+.precio-group .form-control:focus {
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+    font-weight: 600;
+}
+
+/* Rango */
+
+.form-range {
+    --bs-form-range-thumb-bg: #7A1F2D;
+}
+
+.range-labels {
+    font-size: 0.95rem;
+}
+
+/* Botones */
+
+.btn-agregar {
+    color: white;
+    background-color: #7A1F2D;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-agregar:hover {
+    color: white;
+    background-color: #641827;
+}
+
+/* Móviles */
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .formAgregar,
+    .formAgregarEsp {
+        padding: 1rem;
+    }
+
+    #drop_zone {
+        min-height: 150px;
+        padding: 1rem;
+    }
+
+    .drop-content i {
+        font-size: 2.5rem;
+    }
+
+    .range-labels {
+        font-size: 0.75rem;
+    }
+
+    .btn-agregar,
+    .btn-light {
+        width: 100%;
+    }
 }
