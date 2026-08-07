@@ -1,0 +1,229 @@
+/* --- Variables y Reset --- */
+:root {
+    --color-marron-oscuro: #5B0519; /* Título */
+    --color-marron-badge: #8C4327;  /* Fondo del Badge */
+    --color-guinda: #722231;        /* Botón Agregar */
+    --color-texto: #4A4A4A;          /* Descripción */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-nunito: 'Nunito', sans-serif;
+}
+
+/* --- Tipografía Global --- */
+body {
+    background-color: #FFFFFF; /* Fondo de la página blanco */
+}
+
+/* --- Estilos de la Card --- */
+.card-producto {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.h1{
+    color: var(--terceario);
+    font-family: "Sora" !important;
+    font-weight: bold;
+}
+
+
+.texto{
+    font-family: "Poppins";
+} 
+
+.header span{
+    font-family: Nunito;
+    font-weight: bold !important;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--textoF);   
+}
+
+.header H2{
+    font-family: Sora;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #5B0519;
+}
+
+.filtro{
+    align-items: center; 
+    justify-content: center;
+    margin-bottom:20px;
+}
+
+.btn-filtro {
+    padding: 2px 24px;
+    /*font-size: 0.95rem; */
+    /*font-weight: 600;*/
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out; 
+    
+    /* Estado INACTIVO por defecto */
+    background-color: transparent;
+    color: #4A4A4A;
+    border: 1px solid #D6C59F;
+}
+
+/* Hover para los botones inactivos */
+.btn-filtro:hover:not(.active) {
+    background-color: #F0EAE5;
+    border-color: #D1C7BD;
+}
+
+/* Estado ACTIVO (.active) */
+.btn-filtro.active {
+    background-color: #722231;
+    color: #FFFFFF;
+    border: 1px solid #722231;
+}
+
+/* Hover para el botón activo */
+.btn-filtro.active:hover {
+    background-color: #591A25;
+    border-color: #591A25;
+}
+
+.btn-agregar {
+background-color: var(--color-guinda);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    padding: 8px 24px;
+    border-radius: 50px;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover para el botón Agregar */
+.btn-agregar:hover {
+    background-color: #591A25; 
+    color: #FFFFFF;
+}
+
+/* Ajustes de responsividad específicos para precio/botón */
+@media (max-width: 576px) {
+    .btn-agregar {
+        padding: 6px 16px; /* Más pequeño en móvil */
+        font-size: 0.8rem;
+    }
+    .fs-4 {
+        font-size: 1rem !important; /* Precio más pequeño en móvil */
+    }
+}
+
+.card-producto {
+    border-radius: 12px;
+    overflow: hidden;
+    /*transition: transform 0.2s ease-in-out;*/
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-producto:hover {
+    /*transform: translateY(-4px);*/ 
+    /*transform: translateY(-5px); *
+    /*box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;*/
+    border-radius: 12px 12px 0 0; 
+    object-fit: cover; 
+}
+
+.card-producto .card-img-top {
+    /*height: 220px;*/
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover;
+}
+
+.card-producto .card-title {
+    font-family: var(--font-nunito);
+    color: var(--color-marron-oscuro);
+    font-weight: 700; /* Negrita pronunciada */
+    font-size: 1.2rem;
+}
+
+.card-producto .card-text {
+    font-family: var(--font-poppins);
+    color: var(--color-texto);
+    font-weight: 300; /* Peso ligero */
+}
+
+
+/* Badge Superior Personalizado */
+.badge-coffee {
+    background-color: var(--color-marron-badge) !important;
+    color: #F5EBE6 !important; /* Color de texto claro */
+    text-transform: uppercase;
+}
+
+/* Botón Agregar */
+
+.btn-agregar {
+    /*background-color: #722231;*/
+    border: 1px solid #722231;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Estado Hover (al pasar el cursor) */
+.btn-agregar:hover {
+    background-color: #551924; 
+    border-color: #551924;
+    color: #ffffff;
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 12px rgba(114, 34, 49, 0.3) !important;
+}
+
+/* Estado Focus/Active (al hacer clic) */
+.btn-agregar:active,
+.btn-agregar:focus {
+    background-color: #42131c !important;
+    border-color: #42131c !important;
+    box-shadow: 0 0 0 0.25rem rgba(114, 34, 49, 0.4) !important;
+}
+
+/* Botón Cargar Más */
+.btn.btn-cargar-mas {
+    background-color: #F8F5EF !important; 
+    color: #8F4A2C !important;            
+    border: 1px solid #B88570 !important; 
+    border-radius: 50px !important;       
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.2px;
+    padding: 10px 32px !important;
+    transition: all 0.3s ease-in-out !important;
+    box-shadow: none !important;
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.btn.btn-cargar-mas:hover {
+    background-color: #8F4A2C !important; /* Invierte colores a marrón al pasar cursor */
+    color: #FFFFFF !important;
+    border-color: #8F4A2C !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(143, 74, 44, 0.2) !important;
+}
+
+/* Animación sutil para el icono al pasar el ratón */
+.btn.btn-cargar-mas:hover .icono-reload {
+    transform: rotate(180deg);
+    transition: transform 0.4s ease;
+}
+
+/* Estado de clic */
+.btn.btn-cargar-mas:active,
+.btn.btn-cargar-mas:focus {
+    background-color: #753B22 !important;
+    color: #FFFFFF !important;
+    border-color: #753B22 !important;
+    box-shadow: 0 0 0 0.2rem rgba(143, 74, 44, 0.25) !important;
+}
+
+/* Iconos */
+.card-body i{
+    color: var(--color-marron-badge) !important;
+}
