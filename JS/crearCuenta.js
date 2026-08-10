@@ -22,7 +22,7 @@ function ValidarForm() {
         alertPlaceholder.append(wrapper)
     }
 
- // Limpiamos alertas previas para que no se acumulen en cada submit
+// Limpiamos alertas previas para que no se acumulen en cada submit
     alertPlaceholder.innerHTML = '';
 
 //Definimos las variables de los campos del formulario

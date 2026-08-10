@@ -1,4 +1,4 @@
-﻿ # KAPE
+# KAPE
 
 Plataforma de comercio electrónico enfocada en conectar directamente a productores de café mexicanos con consumidores y empresas, eliminando intermediarios para promover un comercio más justo, transparente y rentable.
 
