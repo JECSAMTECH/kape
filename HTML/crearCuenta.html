@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,23 +28,24 @@
             </div>
         </div>
 
+
         <!-- COLUMNA DERECHA -->
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-white p-4 p-md-5">
             <div class="form-container w-100" style="max-width: 480px;">
                 
                 <h2 class="fw-bold main-title mb-1">Crear una cuenta</h2>
                 <p class="text-muted small mb-4">Comienza tu viaje sensorial con nosotros hoy.</p>
-                <div id="alertContainer"></div>
-                <!--Alerta-->
+                
+                <!--Alerta--> 
                 <div id="liveAlertPlaceholder"></div>
-
+                
                 <form>
                     <!-- Campo: Nombre Completo -->
                     <div class="mb-3">
                         <label class="form-label fw-semibold input-label">Nombre Completo</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-person"></i></span>
-                            <input type="text" id="nombre" class="form-control border-start-0 ps-0" placeholder="Nombre Completo">
+                            <input type="text" id="nombre" required class="form-control border-start-0 ps-0" placeholder="Nombre Completo">
                         </div>
                     </div>
 
@@ -62,7 +63,7 @@
                         <label class="form-label fw-semibold input-label">Teléfono</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-phone"></i></span>
-                            <input type="tel" id="telefono" inputmode="numeric" maxlength="10" class="form-control border-start-0 ps-0" placeholder="Ingresa 10 dígitos">
+                            <input type="tel" id="telefono" required inputmode="numeric" maxlength="10" class="form-control border-start-0 ps-0" placeholder="Ingresa 10 dígitos">
                         </div>
                     </div>
 
@@ -88,8 +89,8 @@
                     <div class="form-check mb-4">
                         <input class="form-check-input custom-checkbox" type="checkbox" id="terms">
                         <label class="form-check-label small text-secondary" for="terms">
-                            Acepto los <a href="#" class="text-wine fw-semibold text-decoration-none">Términos y Condiciones</a> y la <a href="#" class="text-wine fw-semibold text-decoration-none">Política de Privacidad</a>.
-                        </label>
+                            Acepto los <a href="./assets/docs/TerminosYCondiciones.pdf" download="TerminosYCondiciones.pdf" class="text-wine fw-semibold text-decoration-none">Términos y Condiciones</a> y la <a href="" download="" class="text-wine fw-semibold text-decoration-none">Política de Privacidad</a>
+                        </label> 
                     </div>
 
                     <!-- Botón Registrarse -->
@@ -97,7 +98,7 @@
 
                     <!-- Login link -->
                     <p class="text-center small text-muted">
-                        ¿Ya tienes una cuenta? <a href="#" class="text-wine fw-bold text-decoration-none">Iniciar Sesión</a>
+                        ¿Ya tienes una cuenta? <a href="" class="text-wine fw-bold text-decoration-none">Iniciar Sesión</a>
                     </p>
                 </form>
 
