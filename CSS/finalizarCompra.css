@@ -1,0 +1,303 @@
+:root {
+    --coal: #222222;
+    --sand: #D8C7A1;
+    --wine: #7A1F2D;
+    --broken-white: #F8F5EF;
+    --copper: #8F4A2C;
+    --gray: #808080;
+    --pink: #E8DFDD;
+    --soft-pink: #EEE8E6;
+    --salmon: #FFDBCE;
+    --darker-gray: #564243;
+    --peach-fizz: #FFAA80;
+    --white: #FFFFFF;    
+
+    --titles: "Sora", sans-serif;
+    --text-footer: "Poppins", sans-serif;
+    --buttons: "Nunito", sans-serif;
+
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.my-container {
+    width: min(120rem, 100%);
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.my-container .logo {
+    height: 10rem;
+}
+
+.checkout-steps {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Individual step */
+
+.checkout-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+/* Circle */
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #D8D8D8;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--off-white);
+    color: #B8B0AA;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Step text */
+
+.step-title {
+    margin-top: 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    color: #B8B0AA;
+}
+
+/* Completed step */
+
+.checkout-step.completed .step-circle {
+    background-color: var(--sand);
+    border-color: var(--sand);
+    color: var(--charcoal);
+}
+
+/* Active step */
+
+.checkout-step.active .step-circle {
+    background-color: var(--wine);
+    border-color: var(--wine);
+    color: var(--broken-white);
+}
+
+.checkout-step.active .step-title {
+    color: var(--wine);
+}
+
+/* Connecting lines */
+
+.step-line {
+    width: 100%;
+    height: 1px;
+
+    background-color: #E6E0DA;
+
+    margin-top: 1.5rem;
+}
+
+/* Main */
+
+@media (min-width: 768px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        column-gap: 2.5rem;
+    }
+}
+
+.shipping-address {
+    background-color: var(--broken-white);
+    padding: 3rem;
+    border-radius: 1rem;
+}
+
+@media (min-width: 576px) {
+    .shipping-address {
+        padding: 3rem 2rem;
+    }
+}
+
+.shipping-address--container {
+    width: min(50rem, 100%);
+    margin: 0 auto;
+}
+
+.shipping-address h2 {
+    color: var(--wine);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.shipping-fieldset input {
+    width: 100%;
+    border: .5px solid var(--copper);
+    background: transparent;
+    height: 3rem;
+}
+
+.field {
+    width: 100%;
+}
+
+.field label {
+    color: var(--wine);
+    font-weight: 700;
+}
+
+/*  The three form Fields  */
+
+.name-fields,
+.address-field,
+.city-zip-country-fields,
+.city-field,
+.zip-field {
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 576px) {
+    .name-fields {
+        display: flex;
+        justify-content: center;
+        column-gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .address-field {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .city-zip-country-fields {
+        display: flex;
+        justify-content: center;
+        column-gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.city-zip-country-fields input,
+.city-zip-country-fields select {
+    width: 100%;
+}
+
+/*  Payment Method  */
+
+.payment-method-container {
+    background-color: var(--broken-white);
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.payment-method h2 {
+    color: var(--wine);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.payment-option-container {
+    width: 100%;
+    border: 3px solid var(--wine);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2rem;
+    margin-bottom: 4rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+}
+
+.label-text {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+.number-card {
+    margin-bottom: 1.5rem;
+}
+
+.number-card label {
+    color: var(--wine);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.number-card-input input {
+    width: 90%;
+    height: 3rem;
+    border: .5px solid var(--copper);
+    background: transparent;
+}
+
+.card-details {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.card-expirarion-date,
+.card-cvv {
+    width: 100%;
+}
+
+.card-details input {
+    height: 3rem;
+    border: .5px solid var(--copper);
+    background: transparent;
+}
+
+.label-style{
+    color: var(--wine);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/**  Order Summary  */
+
+.order-summary-header h2 {
+    color: var(--wine);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
