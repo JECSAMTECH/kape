@@ -10,7 +10,9 @@
     --salmon: #FFDBCE;
     --darker-gray: #564243;
     --peach-fizz: #FFAA80;
-    --white: #FFFFFF;    
+    --white: #FFFFFF;
+    --lighter-gray: #F8F7F6;
+    --light-gray: #E8E7E6;    
 
     --titles: "Sora", sans-serif;
     --text-footer: "Poppins", sans-serif;
@@ -28,6 +30,12 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+}
+
+.heading-two{
+    color: var(--wine);
+    font-size: 3rem;
+    margin-bottom: 3rem;
 }
 
 .my-container {
@@ -136,15 +144,16 @@ html {
 @media (min-width: 768px) {
     .main-container {
         display: grid;
-        grid-template-columns: 55% 45%;
+        grid-template-columns: 60% 40%;
         column-gap: 2.5rem;
     }
 }
 
-.shipping-address {
-    background-color: var(--broken-white);
+.main-first-section-container {
+    background-color: var(--lighter-gray);
     padding: 3rem;
     border-radius: 1rem;
+    margin-bottom: 3rem;
 }
 
 @media (min-width: 576px) {
@@ -164,13 +173,6 @@ html {
     margin-bottom: 3rem;
 }
 
-.shipping-fieldset input {
-    width: 100%;
-    border: .5px solid var(--copper);
-    background: transparent;
-    height: 3rem;
-}
-
 .field {
     width: 100%;
 }
@@ -178,6 +180,13 @@ html {
 .field label {
     color: var(--wine);
     font-weight: 700;
+}
+
+.field input{
+    width: 100%;
+    border: .5px solid var(--copper);
+    background: transparent;
+    height: 3rem;
 }
 
 /*  The three form Fields  */
@@ -230,12 +239,6 @@ html {
     border-radius: 1rem;
 }
 
-.payment-method h2 {
-    color: var(--wine);
-    font-size: 3rem;
-    margin-bottom: 3rem;
-}
-
 .payment-option-container {
     width: 100%;
     border: 3px solid var(--wine);
@@ -277,9 +280,15 @@ html {
     column-gap: 1rem;
 }
 
+.card-details field {
+    margin-bottom: 1.5rem;
+}
+
 .card-expirarion-date,
-.card-cvv {
+.card-cvv,
+.card-number {
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .card-details input {
@@ -288,16 +297,73 @@ html {
     background: transparent;
 }
 
-.label-style{
-    color: var(--wine);
+/**  Order Summary  */
+
+.main-second-section-container {
+    background-color: var(--light-gray);
+    padding: 3rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+.order-summary-header{
+    border-bottom: 1px solid var(--copper);
+    margin-bottom: 3rem;
+}
+
+.order-summary-details{
+    border-top: 1px solid var(--copper);
+    margin-top: 3rem;
+    padding-top: 3rem;
+}
+
+.order-summary-details label {
+    display: block;
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-summary-details-total{
+    color: var(--wine);
+    font-size: 2rem;
     font-weight: 700;
 }
 
-/**  Order Summary  */
+.confirm-purchase{
+    margin-top: 3rem;
+}
 
-.order-summary-header h2 {
-    color: var(--wine);
-    font-size: 3rem;
-    margin-bottom: 3rem;
+.confirm-purchase-button{
+    width: 100%;
+    height: 5rem;
+    background-color: var(--wine);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+}
+
+.confirm-purchase-details{
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.confirm-purchase-button a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--broken-white);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.security-shipping-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.secure-checkout{
+    display: flex;
+    column-gap: 1.5rem;
+    align-items: center;
 }

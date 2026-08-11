@@ -73,8 +73,8 @@
     <main class="main-container my-container">
         <div class="main-first-section">
 
-            <section class="shipping-address">
-                <h2 class="text-center">Dirección de Envío</h2>
+            <section class="main-first-section-container">
+                <h2 class="heading-two text-center">Dirección de Envío</h2>
 
                 <fieldset class="shipping-fieldset shipping-address--container">
                     <div class="name-fields">
@@ -122,9 +122,9 @@
 
             </section>
 
-            <section class="payment-method payment-method-container ">
+            <section class="payment-method main-first-section-container">
                 <div class="shipping-address--container">
-                    <h2 class="text-center">Método de Pago</h2>
+                    <h2 class="heading-two text-center">Método de Pago</h2>
                     <div class="payment-option-container">
                         <div class="payment-options">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -140,7 +140,7 @@
                     </div>
 
 
-                    <div class="number-card">
+                    <div class="field card-number">
                         <div>
                             <label for="">Número de tarjeta</label>
                         </div>
@@ -161,15 +161,15 @@
                     </div>
 
                     <div class="card-details">
-                        <div class="card-expirarion-date">
+                        <div class="field card-expirarion-date">
                             <div>
-                                <label class="label-style"  for="">Fecha de vencimiento</label>
+                                <label class="label-style" for="">Fecha de vencimiento</label>
                             </div>
 
                             <input class="field" type="text" placeholder="MM/AA">
                         </div>
 
-                        <div class="card-cvv">
+                        <div class="field card-cvv">
                             <div>
                                 <label class="label-style" for="">Código de seguridad</label>
                             </div>
@@ -185,32 +185,41 @@
 
         </div> <!-- End of the first main section -->
 
-        <div class="main-second-section">
-            <div class="order-summary">
+        <div class="main-second-section ">
+            <div class="main-second-section-container">
+                <div class="order-summary">
                 <div class="order-summary-header">
-                    <h2>Resumen</h2>
+                    <h2 class="heading-two text-center">Resumen</h2>
                 </div>
 
                 <div>
 
                 </div>
 
-                <div>
+                <div class="order-summary-details">
                     <label for="">Subtotal</label>
                     <label for="">Shipping</label>
                 </div>
 
-                <div>
+                <div class="order-summary-details-total">
                     <label for="">Total</label>
                 </div>
 
-                <div>
-                    <a href="">Confirmar Compra</a>
+                <div class="confirm-purchase">
+                    <div class="confirm-purchase-button">
+                        <a href="">Confirmar Compra</a>
+                    </div>
+                    <div class="confirm-purchase-details">
+                        <label for="">Prices include VAT and artisanal packaging.</label>
+                    </div>
                 </div>
+
+            </div>
             </div>
 
-            <div>
-                <div>
+            <!-- Security and Shipping Information -->
+            <div class="security-shipping-info">
+                <div class="secure-checkout">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-shield-check-icon lucide-shield-check">
@@ -221,7 +230,7 @@
                     <label for="">Secure Checkout</label>
                 </div>
 
-                <div>
+                <div class="secure-checkout">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-truck-icon lucide-truck">
