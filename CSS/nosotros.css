@@ -1,9 +1,9 @@
 :root {
---color-primario: #222222;
---color-secundario: #D8C7A1;
---color-terciario: #7A1F2D;
---color-cuaternario: #F8F5EF;
---color-texto: #8F4A2C;
+    --color-primario: #222222;
+    --color-secundario: #D8C7A1;
+    --color-terciario: #7A1F2D;
+    --color-cuaternario: #F8F5EF;
+    --color-texto: #8F4A2C;
 }
 
 /* ==========================================
@@ -11,15 +11,28 @@ TIPOGRAFÍA GENERAL Y ENCABEZADOS
 ========================================== */
 body {
     background: var(--color-cuaternario);
-    font-family: 'Poppins', sans-serif; /* Texto por defecto en Poppins */
+    font-family: 'Poppins', sans-serif;
+    /* Texto por defecto en Poppins */
 }
 
-p, span, a, li, .subtitulo, .card-text, .card-back p {
-    font-family: 'Poppins', sans-serif; /* Asegura Poppins en párrafos y textos */
+p,
+span,
+a,
+li,
+.subtitulo,
+.card-text,
+.card-back p {
+    font-family: 'Poppins', sans-serif;
+    /* Asegura Poppins en párrafos y textos */
 }
 
-/* Aplicar Sora a todos los títulos de la página */
-h1, h2, h3, h4, h5, h6 {
+/* Aplicar Kápe a todos los títulos de la página */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Sora', sans-serif;
 }
 
@@ -159,7 +172,8 @@ h1, h2, h3, h4, h5, h6 {
 =======================*/
 
 .subtitulo-proposito {
-    font-family: 'Sora', sans-serif; /* Aplicado Sora al tag de PROPÓSITO */
+    font-family: 'Sora', sans-serif;
+    /* Aplicado Sora al tag de PROPÓSITO */
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -196,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #carouselExample .carousel-item {
-    height: 320px; 
+    height: 320px;
 }
 
 #carouselExample img {
@@ -212,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 991px) {
     #carouselExample .carousel-item {
-        height: 280px; 
+        height: 280px;
     }
 }
 
@@ -258,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     #carouselExample .carousel-item {
-        height: 200px; 
+        height: 200px;
     }
 }
 
