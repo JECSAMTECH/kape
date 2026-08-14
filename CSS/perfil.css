@@ -1,0 +1,144 @@
+:root {
+  --color-primario: #222222;
+  --color-secundario: #D8C7A1;
+  --color-terciario: #7A1F2D;
+  --color-cuaternario: #F8F5EF;
+  --color-texto: #8F4A2C;
+}
+
+/* ==========================================
+TIPOGRAFÍA GENERAL Y ENCABEZADOS
+========================================== */
+body {
+  /* background: var(--color-cuaternario); */
+  font-family: 'Poppins', sans-serif;
+}
+
+p,
+span,
+a,
+li,
+.subtitulo,
+.card-text,
+.card-back p {
+  font-family: 'Poppins', sans-serif;
+  /* Asegura Poppins en párrafos y textos */
+}
+
+/* Aplicar Sora a todos los títulos de la página */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+/*==========================================
+    ASIDE - NAVEGACION LATERAL DEL PERFIL
+============================================*/
+
+.sidebar-profile {
+  padding: 2rem 1.5rem;
+  height: 100%;
+  min-height: 100vh;
+}
+
+/*titulo de bienvenido al usuario*/
+.saludo-Usuario h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+  color: var(--color-terciario);
+}
+
+/*Tiempo de usuario */
+.miembro-Desde {
+  font-size: 0.85rem;
+  color: #564243;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/*ancho de botones aside*/
+.nav-item{
+  height: 4rem;
+}
+
+/*color y diseño de botones de menú (perfil, historial, metodos, direcciones)*/
+.nav-profile .nav-link {
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.6rem;
+  color: #212529;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  height: 4rem;
+}
+
+/* iconos del menú
+.nav-profile .nav-link i {
+  font-size: 1.15rem;
+  width: 3rem;
+  text-align: center;
+  color: #6c757d;
+} */
+
+/*color del botón e icono cerrar sesión*/
+.nav-profile .nav-link.cerrar-sesion,
+.nav-profile .nav-link.cerrar-sesion i {
+  color: var(--color-terciario);
+}
+
+/*estilo hover para botones e iconos del menu (perfil, historial, metodos, direcciones)*/
+.nav-profile .nav-link:hover,
+.nav-profile .nav-link i:hover {
+  background-color: #FFDBCE;
+  color: var(--color-texto);
+}
+
+/*color del botón  e icono cerrar sesión*/
+.nav-profile .nav-link.cerrar-sesion:hover,
+.nav-profile .nav-link.cerrar-sesion i:hover {
+  background-color: #FFDBCE;
+  color: var(--color-terciario);
+}
+
+
+/*=================================================
+    MAIN CONTENIDO - QUICK STATS - ESTADISTICAS
+===================================================*/
+
+.stat-card {
+  background: #F0EDED;
+  border: 1px solid #dee2e6;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1rem;
+  height: 100%;
+}
+
+.stat-card .stat-number {
+  color: var(--color-terciario);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.1rem;
+}
+
+.stat-card .stat-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #564243;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.stat-card .stat-sub {
+  font-size: 0.85rem;
+  color: #564243;
+}
+
