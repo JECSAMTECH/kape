@@ -8,7 +8,8 @@ document.getElementById("telefono").addEventListener("input", function (e) {
 });
 
 // Alerta visual de error utilizando los estilos de Bootstrap
-function ValidarForm() {
+function ValidarForm(event) {
+    event.preventDefault(); // Evita que el formulario se envíe automáticamente
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
     const appendAlert = (message) => {
         const wrapper = document.createElement('div')
@@ -107,8 +108,6 @@ function ValidarForm() {
     esValido = false;
 }
 
-    return esValido;
-
 // Guardar en localStorage solo si todo es válido
     if (esValido) {
         const usuario = {
@@ -119,12 +118,10 @@ function ValidarForm() {
             // No incluir password aquí ya que es un dato sensible
         };
 
- // Traer la lista existente, o crear una vacía si no hay nada
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        usuarios.push(usuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    }
 
-    usuarios.push(usuario);
-
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-}
+    return esValido;
 }
