@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sora:wght@700&family=Nunito+Rounded:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-   
     <link rel="icon" type="image/x-icon" href="../assets/images/IcoLogo1.png">
     <link rel="stylesheet" href="../CSS/login.css"/>
 </head>
@@ -25,11 +24,11 @@
         <h4>Inicia sesión para continuar tu experiencia</h4>
 
         <!-- Formulario -->
-        <form method="post"> <!--Esto cambiará-->
+        <form id="loginForm">
             <div class="inputuser">
                 <span class="material-symbols-outlined email">mail</span>
                 <label for="email">Email</label>
-                <input type="email" placeholder="tu@email.com" required>
+                <input type="email" id="email" placeholder="tu@email.com" required>
             </div>
             
             <div class="inputuser">
@@ -49,7 +48,7 @@
         <!-- Registro -->
         <div class="registrarse text-center mt-4">
                 ¿No tienes cuenta? 
-                <a href="#">Crear una cuenta </a> <!--esto se vincula a registro-->
+                <a href="/kape/HTML/crearCuenta.html">Crear una cuenta </a> <!--esto se vincula a registro-->
         </div>
     </div>
 
