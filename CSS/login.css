@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sora:wght@700&family=Nunito+Rounded:wght@700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sora:wght@700&family=Nunito+Rounded:wght@700&display=swap');
 
-body{
+* {
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -8,144 +12,101 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
 }
-/*Logotipo*/
+
+/* Tarjeta principal */
+.formulario {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8);
+    padding: 2.5rem 2rem;
+    margin: auto;
+}
+
+/* Logo */
 .logo-header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
 .logo-header img {
-    max-width: 300%;
-    width: 100%;  
+    width: 100%;
+    max-width: 400px;
     height: auto;
 }
-/*Diseño responsivo*/
-/*  en tablets */
-@media (max-width: 768px) {
-    .logo-header img {
-        max-width: 300px; 
-                }
-    .formulario{
-        max-width: 95%;
-        padding: 3rem;
-    }
-}
-/*  móviles */
-@media (max-width: 480px) {
-    .logo-header img {
-        max-width: 200px; 
-    }
-    .formulario{
-        max-width: 100%;
-        padding: 2rem;
-    }
 
-    .formulario h1 {
-        font-size: 1.5rem;      
-        margin-bottom: 2rem;
-    }
-
-    .formulario h4 {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .password-label-row {
-        flex-direction: column;   
-        align-items: flex-start;
-    }
-
-    .password-label-row .olvidar {
-        margin-left: 0;           
-        margin-top: 0.3rem;       
-    }
-
-    button {
-        font-size: 0.9rem;      
-        padding: 10px;
-    }
-}
-/*---------------------------------------*/
-
-/*Caja de Formulario*/
-.formulario{
-    padding: 4rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(34,34,34,0.2);
-    max-width: 500px;
-    width: 100%;
-    background: #FFF;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    }
-
-/*Títulos*/
+/* Títulos */
 .formulario h1 {
     font-family: 'Sora', sans-serif;
+    font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 100px;
-    color: #222222;
+    color: #222;
     text-align: left;
+    margin: 0 0 0.4rem;
 }
 
 .formulario h4 {
     font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
     font-weight: 400;
-    margin-top: -90px;
-    margin-bottom: 50px;
     color: #666;
-    font-weight: normal;
     text-align: left;
+    margin: 0 0 2rem;
 }
 
-/*Inputs*/
-.inputuser{
-    margin-bottom: 2rem;
-    
+/* Inputs */
+.inputuser {
+    position: relative;
+    margin-bottom: 1.4rem;
 }
 
-.inputuser .campo {
-    flex: 1;
+.material-symbols-outlined.email {
+    position: absolute;
+    font-size: 23px;       /* tamaño */
+    color: #7a1f2d52;  
+    top: 53%;
+    left: 12px;
+    vertical-align: middle;
 }
 
-.inputuser label{
-display: block;
-text-align: left;
-margin-bottom: 0.5rem;
-font-weight: 700;
-color: #7A1F2D;
+/*icono candado*/
+.material-symbols-outlined.lock {
+    position: absolute;
+    font-size: 23px;       /* tamaño */
+    color: #7a1f2d52;  
+    top: 55%;
+    left: 12px;
+    vertical-align: middle;
+    z-index: 2;
+}
+
+
+.inputuser label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.45rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #7A1F2D;
 }
 
 .inputuser input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #D8C7A1; 
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+    border: 1px solid #D8C7A1;
     border-radius: 6px;
     outline: none;
     transition: border-color 0.3s;
 }
 
 .inputuser input:focus {
-    border-color: #8F4A2C; 
+    border-color: #8F4A2C;
 }
 
-/*enlaces*/
-.registrarse a {
-    color: #7A1F2D;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.registrarse a:hover {
-    text-decoration: underline;
-}
-
+/* olvidaste la contraseña */
 .password-label-row {
     display: flex;
     align-items: baseline;
@@ -165,17 +126,43 @@ color: #7A1F2D;
     line-height: 1.2;
 }
 
-
 .password-label-row .olvidar:hover {
     text-decoration: underline;
 }
 
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/*icono de visibilidad*/
+.password-wrapper input {
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+    border: 1px solid #D8C7A1;
+    border-radius: 6px;
+    outline: none;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #7A1F2D;
+    font-size: 20px;
+}
+
+/* Botón */
 button {
     width: 100%;
+    display: block;
+    margin-top: 0.5rem;
     padding: 12px;
     font-family: "Nunito Rounded", sans-serif;
     font-weight: 700;
-    background:  #8F4A2C; 
+    background: #8F4A2C;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -183,14 +170,54 @@ button {
     font-size: 1rem;
     transition: background 0.3s;
 }
+
 button:hover {
-    background: #7A1F2D 
+    background: #7A1F2D;
 }
 
 /* Registro */
 .registrarse {
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 2rem;
     font-size: 0.9rem;
-    color: #222222;
+    color: #222;
+}
+
+.registrarse a {
+    color: #7A1F2D;
+    text-decoration: none;
+}
+
+.registrarse a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .formulario {
+        max-width: 92%;
+        padding: 2rem 1.5rem;
+    }
+
+    .logo-header img {
+        max-width: 200px;
+    }
+
+    .formulario h1 {
+        font-size: 1.4rem;
+    }
+
+    .formulario h4 {
+        font-size: 0.85rem;
+    }
+
+    .password-label-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .password-label-row .olvidar {
+        margin-left: 0;
+        margin-top: 0.3rem;
+    }
 }
