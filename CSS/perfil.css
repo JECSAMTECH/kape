@@ -1,19 +1,18 @@
 :root {
-  --color-primario: #222222;
-  --color-secundario: #D8C7A1;
-  --color-terciario: #7A1F2D;
-  --color-cuaternario: #F8F5EF;
-  --color-texto: #8F4A2C;
+    --color-primario: #222222;
+    --color-secundario: #D8C7A1;
+    --color-terciario: #7A1F2D;
+    --color-cuaternario: #F8F5EF;
+    --color-texto: #8F4A2C;
 }
 
 /* ==========================================
 TIPOGRAFÍA GENERAL Y ENCABEZADOS
 ========================================== */
 body {
-  /* background: var(--color-cuaternario); */
-  font-family: 'Poppins', sans-serif;
+    /* background: var(--color-cuaternario); */
+    font-family: 'Poppins', sans-serif;
 }
-
 p,
 span,
 a,
@@ -21,8 +20,8 @@ li,
 .subtitulo,
 .card-text,
 .card-back p {
-  font-family: 'Poppins', sans-serif;
-  /* Asegura Poppins en párrafos y textos */
+    font-family: 'Poppins', sans-serif;
+    /* Asegura Poppins en párrafos y textos */
 }
 
 /* Aplicar Sora a todos los títulos de la página */
@@ -32,113 +31,471 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Sora', sans-serif;
+    font-family: 'Sora', sans-serif;
 }
 
 /*==========================================
     ASIDE - NAVEGACION LATERAL DEL PERFIL
 ============================================*/
-
 .sidebar-profile {
-  padding: 2rem 1.5rem;
-  height: 100%;
-  min-height: 100vh;
+    padding: 1rem 1rem 1rem 1rem;
 }
 
-/*titulo de bienvenido al usuario*/
-.saludo-Usuario h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 0.1rem;
-  color: var(--color-terciario);
+.saludo-Usuario h2,
+h3 {
+    font-size: 2rem;
+    color: var(--color-terciario);
+    font-weight: bold;
 }
 
-/*Tiempo de usuario */
 .miembro-Desde {
-  font-size: 0.85rem;
-  color: #564243;
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 1rem;
-  margin-bottom: 1.25rem;
+    font-size: 0.7rem;
+    color: #564243;
 }
 
-/*ancho de botones aside*/
-.nav-item{
-  height: 4rem;
-}
-
-/*color y diseño de botones de menú (perfil, historial, metodos, direcciones)*/
 .nav-profile .nav-link {
-  padding: 0.65rem 0.75rem;
-  border-radius: 0.6rem;
-  color: #212529;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  height: 4rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.6rem;
+    color: #212529;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    height: 4rem;
 }
 
-/* iconos del menú
-.nav-profile .nav-link i {
-  font-size: 1.15rem;
-  width: 3rem;
-  text-align: center;
-  color: #6c757d;
-} */
+.nav-profile .nav{
+    width: auto;
+}
 
-/*color del botón e icono cerrar sesión*/
 .nav-profile .nav-link.cerrar-sesion,
 .nav-profile .nav-link.cerrar-sesion i {
-  color: var(--color-terciario);
+    color: var(--color-terciario);
 }
 
-/*estilo hover para botones e iconos del menu (perfil, historial, metodos, direcciones)*/
 .nav-profile .nav-link:hover,
 .nav-profile .nav-link i:hover {
-  background-color: #FFDBCE;
-  color: var(--color-texto);
+    background-color: #FFDBCE;
+    color: var(--color-texto);
 }
-
-/*color del botón  e icono cerrar sesión*/
-.nav-profile .nav-link.cerrar-sesion:hover,
-.nav-profile .nav-link.cerrar-sesion i:hover {
-  background-color: #FFDBCE;
-  color: var(--color-terciario);
-}
-
 
 /*=================================================
     MAIN CONTENIDO - QUICK STATS - ESTADISTICAS
 ===================================================*/
-
 .stat-card {
-  background: #F0EDED;
-  border: 1px solid #dee2e6;
-  border-radius: 0.75rem;
-  padding: 1.25rem 1rem;
-  height: 100%;
+    background: #F0EDED;
+    border: 1px solid #D6C59F;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    width: 30%;
 }
 
 .stat-card .stat-number {
-  color: var(--color-terciario);
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.1rem;
+    color: var(--color-terciario);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.1rem;
 }
 
 .stat-card .stat-label {
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: #564243;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.25rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #564243;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
 }
 
 .stat-card .stat-sub {
-  font-size: 0.85rem;
-  color: #564243;
+    font-size: 0.85rem;
+    color: #564243;
 }
 
+@media (max-width: 576px) {
+    .stats-grid .row {
+        justify-content: flex-start !important;
+    }
+    .stat-card {
+        width: 55% !important;
+        margin-bottom: 0.5rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .stat-card .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-card .stat-label {
+        font-size: 0.6rem;
+    }
+
+    .stat-card .stat-sub {
+        font-size: 0.5rem;
+    }
+}
+
+/*=================================================
+    MAIN CONTENIDO -HISTORIAL DE PEDIDOS
+===================================================*/
+
+.order-history h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.ver-todos {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+}
+
+.order-item {
+    border: 0.0625rem solid #D6C59F;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-title {
+    font-weight: 300;
+    font-size: 1.8rem;
+    display: flex;
+}
+
+.order-meta {
+    font-size: 0.90rem;
+    color: #564243;
+}
+
+.order-price {
+    display: inline-block;
+    width: auto;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--color-texto);
+}
+
+
+.btn-entregado {
+    margin-bottom: auto;
+}
+
+.btn-encamino {
+    margin-bottom: auto;
+}
+
+.badge-encamino {
+    background-color: #FFDBCE;
+    color: #79391C;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 3rem;
+    padding: 0.2rem 2rem;
+}
+
+.badge {
+    background-color: #DCFCE7;
+    color: #166534;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 3rem;
+    padding: 0.5rem 2rem;
+}
+
+.order-actions .btn-detalle,
+.btn-com-res {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 0.4rem;
+    background: transparent;
+    transition: all 0.15s;
+}
+
+.order-actions .btn-detalle {
+    border-color: var(--color-texto);
+    color: var(--color-texto);
+}
+
+.order-actions .btn-com-res {
+    background-color: var(--color-texto);
+    color: var(--color-cuaternario);
+}
+
+.order-actions .btn-detalle:hover,
+.order-actions .btn-com-res:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+}
+/* ---- MOVIL ---- */
+@media (max-width: 576px) {
+    .order-item {
+    padding: 0.5rem;
+    }
+
+    .order-item img {
+        max-width: 2.5rem !important;
+    }
+
+    .order-history h2 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .order-title {
+        font-size: 0.6rem;
+        font-weight: 500;
+        line-height: 1.3;
+        margin-bottom: 0.1rem;
+    }
+
+    .order-meta {
+        font-size: 0.4rem;
+        color: #564243;
+    }
+
+    .badge,
+    .badge-encamino {
+        font-size: 0.4rem !important;
+        padding: 0.1rem 0.1rem !important;
+        white-space: nowrap;
+        margin-top: 0.1rem;
+    }
+
+    .order-price {
+        font-size: 0.7rem;
+        font-weight: 500;
+    }
+
+    .order-actions .btn-detalle,
+    .order-actions .btn-com-res {
+        font-size: 0.4rem;
+        padding: 0.2rem 0.3rem;
+        border-radius: 0.3rem;
+        width: 100% !important;
+    }
+}
+
+/* ---- TABLET ---- */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    /* Ajuste general del contenedor del pedido */
+    .order-item {
+        padding: 1rem;
+    }
+
+    .order-history h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .order-item img {
+        max-width: 4rem !important;
+    }
+
+    .order-title {
+        font-size: 1.2rem; 
+        font-weight: 500;
+        line-height: 1.3;
+        margin-bottom: 0.1rem;
+    }
+
+   
+    .order-meta {
+        font-size: 0.7rem;
+    }
+
+   
+    .order-price {
+        font-size: 1.3rem;  
+    }
+
+    .badge,
+    .badge-encamino {
+        font-size: 0.7rem !important;
+        padding: 0.2rem 0.8rem !important;
+        margin-top: 0.2rem;
+        display: inline-block;
+    }
+
+    .order-actions .btn-detalle,
+    .order-actions .btn-com-res {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.3rem;
+    }
+}
+/*===============================================================
+    MAIN CONTENIDO - INFORMACION PERSONAL Y METODOS DE PAGO
+=================================================================*/
+.info-card {
+    border: 0.0125rem solid #e9ecef;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1.25rem;
+    height: 100%;
+}
+
+.info-title {
+    font-size: 1.2rem;
+    color: var(--color-terciario);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 3;
+}
+
+.info-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.04em;
+}
+
+.info-value {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #212529;
+}
+
+.payment-method {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+    flex-wrap: wrap; 
+}
+
+.payment-brand-visa {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.3rem 3rem 0.3rem 0.3rem;
+}
+
+.payment-brand {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.3rem 1.5rem 0.3rem 0.3rem;
+}
+
+.payment-number {
+    font-size: 0.9rem;
+    color: #212529;
+    line-height: 1.2;
+}
+
+.payment-exp {
+    font-size: 0.8rem;
+    color: #6c757d;
+    line-height: 1.2;
+}
+
+.default-badge {
+    background-color: #ffd0be;
+    color: #79391C;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+}
+
+/* ---- MÓVIL ---- */
+@media (max-width: 576px) {
+    .info-card {
+        padding: 1rem 0.75rem; 
+        height: auto; 
+    }
+
+    .info-title {
+        font-size: 0.8rem;     
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .info-value {
+        font-size: 0.7rem;   
+    }
+
+    .info-label {
+        font-size: 0.6rem;
+    }
+
+    /* Métodos de pago */
+    .payment-method {
+        padding: 0.5rem 0.75rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;     
+    }
+
+    .payment-brand-visa,
+    .payment-brand {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.8rem 0.2rem 0;
+    }
+
+    .payment-number {
+        font-size: 0.7rem;
+    }
+
+    .payment-exp {
+        font-size: 0.7rem;
+    }
+
+    .default-badge {
+        font-size: 0.5rem !important;
+        padding: 0.15rem 0.5rem !important;
+        white-space: nowrap;
+        margin-left: auto;
+    }
+
+    .info-title i {
+        font-size: 1.1rem;
+    }
+}
+
+/* ---- TABLET ---- */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .info-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .info-title {
+        font-size: 1.1rem;
+    }
+
+    .info-value {
+        font-size: 0.9rem;
+    }
+
+    .payment-method {
+        padding: 0.5rem 0.8rem;
+        gap: 0.4rem;
+    }
+
+    .payment-brand-visa,
+    .payment-brand {
+        font-size: 0.85rem;
+    }
+
+    .payment-number {
+        font-size: 0.85rem;
+    }
+
+    .default-badge {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.5rem;
+    }
+}

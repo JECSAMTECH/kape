@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="../CSS/perfil.css">
     <!--ESTILOS LETRAS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,101 +33,225 @@
 <body>
     <!--NAV BAR-->
 
-    <!--SECCION PERFIL-->
-    <main>
-        <!-- ==========================================
-     SECCIÓN: Navegación lateral del perfil
-     ========================================== -->
-        <!-- Contenedor para aislar la barra lateral (puedes ponerlo dentro de tu layout) -->
-        <div class="container-fluid">
-            <div class="row">
+    
+    <!-- SECCIÓN: Navegación lateral del perfil -->
+    <div class="container-fluid">
+        <div class="row align-items-stretch">
+            <div class="sidebar-profile col-5 col-sm-3 col-lg-2">
+                <!-- Saludo -->
+                <div class="saludo-Usuario">
+                    <h2>Hola</h2>
+                    <h3>Mateo</h3>
+                    <p class=" miembro-Desde">Miembro desde Octubre 2023</p>
+                </div>
+                <!-- Navegación -->
+                <nav class="nav-profile">
+                    <ul class="nav d-inline-flex  flex-column h-100">
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="#"><i class="bi bi-person"></i> Mi Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-clock-history"></i> Historial de Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-credit-card"></i> Métodos de Pago</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-geo-alt"></i> Direcciones</a>
+                        </li>
+                        <li class="nav-item mt-2 pt-1">
+                            <a class="nav-link cerrar-sesion" href="#"><i class="bi bi-box-arrow-right"></i> Cerrar
+                                Sesión</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-                <aside id="perfil" class="col-12 col-md-4 col-lg-3 p-4">
-
-                    <div class="sidebar-profile">
-                        <!-- Saludo -->
-                        <div class="saludo-Usuario">
-                            <h2>Hola, Mateo</h2>
-                            <div class="miembro-Desde">
-                                Miembro desde Octubre 2023
-                            </div>
+            <!-- CONTENIDO PRINCIPAL -->
+            <div class="contenido-principal col-7 col-md-8 col-lg-10 d-flex flex-column">
+                <!-- SECCIÓN: Quick Stats / Estadisticas -->
+                <div class="stats-grid mb-3">
+                    <div class="row justify-content-around">
+                        <!-- Tarjeta 1: MIS PUNTOS -->
+                        <div class="stat-card col-12 col-sm-6 col-lg-4">
+                            <div class="stat-label">MIS PUNTOS</div>
+                            <div class="stat-number">1,250</div>
+                            <div class="stat-sub">Próxima recompensa a los 1,500</div>
                         </div>
-
-                        <!-- Navegación -->
-                        <nav class="nav-profile">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-person"></i> Mi Perfil
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-clock-history"></i> Historial de Pedidos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-credit-card"></i> Métodos de Pago
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="bi bi-geo-alt"></i> Direcciones
-                                    </a>
-                                </li>
-                                <li class="nav-item mt-2 pt-1 border-top">
-                                    <a class="nav-link cerrar-sesion" href="#">
-                                        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <!-- Tarjeta 2: PEDIDOS TOTALES -->
+                        <div class="stat-card col-12 col-sm-6 col-lg-4">
+                            <div class="stat-label">PEDIDOS TOTALES</div>
+                            <div class="stat-number">12</div>
+                            <div class="stat-sub">3 pedidos este mes</div>
+                        </div>
+                        <!-- Tarjeta 3: FAVORITOS -->
+                        <div class="stat-card col-12 col-sm-6 col-lg-4">
+                            <div class="stat-label">FAVORITOS</div>
+                            <div class="stat-number">4</div>
+                            <div class="stat-sub">Granos de origen único</div>
+                        </div>
                     </div>
-                </aside>
-
-
-                <!-- ======================================================
-                                 CONTENIDO PRINCIPAL (main content)
-                    ====================================================== -->
-                <div class="col-12 col-md-8 col-lg-9 p-4 bg-white">
-
-                    <!-- SECCIÓN: Quick Stats / Bento Grid -->
-                    <section class="stats-grid mb-4">
-                        <div class="row g-3">
-                            <!-- Tarjeta 1: MIS PUNTOS -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="stat-card">
-                                    <div class="stat-label">MIS PUNTOS</div>
-                                    <div class="stat-number">1,250</div>
-                                    <div class="stat-sub">Próxima recompensa a los 1,500</div>
-                                </div>
-                            </div>
-                            <!-- Tarjeta 2: PEDIDOS TOTALES -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="stat-card">
-                                    <div class="stat-label">PEDIDOS TOTALES</div>
-                                    <div class="stat-number">12</div>
-                                    <div class="stat-sub">3 pedidos este mes</div>
-                                </div>
-                            </div>
-                            <!-- Tarjeta 3: FAVORITOS -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="stat-card">
-                                    <div class="stat-label">FAVORITOS</div>
-                                    <div class="stat-number">4</div>
-                                    <div class="stat-sub">Granos de origen único</div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
                 </div>
 
-            </div>
-    </main>
+                <!-- SECCIÓN: Historial de Pedidos -->
+                <section class="order-history">
+                    <!-- Encabezado con "Ver todos" -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2>Historial de pedidos</h2>
+                        <a href="#" class="text-decoration-none ver-todos">Ver todos</a>
+                    </div>
+                    <!-- Pedido 1 -->
+                    <div class="order-item">
+                        <div class="row align-items-center g-2">
+                            <!-- Columna izquierda: imagen del producto -->
+                            <div class="col-3 col-sm-2">
+                                <img src="../assets/images/perfil/01.png" alt="Producto" class="img-fluid rounded"
+                                    style="max-width:8rem;">
+                            </div>
+                            <!-- Columna izquierda: información y botones -->
+                            <div class="col-6 col-sm-7 infoybotones">
+                                <div class="order-title">Caturra Lavado - Huila</div>
+                                <div class="order-meta">Pedido #KAPE-9421 • 12 de Mayo, 2024</div>
+                            </div>
+                            <!-- Badge de estado  -->
+                            <div class="col-3 col-sm-3 text-end btn-entregado">
+                                <span class="badge"> ENTREGADO </span>
+                            </div>
+                        </div>
+                        <!-- Fila inferior: precio y botones apilados -->
+                        <div class="row mt-2 justify-content-end">
+                            <div class="col-4 col-sm-3">
+                                <div class="order-price">$430 MX</div>
+                            </div>
+                            <div class="col-8 col-sm-7 text-end">
+                                <div class="order-actions">
+                                    <a href="#" class="btn btn-detalle ">Ver
+                                        Detalle</a>
+                                    <a href="#" class="btn btn-com-res">Dejar comentario /
+                                        Reseña</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!--FOOTER-->
+                    <!-- Pedido 2 -->
+                    <div class="order-item">
+                        <div class="row align-items-center g-2">
+                            <div class="col-3 col-sm-2">
+                                <img src="../assets/images/perfil/02.png" alt="Producto" class="img-fluid rounded"
+                                    style="max-width:8rem;">
+                            </div>
+                            <div class="col-6 col-sm-7 infoybotones">
+                                <div class="order-title">Kit de Barista Pro</div>
+                                <div class="order-meta">Pedido #KAPE-9580 • 24 de Mayo, 2024</div>
+                            </div>
+                            <div class="col-3 col-sm-3 text-end btn-encamino">
+                                <span class="badge-encamino"> EN CAMINO </span>
+                            </div>
+                        </div>
+                        <div class="row mt-2 justify-content-end">
+                            <div class="col-4 col-sm-3">
+                                <div class="order-price">$990 MX</div>
+                            </div>
+                            <div class="col-8 col-sm-7 text-end">
+                                <div class="order-actions">
+                                    <a href="#" class="btn btn-detalle">Rastrear Pedido</a>
+                                    <a href="#" class="btn btn-com-res">Reseña (Al recibir)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedido 3 -->
+                    <div class="order-item">
+                        <div class="row align-items-center g-2">
+                            <div class="col-3 col-sm-2">
+                                <img src="../assets/images/perfil/03.png" alt="Producto" class="img-fluid rounded"
+                                    style="max-width:8REM;">
+                            </div>
+                            <div class="col-6 col-sm-7 infoybotones">
+                                <div class="order-title">Bourbon Rosado - Pitalito</div>
+                                <div class="order-meta">Pedido #KAPE-8812 • 15 de Abril, 2024</div>
+                            </div>
+                            <div class="col-3 col-sm-3 text-end btn-entregado">
+                                <span class="badge">ENTREGADO</span>
+                            </div>
+                        </div>
+
+                        <!-- Fila inferior: precio y botones apilados -->
+                        <div class="row mt-2 justify-content-end">
+                            <div class="col-4 col-sm-3">
+                                <div class="order-price">$500 MX</div>
+                            </div>
+                            <div class="col-8 col-sm-7 text-end">
+                                <div class="order-actions">
+                                    <a href="#" class="btn btn-detalle">Volver a Comprar</a>
+                                    <a href="#" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN: Información Personal + Métodos de Pago -->
+                <section class="user-info-payment">
+                    <div class="row g-4">
+                        <!-- Columna izquierda: MI INFORMACIÓN -->
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h6 class="info-title">MI INFORMACIÓN
+                                    <i class="bi bi-pencil-square ms-1 text-end"></i>
+                                </h6>
+                                <div class="info-item">
+                                    <span class="info-label">NOMBRE</span>
+                                    <span class="info-value">Mateo García Restrepo</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">CORREO ELECTRÓNICO</span>
+                                    <span class="info-value">mateo.garcia@gmail.com</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">TELÉFONO</span>
+                                    <span class="info-value">+57 312 456 7890</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna derecha: MÉTODOS DE PAGO -->
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h6 class="info-title">MÉTODOS DE PAGO
+                                    <i class="bi bi-plus-circle ms-1 text-end"></i>
+                                </h6>
+
+                                <!-- Tarjeta VISA -->
+                                <div class="payment-method">
+                                    <span class="payment-brand-visa">VISA</span>
+                                    <div
+                                        class="d-flex flex-column align-items-start justify-content-center flex-grow-1">
+                                        <span class="payment-number">•••• 4242</span>
+                                        <span class="payment-exp">Exp: 09/26</span>
+                                    </div>
+                                    <span class="badge default-badge">PREDETERMINADA</span>
+                                </div>
+
+                                <!-- Tarjeta MASTER -->
+                                <div class="payment-method">
+                                    <span class="payment-brand">MASTER</span>
+                                    <div
+                                        class="d-flex flex-column align-items-start justify-content-center flex-grow-1">
+                                        <span class="payment-number">•••• 8812</span>
+                                        <span class="payment-exp">Exp: 12/25</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--FOOTER-->
+        
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
