@@ -12,6 +12,8 @@
     <link rel="preload" href="./CSS/inicio.css">
     <link rel="stylesheet" href="./CSS/inicio.css">
 
+    <link rel="stylesheet" href="CSS/navbar.css">
+
     <!-- Tipográfia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +41,136 @@
 </head>
 
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex align-items-center justify-content-between">
+            <!-- Izquierda Movil Menú hamburguesa-->
+            <div class="menu-mobile ">
+                <!-- Botón para desplegar menú -->
+                <button class="btn d-lg-none botonNav navbar-btn" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menu-mobile" aria-expanded="false" aria-controls="menu-mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-square-menu-icon lucide-square-menu">
+                        <rect width="18" height="18" x="3" y="3" rx="2" />
+                        <path d="M7 8h10" />
+                        <path d="M7 12h10" />
+                        <path d="M7 16h10" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Izquierda Escritorio Logo-->
+            <div class="logo-navbar">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html"><img style="width: 15rem;" class="logo"
+                        src="assets/images/LogoKápe_sinFondo.png" alt="Logo"></a>
+            </div>
+            <!-- Centro Menú Navegación-->
+            <div class="menu-navbar justify-content-center">
+                <!-- Menu -->
+                <ul class="menu navbar-nav d-none d-lg-flex align-items-center">
+                    <li style="font-size: 1.7rem;" class="nav-item px-2" id="inicio"><a class="navbar-link"
+                            href="index.html">Inicio</a></li>
+                    <li style="font-size: 1.7rem;" class="nav-item px-2"><a class="navbar-link"
+                            href="HTML/catalogo.html">Catálogo</a></li>
+                    <li style="font-size: 1.7rem;" class="nav-item px-2"><a class="navbar-link"
+                            href="HTML/contactos.html">Contáctanos</a></li>
+                    <li style="font-size: 1.7rem;" class="nav-item px-2"><a class="navbar-link"
+                            href="HTML/nosotros.html">Nosotros</a></li>
+                </ul>
+            </div>
+            <!-- Drecha Iconos-->
+            <div>
+                <!-- Barra de busqueda / Modal -->
+                <div id="modal-navbar" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div id="modalBody" class="modal-content">
+                            <div class="modal-body">
+                                <form id="contenedor">
+                                    <input id="input-navbar-search" class="entrada col-9" type="search"
+                                        placeholder="Busca tu Kape">
+                                    <button type="button" class="btn botonNav navbar-btn"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-coffee-icon lucide-coffee">
+                                            <path d="M10 2v2" />
+                                            <path d="M14 2v2" />
+                                            <path
+                                                d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
+                                            <path d="M6 2v2" />
+                                        </svg> <span class="justify-center">Buscar</span>
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Iconos -->
+                <div class="iconos_navbar d-lg-flex">
+                    <!-- Botón de búsqueda -->
+                    <button id=btnBuscar class="btn botonNav navbar-btn" data-bs-toggle="modal"
+                        data-bs-target="#modal-navbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-search-icon lucide-search">
+                            <path d="m21 21-4.34-4.34" />
+                            <circle cx="11" cy="11" r="8" />
+                        </svg>
+                    </button>
+
+                    <!-- Botón de carrito -->
+                    <a class="btn botonNav navbar-btn">
+                        <span>0</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                            <circle cx="8" cy="21" r="1" />
+                            <circle cx="19" cy="21" r="1" />
+                            <path
+                                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                        </svg>
+                    </a>
+                    <!-- Botón de usuario -->
+                    <a class="btn botonNav d-none d-lg-block navbar-btn" href="inicioSesion.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-round-icon lucide-user-round">
+                            <circle cx="12" cy="8" r="5" />
+                            <path d="M20 21a8 8 0 0 0-16 0" />
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Menú desplegado -->
+        <div style="min-height: 50px;">
+            <div class="collapse" id="menu-mobile">
+                <div class="justify-content-center" style="width: 300px;">
+                    <ul class="menu navbar-nav align-items-center">
+                        <li style="font-size: 1.7rem;" class="menu-mobile-item"><a class="navbar-link"
+                                href="index.html">Inicio</a></li>
+                        <li style="font-size: 1.7rem;" class="menu-mobile-item"><a class="navbar-link"
+                                href="HTML/catalogo.html">Catálogo</a></li>
+                        <li style="font-size: 1.7rem;" class="menu-mobile-item"><a class="navbar-link"
+                                href="HTML/contactos.html">Contáctanos</a>
+                        </li>
+                        <li style="font-size: 1.7rem;" class="menu-mobile-item"><a class="navbar-link"
+                                href="HTML/nosotros.html">Nosotros</a></li>
+                        <li style="font-size: 1.7rem;" class="menu-mobile-item"><a class="navbar-link"
+                                href="HTML/inicioSesion.html">Iniciar
+                                sesión</a></li>
+                        <li style="font-size: 1.7rem;" class="menu-mobile-item"><a class="navbar-link"
+                                href="HTML/crearCuenta.html"><span id="btn-register-mobile">Crear
+                                    cuenta</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <section class="hero-section">
         <div class="hero-content">
@@ -135,7 +267,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script src="./JS/scrips.js"></script>
+    <!-- <script src="./JS/scrips.js"></script> -->
 </body>
 
 </html>
