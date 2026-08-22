@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container d-flex align-items-center justify-content-between">
             <!-- Izquierda Movil Menú hamburguesa-->
-            <div class="menu-mobile ">
+            <div class="menu-mobile navbar-btn">
                 <!-- Botón para desplegar menú -->
                 <button class="btn d-lg-none botonNav" type="button" data-bs-toggle="collapse"
                     data-bs-target="#menu-mobile" aria-expanded="false" aria-controls="menu-mobile">
@@ -49,10 +49,10 @@
             <div class="menu-navbar justify-content-center">
                 <!-- Menu -->
                 <ul class="menu navbar-nav d-none d-lg-flex align-items-center">
-                    <li class="nav-item px-2" id="inicio"><a href="../index.html">Inicio</a></li>
-                    <li class="nav-item px-2"><a href="catalogo.html">Catálogo</a></li>
-                    <li class="nav-item px-2"><a href="contactos.html">Contáctanos</a></li>
-                    <li class="nav-item px-2"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item px-2" id="inicio"><a class="navbar-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item px-2"><a class="navbar-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item px-2"><a class="navbar-link" href="contactos.html">Contáctanos</a></li>
+                    <li class="nav-item px-2"><a class="navbar-link" href="nosotros.html">Nosotros</a></li>
                 </ul>
             </div>
             <!-- Drecha Iconos-->
@@ -65,9 +65,10 @@
                                 <form id="contenedor">
                                     <input id="input-navbar-search" class="entrada col-9" type="search"
                                         placeholder="Busca tu Kape">
-                                    <button type="button" class="btn botonNav"><svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    <button type="button" class="btn botonNav navbar-btn"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="lucide lucide-coffee-icon lucide-coffee">
                                             <path d="M10 2v2" />
                                             <path d="M14 2v2" />
@@ -85,7 +86,8 @@
                 <!-- Iconos -->
                 <div class="iconos_navbar d-lg-flex">
                     <!-- Botón de búsqueda -->
-                    <button id=btnBuscar class="btn botonNav" data-bs-toggle="modal" data-bs-target="#modal-navbar">
+                    <button id=btnBuscar class="btn botonNav navbar-btn" data-bs-toggle="modal"
+                        data-bs-target="#modal-navbar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-search-icon lucide-search">
@@ -95,7 +97,7 @@
                     </button>
 
                     <!-- Botón de carrito -->
-                    <a class="btn botonNav">
+                    <a class="btn botonNav navbar-btn">
                         <span>0</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -107,7 +109,7 @@
                         </svg>
                     </a>
                     <!-- Botón de usuario -->
-                    <a class="btn botonNav d-none d-lg-block" href="inicioSesion.html">
+                    <a class="btn botonNav d-none d-lg-block navbar-btn" href="inicioSesion.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-user-round-icon lucide-user-round">
@@ -124,12 +126,14 @@
             <div class="collapse" id="menu-mobile">
                 <div class="justify-content-center" style="width: 300px;">
                     <ul class="menu navbar-nav align-items-center">
-                        <li class="menu-mobile-item"><a href="../index.html">Inicio</a></li>
-                        <li class="menu-mobile-item"><a href="catalogo.html">Catálogo</a></li>
-                        <li class="menu-mobile-item"><a href="contactos.html">Contáctanos</a></li>
-                        <li class="menu-mobile-item"><a href="nosotros.html">Nosotros</a></li>
-                        <li class="menu-mobile-item"><a href="inicioSesion.html">Iniciar sesión</a></li>
-                        <li class="menu-mobile-item"><a href="crearCuenta.html"><span id="btn-register-mobile">Crear
+                        <li class="menu-mobile-item"><a class="navbar-link" href="../index.html">Inicio</a></li>
+                        <li class="menu-mobile-item"><a class="navbar-link" href="catalogo.html">Catálogo</a></li>
+                        <li class="menu-mobile-item"><a class="navbar-link" href="contactos.html">Contáctanos</a></li>
+                        <li class="menu-mobile-item"><a class="navbar-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="menu-mobile-item"><a class="navbar-link" href="inicioSesion.html">Iniciar sesión</a>
+                        </li>
+                        <li class="menu-mobile-item"><a class="navbar-link" href="crearCuenta.html"><span
+                                    id="btn-register-mobile">Crear
                                     cuenta</span></a>
                         </li>
                     </ul>
