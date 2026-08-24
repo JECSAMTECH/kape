@@ -1,0 +1,434 @@
+:root {
+    --color-primario: #222222;
+    --color-secundario: #D8C7A1;
+    --color-terciario: #7A1F2D;
+    --color-cuaternario: #F8F5EF;
+    --color-texto: #8F4A2C;
+}
+
+/* ==========================================
+TIPOGRAFÍA GENERAL Y ENCABEZADOS
+========================================== */
+body {
+    /* background: var(--color-cuaternario); */
+    font-family: 'Poppins', sans-serif;
+}
+
+p,
+span,
+a,
+li,
+.subtitulo,
+.card-text,
+.card-back p {
+    font-family: 'Poppins', sans-serif;
+    /* Asegura Poppins en párrafos y textos */
+}
+
+/* Aplicar Sora a todos los títulos de la página */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Sora', sans-serif;
+}
+
+/*==========================================
+    ASIDE - NAVEGACION LATERAL DEL PERFIL
+============================================*/
+.sidebar-profile {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.saludo-Usuario h2,
+h3 {
+    font-size: 2rem;
+    color: var(--color-terciario);
+    font-weight: bold;
+}
+
+.user {
+    font-size: 0.9rem;
+    color: #564243;
+}
+
+.nav-profile .nav-link {
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.6rem;
+    color: #212529;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    height: 4rem;
+}
+
+.nav-profile .nav {
+    width: auto;
+}
+
+.nav-profile .nav-link.cerrar-sesion,
+.nav-profile .nav-link.cerrar-sesion i {
+    color: var(--color-terciario);
+}
+
+.nav-profile .nav-link:hover,
+.nav-profile .nav-link i:hover {
+    background-color: #FFDBCE;
+    color: var(--color-texto);
+}
+
+/*=================================================
+                    TOP DASHBOARD
+===================================================*/
+
+.top-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e9edf4;
+    flex-wrap: wrap;
+}
+
+.dashboardTitulo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-terciario);
+    display: flex;
+    align-items: center;
+}
+
+.busqueda {
+    display: flex;
+    border-radius: 2.5rem;
+    padding: 0.5rem 1rem;
+    border: 0.1rem;
+    align-items: center;
+}
+
+.busqueda i {
+    color: #5f5c5c;
+    font-size: 1rem;
+    margin-right: 0.625rem;
+}
+
+.busqueda input {
+    border-radius: 1rem;
+    border: 0.1rem solid #e5e7eb;
+    font-size: 1rem;
+    padding: 0.3rem;
+    color: #5f5c5c;
+    font-weight: 400;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: #564243;
+    font-size: 1rem;
+    padding: 0.3rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .top-app-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+    }
+
+    .busqueda {
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+}
+
+
+/*=================================================
+    MAIN CONTENIDO - ESTADISTICAS
+===================================================*/
+.stat-card {
+    border: 0.1rem solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    width: 20%;
+}
+
+.stat-card .stat-number {
+    color: var(--color-primario);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.1rem;
+}
+
+.stat-card .stat-sub {
+    font-size: 1rem;
+    color: #564243;
+}
+
+.estadisticas .stat-card i {
+    background-color: #ffdecb;
+    color: #564243;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.3rem;
+    border-radius: 0.2rem;
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .estadisticas .row {
+        justify-content: space-around !important;
+    }
+
+    .stat-card {
+        width: 20% !important;
+        margin-bottom: 0.5rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .stat-card .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .stat-card .stat-label {
+        font-size: 0.9rem;
+    }
+
+    .stat-card .stat-sub {
+        font-size: 0.8rem;
+    }
+}
+
+/*=================================================
+    MAIN CONTENIDO - DASHBOARD PEDIDOS RECIENTES
+===================================================*/
+.pedidosRecientes {
+    padding: 1.4rem 1.4rem 1.4rem 1.4rem;
+}
+
+.tablaPedidos {
+    border: 0.1rem solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1.5rem;
+}
+
+.pedidosRecientes h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.ver-todos {
+    font-size: 0.9rem;
+    color: var(--color-terciario);
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    color: #564243;
+}
+
+.table td {
+    font-size: 0.95rem;
+    color: var(--color-primario);
+    vertical-align: middle;
+}
+
+.table .badge {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 30px;
+}
+
+.id {
+    font-weight: 500;
+}
+
+.total {
+    font-weight: 500;
+}
+
+.completado {
+    color: #166534;
+    background-color: #DCFCE7;
+}
+
+.pendiente {
+    color: #854D0E;
+    background-color: #FEF08A;
+}
+
+.enviado {
+    color: #075985;
+    background-color: #E0F2FE;
+}
+
+.cancelado {
+    color: #880000;
+    background-color: #ffd7cd;
+}
+
+/* =================================================
+    CARDS DE ANUNCIOS VERTICALES
+=================================================== */
+.card-anuncio {
+    border: 0.1rem solid #e5e7eb;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.card-anuncio .card-header {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primario);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-anuncio .btn {
+    font-weight: 600;
+    border-radius: 1.9rem;
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+}
+
+.card-anuncio .badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 1rem;
+}
+
+/* RESPONSIVE - MÓVIL (menos de 576px) */
+@media (max-width: 575.98px) {
+
+    /* ---- TOP DASHBOARD ---- */
+    .top-dashboard {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.5rem;
+    }
+
+    .dashboardTitulo {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .busqueda {
+        padding: 0.25rem 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .busqueda input {
+        font-size: 0.85rem;
+        padding: 0.2rem 0.5rem;
+        flex: 1;
+        min-width: 0;
+        margin-right: 0.3rem;
+    }
+
+    .search-btn {
+        padding: 0.2rem 0.3rem;
+        font-size: 0.85rem;
+    }
+
+    /* ---- ESTADÍSTICAS ---- */
+    .estadisticas .row {
+        justify-content: center !important;
+    }
+
+    .stat-card {
+        width: 80% !important;
+        margin-bottom: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .stat-card .stat-number {
+        font-size: 1.3rem;
+    }
+
+    .stat-card .stat-sub {
+        font-size: 0.8rem;
+    }
+
+    .estadisticas .stat-card i {
+        font-size: 1rem;
+        padding: 0.2rem;
+    }
+
+    /* ---- PEDIDOS RECIENTES ---- */
+    .pedidosRecientes {
+        padding: 0.5rem;
+    }
+
+    .tablaPedidos {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+    }
+
+    .tablaPedidos h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .ver-todos {
+        font-size: 0.8rem;
+    }
+
+    .table th,
+    .table td {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.2rem;
+        white-space: nowrap;
+    }
+
+    .table .badge {
+        font-size: 0.6rem;
+        padding: 3px 8px;
+        border-radius: 20px;
+    }
+
+    /* ---- CARDS DE ANUNCIOS ---- */
+    .seccionAlertas {
+        padding: 0 !important;
+    }
+
+    .cards-anuncios {
+        gap: 0.5rem !important;
+    }
+
+    .card-anuncio .card-header {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .card-anuncio .card-body {
+        padding: 0.75rem;
+    }
+
+    .card-anuncio .card-title {
+        font-size: 0.95rem;
+    }
+
+    .card-anuncio .card-text {
+        font-size: 0.8rem;
+    }
+
+    .card-anuncio .btn {
+        font-size: 0.75rem;
+        padding: 0.3rem 0;
+    }
+}
