@@ -12,7 +12,7 @@
     --peach-fizz: #FFAA80;
     --white: #FFFFFF;
     --lighter-gray: #F8F7F6;
-    --light-gray: #E8E7E6;    
+    --light-gray: #E8E7E6;
 
     --titles: "Sora", sans-serif;
     --text-footer: "Poppins", sans-serif;
@@ -32,7 +32,17 @@ html {
     box-sizing: inherit;
 }
 
-.heading-two{
+input::placeholder {
+    font-size: 1.2rem;
+    /* Adjust size as needed */
+    color: #888888;
+}
+
+.regular-font-size {
+    font-size: 1.7rem;
+}
+
+.heading-two {
     color: var(--wine);
     font-size: 3rem;
     margin-bottom: 3rem;
@@ -182,7 +192,7 @@ html {
     font-weight: 700;
 }
 
-.field input{
+.field input {
     width: 100%;
     border: .5px solid var(--copper);
     background: transparent;
@@ -239,17 +249,98 @@ html {
     border-radius: 1rem;
 }
 
-.payment-option-container {
+.field-option-container {
     width: 100%;
     border: 3px solid var(--wine);
-    height: 5rem;
+    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     background-color: var(--white);
     border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+@media (min-width: 780px) {
+    .field-option-container {
+        width: 100%;
+        border: 3px solid var(--wine);
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 2rem;
+        margin-bottom: 2rem;
+        background-color: var(--white);
+        border-radius: 1rem;
+        padding: 0 2rem;
+    }
+}
+
+.payment-method {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .payment-method {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 2rem;
+    }
+}
+
+.payment-method__name {
+    font-size: 1.5rem;
+}
+
+.payment-method-details {
+    display: flex;
+    column-gap: 1.5rem;
+}
+
+.payment-method-details svg {
+    margin-top: 1rem;
+}
+
+.payment-method__icon {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 361px) {
+    .payment-method__icon {
+        display: flex;
+        flex-direction: row;
+        column-gap: 1.5rem;
+    }
+}
+
+.payment-method__icon img {
+    height: 3.5rem;
+    width: 100%;
+}
+
+.payment-method__icon img:last-of-type {
+    margin-right: 2rem;
+}
+
+@media (min-width: 770px) {
+    .payment-method__icon img {
+        height: 5rem;
+        width: 100%;
+    }
+
+    .payment-method__icon img:last-of-type {
+        margin-right: 0;
+    }
 }
 
 .label-text {
@@ -306,12 +397,12 @@ html {
     margin-bottom: 3rem;
 }
 
-.order-summary-header{
+.order-summary-header {
     border-bottom: 1px solid var(--copper);
     margin-bottom: 3rem;
 }
 
-.order-summary-details{
+.order-summary-details {
     border-top: 1px solid var(--copper);
     margin-top: 3rem;
     padding-top: 3rem;
@@ -323,17 +414,17 @@ html {
     margin-bottom: 1.5rem;
 }
 
-.order-summary-details-total{
+.order-summary-details-total {
     color: var(--wine);
     font-size: 2rem;
     font-weight: 700;
 }
 
-.confirm-purchase{
+.confirm-purchase {
     margin-top: 3rem;
 }
 
-.confirm-purchase-button{
+.confirm-purchase-button {
     width: 100%;
     height: 5rem;
     background-color: var(--wine);
@@ -343,13 +434,17 @@ html {
     border-radius: 1rem;
 }
 
-.confirm-purchase-details{
+.confirm-purchase-button:hover{
+    background-color: var(--copper);
+}
+
+.confirm-purchase-details {
     margin-top: 1.5rem;
     text-align: center;
     font-size: 1rem;
 }
 
-.confirm-purchase-button a{
+.confirm-purchase-button a {
     text-transform: uppercase;
     text-decoration: none;
     color: var(--broken-white);
@@ -357,13 +452,36 @@ html {
     font-weight: 700;
 }
 
-.security-shipping-info{
+.security-shipping-info {
     display: flex;
     justify-content: space-between;
 }
 
-.secure-checkout{
+.secure-checkout {
     display: flex;
     column-gap: 1.5rem;
     align-items: center;
+}
+
+.shipping-details-paragraph {
+    margin: 0;
+}
+
+.shipping-details-paragraph--one {
+    color: var(--wine);
+    font-size: 1.3rem;
+}
+
+.shipping-details-paragraph--two {
+    color: var(--wine);
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.shipping-method__name {
+    font-size: 1.5rem;
+}
+
+.shipping-method__details {
+    font-size: 1.3rem;
 }
