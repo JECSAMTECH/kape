@@ -33,9 +33,14 @@ html {
 }
 
 input::placeholder {
-    font-size: 1.2rem;
-    /* Adjust size as needed */
+    font-size: 1.5rem;
     color: #888888;
+}
+
+input[type="radio"] {
+  accent-color: #800020; 
+  width: 1.2rem;        
+  
 }
 
 .regular-font-size {
@@ -315,7 +320,7 @@ input::placeholder {
     flex-direction: column;
 }
 
-@media (min-width: 361px) {
+@media (min-width: 425px) {
     .payment-method__icon {
         display: flex;
         flex-direction: row;
@@ -363,6 +368,7 @@ input::placeholder {
     height: 3rem;
     border: .5px solid var(--copper);
     background: transparent;
+    font-size: 1.5rem;
 }
 
 .card-details {
@@ -461,6 +467,10 @@ input::placeholder {
     display: flex;
     column-gap: 1.5rem;
     align-items: center;
+}
+
+.shipping-details{
+    text-align: end;
 }
 
 .shipping-details-paragraph {
