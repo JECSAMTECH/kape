@@ -13,7 +13,8 @@
 
 }
 
-a {
+/* Anchor Style */
+.navbar-link {
     color: inherit;
     text-decoration: none;
 }
@@ -47,7 +48,7 @@ a {
 
 
 /* Menú */
-.nav-item {
+.navbar .nav-item {
     color: #222222;
     /* font-family: "Sora", sans-serif; */
     font-family: "Nunito", sans-serif;
@@ -89,7 +90,7 @@ a {
 
 /* Botones busqueda, carrito, usuario */
 
-.botonNav {
+.navbar .navbar-btn {
     color: #7A1F2D;
     font-family: "Nunito", sans-serif;
     font-weight: 700;
@@ -97,7 +98,7 @@ a {
 
 }
 
-.botonNav:hover {
+.navbar .navbar-btn:hover {
     background-color: #8F4A2C;
     color: #F8F5EF;
 }
