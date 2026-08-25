@@ -50,12 +50,10 @@
 /* Menú */
 .navbar .nav-item {
     color: #222222;
-    /* font-family: "Sora", sans-serif; */
     font-family: "Nunito", sans-serif;
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 400; /* <--- Cambiado de 700 a 400 para quitar la negrita */
 }
-
 .nav-item:hover {
     color: #7A1F2D;
 }
@@ -93,12 +91,31 @@
 .navbar .navbar-btn {
     color: #7A1F2D;
     font-family: "Nunito", sans-serif;
-    font-weight: 700;
-
-
+    font-weight: 400; /* <--- Cambiado de 700 a 400 por si deseas que los botones tampoco tengan negrita */
 }
 
 .navbar .navbar-btn:hover {
     background-color: #8F4A2C;
     color: #F8F5EF;
+}
+#inicio,
+#inicio a,
+.navbar-nav .nav-item#inicio {
+    font-weight: 400 !important;
+}
+.navbar .navbar-nav .nav-item,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-nav li a {
+    font-family: "Nunito", sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 400 !important; /* Grosor normal unificado */
+    color: #222222 !important;     /* Color base unificado */
+}
+
+/* Si tienes una clase o ID activo (como la página en la que estás), 
+   solo le cambiamos el color pero mantenemos el mismo grosor de 400 */
+.navbar .navbar-nav .nav-item#inicio,
+.navbar .navbar-nav .nav-item.active {
+    font-weight: 400 !important;
+    color: #8F4A2C !important; /* Tu color distintivo para la sección actual */
 }
