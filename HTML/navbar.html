@@ -97,17 +97,26 @@
                     </button>
 
                     <!-- Botón de carrito -->
-                    <a class="btn botonNav navbar-btn">
-                        <span>0</span>
+                    <button id="cart-button" class="btn botonNav navbar-btn" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#cart-offcanvas" aria-controls="cart-offcanvas" aria-label="Abrir carrito">
+
+
+                        <!-- Contador -->
+                        <span id="cart-count">
+                            0
+                        </span>
+
+                        <!-- Icono -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="8" cy="21" r="1" />
                             <circle cx="19" cy="21" r="1" />
                             <path
                                 d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
                         </svg>
-                    </a>
+
+                    </button>
+
                     <!-- Botón de usuario -->
                     <a class="btn botonNav d-none d-lg-block navbar-btn" href="inicioSesion.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -141,12 +150,103 @@
             </div>
         </div>
     </nav>
+
+    <!-- Offcanvas del carrito -->
+    <!-- Panel lateral -->
+    <aside id="cart-offcanvas" class="offcanvas offcanvas-end" tabindex="-1" aria-labelledby="cart-title">
+
+        <!-- HEADER DEL CARRITO -->
+        <div class="offcanvas-header cart-header">
+            <h2 id="cart-title" class="offcanvas-title">
+                Tu carrito
+            </h2>
+            <!-- BOTÓN DE CERRAR -->
+            <button id="cart-close" type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                aria-label="Cerrar carrito"></button>
+        </div>
+
+
+
+        <!-- CONTENIDO -->
+        <div class="cart-content">
+
+
+            <!-- MENSAJE CARRITO VACÍO -->
+            <div class="offcanvas-body cart-content">
+                <div id="cart-empty" class="cart-empty">
+                    <div class="cart-empty-icon">
+                        <!-- SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="auto" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="8" cy="21" r="1" />
+                            <circle cx="19" cy="21" r="1" />
+                            <path
+                                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                        </svg>
+                    </div>
+                    <h3>
+                        Tu carrito está vacío
+                    </h3>
+                    <p>
+                        Agrega productos para comenzar tu compra.
+                    </p>
+                </div>
+
+                <div id="cart-items" class="cart-items">
+                </div>
+
+            </div>
+
+
+
+            <!-- LISTA DE PRODUCTOS -->
+            <div id="cart-items" class="cart-items">
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER DEL CARRITO-->
+
+        <div class="cart-footer">
+
+            <div class="cart-summary">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="cart-subtotal">
+                    $0.00
+                </strong>
+
+            </div>
+
+            <button id="cart-checkout" class="cart-checkout" type="button">
+                Finalizar compra
+            </button>
+
+        </div>
+
+
+        <!-- Botón checkout -->
+        <button id="cart-checkout" class="cart-checkout" type="button">
+
+            Finalizar compra
+
+        </button>
+
+        </div>
+
+    </aside>
+
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <!-- JavaSCript -->
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/carrito.js"></script>
 </body>
 
 </html>
