@@ -50,10 +50,10 @@
 
                 <div class="mb-3">
                     <label class="form-label text-muted small">Tu comentario</label>
-                    <textarea class="form-control" rows="3" placeholder="Describe el aroma, el sabor o cómo fue tu ritual de preparación..."></textarea>
+                    <textarea id="comentario" class="form-control" rows="3" maxlength="500" placeholder="Describe el aroma, el sabor o cómo fue tu ritual de preparación..."></textarea>
                     <div class="d-flex justify-content-between text-muted extra-info mt-1">
-                        <small>Mínimo 10 caracteres.</small>
-                        <small>0 / 500</small>
+                        <small id="minCaracteres">Mínimo 10 caracteres.</small>
+                        <small id="contador">0 / 500</small>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button class="btn btn-enviar py-2" type="button">Enviar Reseña ></button>
+                    <button id="btnEnviar" class="btn btn-enviar py-2" type="button">Enviar Reseña ></button>
                 </div>
             </div>
 
