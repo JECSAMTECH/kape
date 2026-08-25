@@ -1,0 +1,1450 @@
+
+:root {
+    --coal: #222222;
+    --sand: #D8C7A1;
+    --wine: #7A1F2D;
+    --broken-white: #F8F5EF;
+    --copper: #8F4A2C;
+    --gray: #808080;
+    --pink: #E8DFDD;
+    --soft-pink: #EEE8E6;
+    --salmon: #FFDBCE;
+    --darker-gray: #564243;
+    --peach-fizz: #FFAA80;
+    --white: #FFFFFF;
+    --lighter-gray: #F8F7F6;
+    --light-gray: #E8E7E6;
+    --titles: "Sora", sans-serif;
+    --text-footer: "Poppins", sans-serif;
+    --buttons: "Nunito", sans-serif;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    color: var(--coal);
+}
+
+img {
+    max-width: 100%;
+}
+
+.regular-font-weight{
+    font-weight: 1.5rem;
+}
+
+
+/* =========================================================
+   REUSABLE CONTAINER
+========================================================= */
+
+.my-container {
+    width: min(120rem, 100%);
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* =========================================================
+   REUSABLE HEADINGS
+========================================================= */
+
+.heading-two {
+    color: var(--wine);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.my-container .logo {
+    height: 10rem;
+}
+
+
+/* =========================================================
+   CHECKOUT STEPPER
+========================================================= */
+
+.checkout-steps {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+
+/* Individual step */
+
+.checkout-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+
+/* Circle */
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #D8D8D8;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--broken-white);
+    color: #B8B0AA;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* Step text */
+
+.step-title {
+    margin-top: 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: #B8B0AA;
+}
+
+
+/* Completed step */
+
+.checkout-step.completed .step-circle {
+    background-color: var(--sand);
+    border-color: var(--sand);
+    color: var(--coal);
+}
+
+
+/* Active step */
+
+.checkout-step.active .step-circle {
+    background-color: var(--wine);
+    border-color: var(--wine);
+    color: var(--broken-white);
+}
+
+.checkout-step.active .step-title {
+    color: var(--wine);
+}
+
+
+/* Connecting lines */
+
+.step-line {
+    width: 100%;
+    height: 1px;
+
+    background-color: #E6E0DA;
+
+    margin-top: 1.5rem;
+}
+
+
+/* =========================================================
+   MAIN CHECKOUT LAYOUT
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .main-container {
+        display: grid;
+
+        grid-template-columns: 60% 40%;
+
+        column-gap: 2.5rem;
+    }
+}
+
+
+/* =========================================================
+   MAIN LEFT SECTION
+========================================================= */
+
+.main-first-section-container {
+    background-color: var(--lighter-gray);
+
+    padding: 3rem;
+
+    border-radius: 1rem;
+
+    margin-bottom: 3rem;
+}
+
+
+/* =========================================================
+   SHIPPING ADDRESS
+========================================================= */
+
+@media (min-width: 576px) {
+
+    .shipping-address {
+        padding: 3rem 2rem;
+    }
+}
+
+.shipping-address--container {
+    width: min(50rem, 100%);
+    margin: 0 auto;
+}
+
+.shipping-address h2 {
+    color: var(--wine);
+
+    font-size: 3rem;
+
+    margin-bottom: 3rem;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+========================================================= */
+
+.field {
+    width: 100%;
+}
+
+.field label {
+    color: var(--wine);
+    font-weight: 700;
+}
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    border: .5px solid var(--copper);
+
+    background: transparent;
+
+    height: 3rem;
+}
+
+
+/* =========================================================
+   SHIPPING FORM ROWS
+========================================================= */
+
+.name-fields,
+.address-field,
+.city-zip-country-fields,
+.city-field,
+.zip-field {
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* Name */
+
+@media (min-width: 576px) {
+
+    .name-fields {
+
+        display: flex;
+
+        justify-content: center;
+
+        column-gap: 1.5rem;
+
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+/* Address */
+
+@media (min-width: 576px) {
+
+    .address-field {
+
+        display: flex;
+
+        justify-content: center;
+
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+/* City / ZIP / Country */
+
+@media (min-width: 576px) {
+
+    .city-zip-country-fields {
+
+        display: flex;
+
+        justify-content: center;
+
+        column-gap: 1.5rem;
+
+        margin-bottom: 1.5rem;
+    }
+}
+
+.city-zip-country-fields input,
+.city-zip-country-fields select {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   PAYMENT METHOD
+   Used by finalizarCompra
+========================================================= */
+
+.payment-method-container {
+
+    background-color: var(--broken-white);
+
+    margin-top: 3rem;
+
+    padding: 2rem;
+
+    border-radius: 1rem;
+}
+
+
+.field-option-container {
+
+    width: 100%;
+
+    border: 3px solid var(--wine);
+
+    min-height: 6rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    column-gap: 2rem;
+
+    margin-bottom: 2rem;
+
+    background-color: var(--white);
+
+    border-radius: 1rem;
+
+    padding: 0 2rem;
+}
+
+
+.payment-method {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+}
+
+
+.payment-method-details {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1.5rem;
+}
+
+
+.payment-method__icon {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1rem;
+}
+
+
+.payment-method__icon img {
+
+    height: 5rem;
+
+    width: auto;
+}
+
+
+.label-text {
+
+    margin-left: 1rem;
+
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   CARD PAYMENT FIELDS
+========================================================= */
+
+.number-card {
+    margin-bottom: 1.5rem;
+}
+
+.number-card label {
+
+    color: var(--wine);
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+}
+
+
+.number-card-input {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1rem;
+}
+
+
+.number-card-input input {
+
+    width: 90%;
+
+    height: 3rem;
+
+    border: .5px solid var(--copper);
+
+    background: transparent;
+}
+
+
+.card-details {
+
+    display: flex;
+
+    justify-content: center;
+
+    column-gap: 1rem;
+}
+
+
+.card-details field {
+    margin-bottom: 1.5rem;
+}
+
+
+.card-expirarion-date,
+.card-cvv,
+.card-number {
+
+    width: 100%;
+
+    margin-bottom: 1.5rem;
+}
+
+
+.card-details input {
+
+    height: 3rem;
+
+    border: .5px solid var(--copper);
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   ORDER SUMMARY
+   Shared by finalizarCompra and pago
+========================================================= */
+
+.main-second-section-container {
+
+    background-color: var(--light-gray);
+
+    padding: 3rem;
+
+    border-radius: 1rem;
+
+    margin-bottom: 3rem;
+}
+
+
+.order-summary-header {
+
+    border-bottom: 1px solid var(--copper);
+
+    margin-bottom: 3rem;
+}
+
+
+.order-summary-details {
+
+    border-top: 1px solid var(--copper);
+
+    margin-top: 3rem;
+
+    padding-top: 3rem;
+}
+
+
+.order-summary-details label {
+
+    display: block;
+
+    font-size: 1.5rem;
+
+    margin-bottom: 1.5rem;
+}
+
+
+.order-summary-details-total {
+
+    color: var(--wine);
+
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   REUSABLE SUMMARY ROW
+========================================================= */
+
+.summary-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+
+    font-size: 1.5rem;
+}
+
+
+.summary-row span {
+
+    color: var(--coal);
+}
+
+
+.summary-row.total-row {
+
+    color: var(--wine);
+
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+
+.summary-row.total-row span {
+
+    color: var(--wine);
+}
+
+
+/* =========================================================
+   PRODUCT SUMMARY
+   Used by pago
+========================================================= */
+
+.summary-product {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1.5rem;
+}
+
+
+.summary-product img {
+
+    width: 7rem;
+
+    height: 7rem;
+
+    object-fit: cover;
+
+    border-radius: 1rem;
+}
+
+
+.summary-product > div {
+
+    flex: 1;
+}
+
+
+.summary-product strong {
+
+    font-size: 1.4rem;
+}
+
+
+.summary-product p {
+
+    color: var(--darker-gray);
+
+    font-size: 1.2rem;
+
+    margin: .5rem 0 0;
+}
+
+
+/* Divider */
+
+.summary-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    background-color: var(--copper);
+
+    margin: 2rem 0;
+}
+
+
+/* =========================================================
+   CONFIRM PURCHASE
+========================================================= */
+
+.confirm-purchase {
+
+    margin-top: 3rem;
+}
+
+
+.confirm-purchase-button {
+
+    width: 100%;
+    height: 5rem;
+    background-color: var(--wine);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    transition: background-color .2s ease;
+}
+
+
+.confirm-purchase-button:hover {
+    background-color: var(--copper);
+}
+
+
+.confirm-purchase-button a {
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    color: var(--broken-white);
+
+    font-family: var(--buttons);
+
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+
+.confirm-purchase-details {
+
+    margin-top: 1.5rem;
+
+    text-align: center;
+
+    font-size: 1rem;
+
+    color: var(--darker-gray);
+}
+
+
+/* =========================================================
+   SECURITY / SHIPPING
+========================================================= */
+
+.security-shipping-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 3rem;
+}
+
+
+.secure-checkout {
+
+    display: flex;
+
+    column-gap: 1.5rem;
+
+    align-items: center;
+
+    color: var(--wine);
+}
+
+
+.secure-checkout label {
+
+    color: var(--coal);
+
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   PAGO — REUSABLE REVIEW CARDS
+========================================================= */
+
+.payment-review {
+
+    background-color: var(--lighter-gray);
+}
+
+
+/* Introductory text */
+
+.review-description {
+
+    text-align: center;
+
+    color: var(--darker-gray);
+
+    font-size: 1.4rem;
+
+    margin-top: -1.5rem;
+
+    margin-bottom: 3rem;
+}
+
+
+/* Card */
+
+.review-card {
+
+    background-color: var(--white);
+
+    border: 1px solid var(--light-gray);
+
+    border-radius: 1rem;
+
+    padding: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+
+/* Card header */
+
+.review-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--copper);
+
+    padding-bottom: 1.5rem;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* Header title */
+
+.review-title {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1rem;
+}
+
+
+.review-title i {
+
+    color: var(--wine);
+
+    font-size: 2rem;
+}
+
+
+.review-title h3 {
+
+    color: var(--wine);
+
+    font-size: 2rem;
+
+    margin: 0;
+}
+
+
+/* Edit / change links */
+
+.review-card-header a {
+
+    color: var(--wine);
+
+    font-size: 1.3rem;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PAGO — ADDRESS REVIEW
+========================================================= */
+
+.review-card-content {
+
+    color: var(--darker-gray);
+
+    font-size: 1.4rem;
+
+    line-height: 1.7;
+}
+
+
+.review-card-content p {
+
+    margin-bottom: .3rem;
+}
+
+
+.review-card-content strong {
+
+    color: var(--coal);
+
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   PAGO — PAYMENT REVIEW
+========================================================= */
+
+.selected-payment {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1.5rem;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--copper);
+
+    border-radius: 1rem;
+
+    padding: 1.5rem;
+}
+
+
+.selected-payment-icon {
+
+    width: 4.5rem;
+
+    height: 4.5rem;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background-color: var(--soft-pink);
+
+    border-radius: 1rem;
+}
+
+
+.selected-payment-icon i {
+
+    color: var(--wine);
+
+    font-size: 2rem;
+}
+
+
+.selected-payment strong {
+
+    font-size: 1.5rem;
+}
+
+
+.selected-payment p {
+
+    color: var(--darker-gray);
+
+    font-size: 1.3rem;
+
+    margin: .3rem 0 0;
+}
+
+
+/* =========================================================
+   PAGO — SHIPPING REVIEW
+========================================================= */
+
+.shipping-review {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 1.4rem;
+}
+
+
+.shipping-review p {
+
+    color: var(--darker-gray);
+
+    margin-top: .4rem;
+}
+
+
+.shipping-review > strong {
+
+    color: var(--wine);
+}
+
+
+/* =========================================================
+   PAGO — SECURITY MESSAGE
+========================================================= */
+
+.payment-security {
+
+    display: flex;
+
+    align-items: center;
+
+    column-gap: 1.5rem;
+
+    padding: 1.5rem;
+
+    background-color: var(--soft-pink);
+
+    border-radius: 1rem;
+}
+
+
+.payment-security > i {
+
+    color: var(--wine);
+
+    font-size: 2.5rem;
+}
+
+
+.payment-security strong {
+
+    color: var(--wine);
+
+    font-size: 1.4rem;
+}
+
+
+.payment-security p {
+
+    color: var(--darker-gray);
+
+    font-size: 1.2rem;
+
+    margin-top: .3rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .main-container {
+
+        display: block;
+    }
+
+
+    .main-second-section {
+
+        margin-top: 2rem;
+    }
+
+
+    .step-line {
+
+        width: 100%;
+    }
+
+
+    .security-shipping-info {
+
+        gap: 2rem;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+    .my-container {
+
+        padding-inline: 1rem;
+    }
+
+
+    .heading-two {
+
+        font-size: 2.5rem;
+    }
+
+
+    .checkout-step {
+
+        min-width: 70px;
+    }
+
+
+    .step-title {
+
+        font-size: 1rem;
+
+        letter-spacing: .5px;
+    }
+
+
+    .step-line {
+
+        margin-top: 1.5rem;
+    }
+
+
+    .main-first-section-container,
+    .main-second-section-container {
+
+        padding: 2rem;
+    }
+
+
+    .review-card {
+
+        padding: 1.5rem;
+    }
+
+
+    .review-card-header {
+
+        align-items: flex-start;
+    }
+
+
+    .review-title h3 {
+
+        font-size: 1.7rem;
+    }
+
+
+    .review-title i {
+
+        font-size: 1.7rem;
+    }
+
+
+    .review-card-header a {
+
+        font-size: 1.1rem;
+    }
+
+
+    .shipping-review {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        row-gap: 1rem;
+    }
+
+
+    .summary-product {
+
+        align-items: flex-start;
+    }
+
+
+    .summary-product img {
+
+        width: 6rem;
+
+        height: 6rem;
+    }
+
+
+    .security-shipping-info {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        row-gap: 2rem;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .checkout-step {
+
+        min-width: 55px;
+    }
+
+
+    .step-title {
+
+        font-size: .8rem;
+    }
+
+
+    .step-circle {
+
+        width: 27px;
+
+        height: 27px;
+    }
+
+
+    .main-first-section-container,
+    .main-second-section-container {
+
+        padding: 1.5rem;
+    }
+
+
+    .review-card-header {
+
+        flex-direction: column;
+
+        row-gap: 1rem;
+    }
+
+
+    .payment-security {
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =====================================
+   PAGO PAGE
+===================================== */
+
+.payment-review {
+    background-color: var(--lighter-gray);
+}
+
+.review-description {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--darker-gray);
+    margin-bottom: 3rem;
+}
+
+
+/* =====================================
+   REVIEW CARDS
+===================================== */
+
+.review-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--copper);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.review-title {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.review-title i {
+    color: var(--wine);
+    font-size: 2rem;
+}
+
+.review-title h3 {
+    color: var(--wine);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.review-card-header a {
+    color: var(--wine);
+    font-size: 1.3rem;
+    text-decoration: underline;
+}
+
+
+/* =====================================
+   ADDRESS
+===================================== */
+
+.review-card-content {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: var(--darker-gray);
+}
+
+.review-card-content strong {
+    color: var(--coal);
+}
+
+
+/* =====================================
+   PAYMENT METHOD
+===================================== */
+
+.selected-payment {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    border: 1px solid var(--copper);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.selected-payment-icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--soft-pink);
+    border-radius: 1rem;
+}
+
+.selected-payment-icon i {
+    color: var(--wine);
+    font-size: 2rem;
+}
+
+.selected-payment strong {
+    font-size: 1.5rem;
+}
+
+.selected-payment p {
+    margin: .3rem 0 0;
+    font-size: 1.3rem;
+    color: var(--darker-gray);
+}
+
+
+/* =====================================
+   SHIPPING METHOD
+===================================== */
+
+.shipping-review {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.shipping-review p {
+    margin-top: .4rem;
+    color: var(--darker-gray);
+}
+
+
+/* =====================================
+   SECURITY
+===================================== */
+
+.payment-security {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    background-color: var(--soft-pink);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.payment-security i {
+    color: var(--wine);
+    font-size: 2.5rem;
+}
+
+.payment-security strong {
+    color: var(--wine);
+    font-size: 1.4rem;
+}
+
+.payment-security p {
+    font-size: 1.2rem;
+    color: var(--darker-gray);
+    margin-top: .3rem;
+}
+
+
+/* =====================================
+   ORDER SUMMARY
+===================================== */
+
+.summary-product {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.summary-product img {
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.summary-product div {
+    flex: 1;
+}
+
+.summary-product strong {
+    font-size: 1.4rem;
+}
+
+.summary-product p {
+    font-size: 1.2rem;
+    color: var(--darker-gray);
+}
+
+.summary-divider {
+    height: 1px;
+    background-color: var(--copper);
+    margin: 2rem 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.total-row {
+    color: var(--wine);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 575px) {
+
+    .review-card {
+        padding: 1.5rem;
+    }
+
+    .review-card-header {
+        align-items: flex-start;
+    }
+
+    .shipping-review {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 1rem;
+    }
+
+    .summary-product {
+        align-items: flex-start;
+    }
+}
