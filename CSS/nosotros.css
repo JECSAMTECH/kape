@@ -285,3 +285,7 @@ h6 {
 #carouselExample .active.carousel-item-start {
     transform: translateX(100%);
 }
+#navbarInject a, 
+#navbarInject .nav-link {
+    font-weight: 400 !important;
+}
