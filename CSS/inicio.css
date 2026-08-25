@@ -17,17 +17,6 @@
 
 }
 
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
 .my-container {
     width: min(120rem, 100%);
     margin: 0 auto;
@@ -368,4 +357,8 @@ html {
     color: var(--salmon);
     font-size: 2.5rem;
     margin: 1.5rem 0;
+}
+#footerInject,
+#footerInject * {
+    font-size: initial; 
 }

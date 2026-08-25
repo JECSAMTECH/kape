@@ -32,7 +32,7 @@ function iniciarSesion(emailIngresado, passwordIngresado) {
 
   if (usuarioEncontrado && usuarioEncontrado.password === passwordIngresado) {
     // Redirigir a la página de inicio
-    window.location.href = "../src/index.html";
+    window.location.href = "../index.html";
   } else {
     // Mostrar mensaje de error
     alert("Correo electrónico o contraseña incorrectos.");
