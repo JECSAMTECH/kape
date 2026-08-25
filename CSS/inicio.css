@@ -17,17 +17,6 @@
 
 }
 
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
 .my-container {
     width: min(120rem, 100%);
     margin: 0 auto;
