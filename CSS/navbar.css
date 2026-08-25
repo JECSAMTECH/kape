@@ -5,12 +5,22 @@
 #8F4A2C Cobre
  */
 
+/* Base: 1rem = 10px en todo el sitio */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 /* NavBar general */
 .navbar {
-    /* background-color: #D8C7A1; */
     background-color: #F8F5EF;
-    /* background-color: #D8C7A1; */
-
+    padding-block: 3rem;
 }
 
 /* Anchor Style */
@@ -23,7 +33,7 @@
 .menu-mobile-item {
     color: #7A1F2D;
     font-family: "Sora", sans-serif;
-    font-size: .7rem;
+    font-size: 1.8rem;
     font-weight: 500;
 }
 
@@ -37,31 +47,17 @@
     background-color: #7A1F2D;
     border-radius: .4rem;
     padding: .5rem;
-    /* margin-left: 3rem; */
 }
 
 /* Logo */
 .logo {
-    width: 10rem;
+    width: 20rem;
     height: auto;
 }
 
-
-/* Menú */
-.navbar .nav-item {
-    color: #222222;
-    /* font-family: "Sora", sans-serif; */
-    font-family: "Nunito", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
+/* Menú - hover */
 .nav-item:hover {
     color: #7A1F2D;
-}
-
-#inicio {
-    color: #8F4A2C
 }
 
 #inicio:hover {
@@ -87,18 +83,86 @@
     display: flex;
 }
 
-
 /* Botones busqueda, carrito, usuario */
-
 .navbar .navbar-btn {
     color: #7A1F2D;
     font-family: "Nunito", sans-serif;
-    font-weight: 700;
-
-
+    font-weight: 400;
+    padding: 0.8rem;
 }
 
 .navbar .navbar-btn:hover {
     background-color: #8F4A2C;
     color: #F8F5EF;
+}
+
+.navbar .navbar-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Más espacio entre los links del menú */
+.menu.navbar-nav {
+    column-gap: 3rem;
+}
+
+/* Estilo base de todos los links del menú */
+.navbar .navbar-nav .nav-item,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-nav li a {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #7A1F2D;
+}
+
+/* Estado activo (página actual) */
+.navbar .navbar-nav .nav-item.active,
+#inicio {
+    color: #8F4A2C;
+}
+
+/* Más espacio entre los links del menú */
+.menu.navbar-nav {
+    column-gap: 3rem;   /* antes 2.5rem */
+}
+
+/* Iconos (búsqueda, carrito, usuario) */
+.navbar .navbar-btn svg {
+    width: 32px;   /* antes 28px */
+    height: 32px;
+}
+
+/* Iconos con más separación entre ellos */
+.iconos_navbar {
+    column-gap: 1.5rem;
+}
+
+/* ----------------*/
+/* Efecto de subrayado animado en los links del menú */
+.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+
+
+.navbar .navbar-nav .nav-item a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7A1F2D;
+    transition: width 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-item:hover a::after {
+    width: 100%;
+}
+
+/* Página activa: línea fija, sin depender de hover */
+.navbar .navbar-nav .nav-item.active a::after {
+    width: 100%;
+    background-color: #8F4A2C;
 }
