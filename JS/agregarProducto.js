@@ -1,4 +1,4 @@
-
+/*
     function dragOverHandler(ev) {
       console.log('File(s) in drop zone');
 
@@ -40,3 +40,4 @@
         ev.dataTransfer.items.clear();
       }
 }
+*/
