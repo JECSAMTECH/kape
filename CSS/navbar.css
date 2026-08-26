@@ -171,7 +171,7 @@
 }
 
 #cart-close {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #F8F5EF;
 }
 
@@ -179,7 +179,7 @@
     /* background-color: #7A1F2D; */
     font-family: "Nunito", sans-serif;
     color: #222222;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .cart-footer {
@@ -189,7 +189,7 @@
 }
 
 .cart-item-image {
-    width: 15rem;
+    width: 10rem;
     height: auto;
     border-radius: 3rem;
 
@@ -197,7 +197,7 @@
 
 .cart-items {
     font-family: "Nunito", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .btn-offcanva {
@@ -205,8 +205,8 @@
     color: #F8F5EF;
     font-family: "Nunito", sans-serif;
     font-weight: bold;
-    font-size: 1.3rem;
-    border-radius: .5rem;
+    font-size: 1rem;
+    border-radius: .3rem;
     border: none;
 }
 
@@ -214,6 +214,6 @@
     background-color: #7A1F2D;
     font-family: "Nunito", sans-serif;
     color: #F8F5EF;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bolder;
 }
