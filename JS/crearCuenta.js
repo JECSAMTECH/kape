@@ -137,8 +137,8 @@ function ValidarForm(event) {
             nombre: nombre,
             email: email,
             telefono: telefono,
-            fechaRegistro: new Date().toISOString(),
-            password: password
+            fechaRegistro: new Date().toISOString()
+            // No incluir password aquí ya que es un dato sensible
         };
 
         const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -152,6 +152,7 @@ function ValidarForm(event) {
         document.getElementById("registroForm").reset();
 
     }
+
 
     return esValido;
 }
