@@ -290,62 +290,63 @@ export function iniciarCarrito() {
 
 
             cartItem.innerHTML = `
+                <div class="d-flex align-items-center gap-3 mb-3 p-2">
 
-                <img
-                    class="cart-item-image"
-                    src="${product.image}"
-                    alt="${product.name}"
-                >
+                    <img
+                        class="cart-item-image"
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
 
-                <div class="cart-item-info">
+                    <div class="cart-item-info">
 
-                    <h3 class="cart-item-name">
-                        ${product.name}
-                    </h3>
+                        <h3 class="cart-item-name">
+                            ${product.name}
+                        </h3>
 
-                    <span class="cart-item-price">
-                        $${product.price.toFixed(2)}
-                    </span>
-
-                    <div class="cart-item-actions">
-
-                        <button
-                            type="button"
-                            class="quantity-btn"
-                            data-action="decrease"
-                            aria-label="Disminuir cantidad"
-                        >
-                            −
-                        </button>
-
-                        <span
-                            class="cart-item-quantity"
-                            aria-label="Cantidad"
-                        >
-                            ${product.quantity}
+                        <span class="cart-item-price">
+                            $${product.price.toFixed(2)}
                         </span>
 
-                        <button
-                            type="button"
-                            class="quantity-btn"
-                            data-action="increase"
-                            aria-label="Aumentar cantidad"
-                        >
-                            +
-                        </button>
+                        <div class="cart-item-actions">
 
-                        <button
-                            type="button"
-                            class="cart-item-remove"
-                            data-action="remove"
-                        >
-                            Eliminar
-                        </button>
+                            <button
+                                type="button"
+                                class="quantity-btn btn-offcanva"
+                                data-action="decrease"
+                                aria-label="Disminuir cantidad"
+                            >
+                                −
+                            </button>
+
+                            <span
+                                class="cart-item-quantity"
+                                aria-label="Cantidad"
+                            >
+                                ${product.quantity}
+                            </span>
+
+                            <button
+                                type="button"
+                                class="quantity-btn btn-offcanva"
+                                data-action="increase"
+                                aria-label="Aumentar cantidad"
+                            >
+                                +
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cart-item-remove btn-offcanva"
+                                data-action="remove"
+                            >
+                                Eliminar
+                            </button>
+
+                        </div>
 
                     </div>
-
                 </div>
-
             `;
 
 
@@ -515,7 +516,7 @@ export function iniciarCarrito() {
 
         id: 1,
 
-        name: "Café de prueba",
+        name: "Café de prueba 1",
 
         price: 50,
 
@@ -524,4 +525,19 @@ export function iniciarCarrito() {
 
     });
 
+    addToCart({
+
+        id: 2,
+
+        name: "Café de prueba 2",
+
+        price: 30,
+
+        image:
+            "../assets/images/producto/producto.jpeg"
+
+    });
+
 }
+
+

@@ -117,15 +117,22 @@
 
                     </button>
 
-                    <!-- Botón de usuario -->
-                    <a class="btn botonNav d-none d-lg-block navbar-btn" href="/HTML/inicioSesion.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-user-round-icon lucide-user-round">
-                            <circle cx="12" cy="8" r="5" />
-                            <path d="M20 21a8 8 0 0 0-16 0" />
-                        </svg>
-                    </a>
+                    <!-- Cuenta: el menú sólo aparece cuando hay una sesión activa -->
+                    <div id="account-menu-container" class="account-menu-container d-none d-lg-block">
+                        <button id="account-button" class="btn botonNav navbar-btn" type="button"
+                            aria-label="Iniciar sesión" title="Iniciar sesión" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-user-round-icon lucide-user-round">
+                                <circle cx="12" cy="8" r="5" />
+                                <path d="M20 21a8 8 0 0 0-16 0" />
+                            </svg>
+                        </button>
+                        <div id="account-menu" class="account-menu" role="menu" hidden>
+                            <a id="account-link" href="/HTML/perfil.html" role="menuitem">Mi perfil</a>
+                            <button id="logout-button" type="button" role="menuitem">Cerrar sesión</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -140,9 +147,11 @@
                         <li class="menu-mobile-item"><a class="navbar-link" href="/HTML/contactos.html">Contáctanos</a>
                         </li>
                         <li class="menu-mobile-item"><a class="navbar-link" href="/HTML/nosotros.html">Nosotros</a></li>
-                        <li class="menu-mobile-item"><a class="navbar-link" href="/HTML/inicioSesion.html">Iniciar
+                        <li class="menu-mobile-item"><a id="account-link-mobile" class="navbar-link" href="/HTML/inicioSesion.html">Iniciar
                                 sesión</a>
                         </li>
+                        <li id="logout-mobile-item" class="menu-mobile-item" hidden><button id="logout-mobile-button"
+                                class="navbar-link account-logout-mobile" type="button">Cerrar sesión</button></li>
                         <li class="menu-mobile-item"><a class="navbar-link" href="/HTML/crearCuenta.html"><span
                                     id="btn-register-mobile">Crear
                                     cuenta</span></a>
@@ -170,7 +179,7 @@
 
 
         <!-- CONTENIDO -->
-        <div class="cart-content">
+        <div class="cart-content d-flex">
 
 
             <!-- MENSAJE CARRITO VACÍO -->
@@ -202,7 +211,7 @@
 
 
             <!-- LISTA DE PRODUCTOS -->
-            <div id="cart-items" class="cart-items">
+            <div id=" cart-items" class="cart-items">
             </div>
 
         </div>
@@ -210,8 +219,11 @@
 
         <!-- FOOTER DEL CARRITO-->
 
-        <div class="cart-footer">
-
+        <div class="cart-footer d-flex align-items-center gap-3 mb-3 p-2">
+            <!-- Botón checkout -->
+            <button id="cart-checkout" class="cart-checkout btn-offcanva" type="button">
+                Finalizar compra
+            </button>
             <div class="cart-summary">
 
                 <span>
@@ -224,20 +236,13 @@
 
             </div>
 
-            <button id="cart-checkout" class="cart-checkout" type="button">
-                Finalizar compra
-            </button>
-
         </div>
 
 
-        <!-- Botón checkout -->
-        <button id="cart-checkout" class="cart-checkout" type="button">
-
-            Finalizar compra
-
-        </button>
-
+        <!-- Close -->
+        <button id="cart-continue" type="button" class="btn-offcanva" data-bs-dismiss="offcanvas"
+            aria-label="Cerrar carrito">
+            Seguir Comprando</button>
         </div>
 
     </aside>

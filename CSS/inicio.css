@@ -18,7 +18,7 @@
 }
 
 .my-container {
-    width: min(120rem, 100%);
+    width: min(75rem, 100%);
     margin: 0 auto;
     padding-inline: 1.5rem;
 }
@@ -38,7 +38,7 @@
             rgba(243, 239, 237, 0.35) 70%,
             rgba(243, 239, 237, 0) 95%),
         url("../IMG/hero.png");
-    height: 50rem;
+    height: 40rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -51,12 +51,12 @@
 
 @media (min-width: 860px) {
     .hero-section {
-        height: 90rem;
+        height: 56rem;
     }
 }
 
 .hero-content {
-    max-width: 190rem;
+    width: min(100%, 75rem);
     padding-inline: 3rem;
 }
 
@@ -65,7 +65,7 @@
     padding: 1rem 2rem;
     background-color: var(--salmon);
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 1.56rem;
     color: var(--coal);
     border-radius: 1rem;
     font-weight: 400;
@@ -73,7 +73,7 @@
 
 .hero-header-one {
     font-family: var(--titles);
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: var(--wine);
     margin: 0;
     font-weight: 600;
@@ -84,22 +84,22 @@
     margin: 0;
     color: var(--darker-gray);
     margin-bottom: 3rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 @media (min-width: 860px) {
     .hero-header-two {
-        font-size: 4rem;
+        font-size: 2.5rem;
         /*font-size: 6rem;*/
     }
 
     .hero-header-one {
-        font-size: 7rem;
+        font-size: 4.4rem;
         /*font-size: 9rem;*/
     }
 
     .hero-text {
-        font-size: 3.5rem;
+        font-size: 2.2rem;
         /*ont-size: 4.5rem;*/
     }
 }
@@ -132,8 +132,8 @@
 .hero-button--history {
     padding: 1rem 2rem;
     color: var(--broken-white);
-    font-size: 1.5rem;
-    width: 25rem;
+    font-size: 1rem;
+    width: min(100%, 25rem);
     cursor: pointer;
     border-radius: 1rem;
 }
@@ -142,9 +142,9 @@
 
     .hero-button--collection,
     .hero-button--history {
-        font-size: 3rem;
-        width: 35rem;
-        padding: 2rem 3rem;
+        font-size: 1.9rem;
+        width: 22rem;
+        padding: 1.25rem 1.9rem;
     }
 }
 
@@ -180,28 +180,28 @@
 .main-featured-product a {
     text-decoration: none;
     color: var(--copper);
-    font-size: 2rem;
+    font-size: 1.25rem;
 }
 
 .main-featured-products h2 {
     color: var(--wine);
-    font-size: 3.5rem;
+    font-size: 2.2rem;
     margin-bottom: 0rem;
 }
 
 .main-featured-products-text {
     color: var(--darker-gray);
-    font-size: 1.68rem;
+    font-size: 1.1rem;
     margin-top: 1.5rem;
 }
 
 @media (min-width: 576px) {
     .main-featured-products h2 {
-        font-size: 5rem;
+        font-size: 3.1rem;
     }
 
     .main-featured-products-text {
-        font-size: 2.5rem;
+        font-size: 1.56rem;
     }
 }
 
@@ -216,7 +216,7 @@
 }
 
 .main-featured-product-text {
-    font-size: 2rem;
+    font-size: 1.25rem;
     margin-top: 0.5rem;
 }
 
@@ -228,12 +228,12 @@
 
 .main-coffee-details h3 {
     color: var(--coal);
-    font-size: 3.4rem;
+    font-size: 2.1rem;
     margin: 0;
 }
 
 .main-coffee-details p {
-    font-size: 2rem;
+    font-size: 1.25rem;
     color: var(--wine);
     font-weight: 700;
     margin: 0;
@@ -255,13 +255,13 @@
     padding: 2rem;
     border-radius: 1rem;
     column-gap: 2rem;
-    height: 22rem;
+    height: 13.75rem;
 }
 
 .article-cuturra img,
 .article-panama img {
-    height: 20rem;
-    width: 20rem;
+    height: 12.5rem;
+    width: 12.5rem;
     border-radius: 1.5rem;
 }
 
@@ -269,7 +269,7 @@
     /*flex: 0 1 20rem;
     aspect-ratio: 1 / 1;
     overflow: hidden;*/
-    width: 20rem;
+    width: 12.5rem;
     flex-shrink: 0;
 }
 
@@ -299,7 +299,7 @@
     color: var(--copper);
     border: none;
     border-bottom: var(--copper) solid 1px;
-    font-size: 2rem;
+    font-size: 1.25rem;
     cursor: pointer;
 }
 
@@ -307,23 +307,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 0;
 }
 
 .article-coffee-edition {
     color: var(--copper);
-    font-size: 2rem;
+    font-size: 1.25rem;
     margin: 0.5rem 0;
 }
 
 .article-coffee-name {
     color: var(--darker-gray);
-    font-size: 2.5rem;
+    font-size: 1.56rem;
     margin: 0.5rem 0;
 }
 
 .article-coffee-price {
     color: var(--wine);
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 800;
     margin: 0.5rem 0;
 }
@@ -340,7 +341,7 @@
     background-color: var(--peach-fizz);
     padding: 1rem 2rem;
     color: var(--wine);
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 700;
     cursor: pointer;
     border-radius: 1rem;
@@ -348,17 +349,161 @@
 }
 
 .article-subscription h2 {
-    font-size: 3.5rem;
+    font-size: 2.2rem;
     color: var(--salmon);
     margin: 0;
 }
 
 .article-subscription p {
     color: var(--salmon);
-    font-size: 2.5rem;
+    font-size: 1.56rem;
     margin: 1.5rem 0;
 }
 #footerInject,
 #footerInject * {
     font-size: initial; 
+}
+
+/* Pantallas pequeñas: evita anchos fijos que exceden el viewport. */
+@media (max-width: 575.98px) {
+    .my-container {
+        padding-inline: 1rem;
+    }
+
+    .hero-section {
+        height: auto;
+        min-height: 36rem;
+        padding-block: 4rem;
+        background-position: 62% top;
+    }
+
+    .hero-content {
+        padding-inline: 1.25rem;
+    }
+
+    .hero-header-two {
+        display: inline-block;
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        padding: .65rem 1rem;
+    }
+
+    .hero-header-one {
+        font-size: clamp(2rem, 10vw, 3rem);
+        line-height: 1.1;
+        margin-top: 1rem;
+    }
+
+    .hero-text {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-text br,
+    .main-featured-products-text br {
+        display: none;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        gap: .75rem;
+    }
+
+    .hero-button--collection,
+    .hero-button--history {
+        width: 100%;
+        font-size: 1rem;
+        padding: .9rem 1rem;
+    }
+
+    .main-featured-products h2,
+    .article-subscription h2 {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+    }
+
+    .main-featured-products-text,
+    .article-subscription p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .main-featured-product {
+        padding: 1rem;
+    }
+
+    .main-coffee-details {
+        gap: .75rem;
+        align-items: baseline;
+    }
+
+    .main-coffee-details h3 {
+        font-size: clamp(1.25rem, 6vw, 1.75rem);
+    }
+
+    .main-coffee-details p,
+    .main-featured-product-text,
+    .main-featured-product a {
+        font-size: 1rem;
+    }
+
+    .article-catalog {
+        margin-top: 2rem;
+    }
+
+    .article-catalog button {
+        font-size: 1rem;
+    }
+
+    .article-panama,
+    .article-cuturra {
+        height: auto;
+        min-height: 9rem;
+        padding: .75rem;
+        column-gap: .75rem;
+    }
+
+    .article-coffee-image,
+    .article-cuturra img,
+    .article-panama img {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+
+    .article-coffee-edition,
+    .article-coffee-price {
+        font-size: .85rem;
+    }
+
+    .article-coffee-name {
+        font-size: clamp(1rem, 5vw, 1.25rem);
+        overflow-wrap: anywhere;
+    }
+
+    .article-subscription {
+        padding: 1.25rem;
+        margin-top: 2rem;
+    }
+
+    .article-subscription button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+.article-catalog a {
+    color: inherit;            /* Hereda el color del texto de su contenedor padre */
+    text-decoration: none;     /* Quita la línea por defecto si la tuviera */
+    border-bottom: 1px solid currentColor; /* Le pone una línea sutil abajo del mismo color del texto */
+    padding-bottom: 2px;       /* Opcional: separa un poquito la línea del texto */
+}
+
+/* Opcional: Si quieres que al pasar el mouse por encima cambie o se mantenga bien */
+.article-catalog a:hover {
+    opacity: 0.8;              /* Hace que baje un poquito la opacidad al pasar el cursor */
+}
+.hero-button--collection,
+.hero-button--history {
+    text-decoration: none;
+}
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
 }
