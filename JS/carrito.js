@@ -8,20 +8,25 @@ let cart = loadCart();
 let actualizarCarritoUI = null;
 
 
-export function addToCart(product) {
+export function addToCart(product, quantity = 1) {
 
     const existingProduct =
-        cart.find(item => item.id === product.id);
+        cart.find(
+            item => item.id === product.id
+        );
 
     if (existingProduct) {
 
-        existingProduct.quantity += 1;
+        existingProduct.quantity += quantity;
 
     } else {
 
         cart.push({
+
             ...product,
-            quantity: 1
+
+            quantity
+
         });
 
     }
@@ -31,7 +36,9 @@ export function addToCart(product) {
     if (actualizarCarritoUI) {
         actualizarCarritoUI();
     }
+
 }
+
 
 
 
