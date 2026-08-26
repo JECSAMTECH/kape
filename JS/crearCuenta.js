@@ -137,8 +137,10 @@ function ValidarForm(event) {
             nombre: nombre,
             email: email,
             telefono: telefono,
-            fechaRegistro: new Date().toISOString()
-            // No incluir password aquí ya que es un dato sensible
+            fechaRegistro: new Date().toISOString(),
+            password: password,
+            // El registro público nunca asigna privilegios administrativos.
+            rol: "usuario"
         };
 
         const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];

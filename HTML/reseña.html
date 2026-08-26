@@ -52,11 +52,10 @@
 
                 <div class="mb-3">
                     <label class="form-label text-muted small">Tu comentario</label>
-                    <textarea class="form-control" rows="3"
-                        placeholder="Describe el aroma, el sabor o cómo fue tu ritual de preparación..."></textarea>
+                    <textarea id="comentario" class="form-control" rows="3" maxlength="500" placeholder="Describe el aroma, el sabor o cómo fue tu ritual de preparación..."></textarea>
                     <div class="d-flex justify-content-between text-muted extra-info mt-1">
-                        <small>Mínimo 10 caracteres.</small>
-                        <small>0 / 500</small>
+                        <small id="minCaracteres">Mínimo 10 caracteres.</small>
+                        <small id="contador">0 / 500</small>
                     </div>
                 </div>
 
@@ -68,7 +67,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button class="btn btn-enviar py-2" type="button">Enviar Reseña ></button>
+                    <button id="btnEnviar" class="btn btn-enviar py-2" type="button">Enviar Reseña ></button>
                 </div>
             </div>
 
@@ -96,7 +95,7 @@
                         <div class="card w-100">
                             <a href="#"><img src="../assets/granosdecafe.png" class="card-img-top" alt="Frascos"></a>
                             <div class="card-body px-2 py-3">
-                                <h5 class="card-title">Set de contenedores</h5>
+                                <h5 class="card-title">Kápe Intenso</h5>
                                 <p class="card-text">$899 MX</p>
                             </div>
                         </div>
@@ -107,8 +106,8 @@
                         <div class="card w-100">
                             <a href="#"><img src="../assets/cafetera.png" class="card-img-top" alt="Cafetera"></a>
                             <div class="card-body px-2 py-3">
-                                <h5 class="card-title">Filtro</h5>
-                                <p class="card-text">$708 MX</p>
+                                <h5 class="card-title">Veracruz Reserva</h5>
+                                <p class="card-text">$780 MX</p>
                             </div>
                         </div>
                     </div>
@@ -118,8 +117,8 @@
                         <div class="card w-100">
                             <a href="#"><img src="../assets/cafeteera.png" class="card-img-top" alt="Hervidor"></a>
                             <div class="card-body px-2 py-3">
-                                <h5 class="card-title">Cafetera Obsidiana</h5>
-                                <p class="card-text">$900 MX</p>
+                                <h5 class="card-title">Sierra Dulce</h5>
+                                <p class="card-text">$999 MX</p>
                             </div>
                         </div>
                     </div>
