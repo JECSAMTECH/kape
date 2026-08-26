@@ -153,6 +153,5 @@ function ValidarForm(event) {
 
     }
 
-
     return esValido;
 }
