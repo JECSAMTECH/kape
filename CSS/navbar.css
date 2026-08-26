@@ -3,17 +3,16 @@
 #7A1F2D Vino
 #F8F5EF Blanco Roto
 #8F4A2C Cobre
- */
+
 
 /* NavBar general */
 .navbar {
-    /* background-color: #D8C7A1; */
     background-color: #F8F5EF;
-    /* background-color: #D8C7A1; */
-
+    padding-block: 3rem;
 }
 
-a {
+/* Anchor Style */
+.navbar-link {
     color: inherit;
     text-decoration: none;
 }
@@ -22,7 +21,7 @@ a {
 .menu-mobile-item {
     color: #7A1F2D;
     font-family: "Sora", sans-serif;
-    font-size: .7rem;
+    font-size: 1.4rem;
     font-weight: 500;
 }
 
@@ -36,31 +35,17 @@ a {
     background-color: #7A1F2D;
     border-radius: .4rem;
     padding: .5rem;
-    /* margin-left: 3rem; */
 }
 
 /* Logo */
 .logo {
-    width: 10rem;
+    width: 14rem;
     height: auto;
 }
 
-
-/* Menú */
-.nav-item {
-    color: #222222;
-    /* font-family: "Sora", sans-serif; */
-    font-family: "Nunito", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
+/* Menú - hover */
 .nav-item:hover {
     color: #7A1F2D;
-}
-
-#inicio {
-    color: #8F4A2C
 }
 
 #inicio:hover {
@@ -86,18 +71,210 @@ a {
     display: flex;
 }
 
-
 /* Botones busqueda, carrito, usuario */
-
-.botonNav {
+.navbar .navbar-btn {
     color: #7A1F2D;
     font-family: "Nunito", sans-serif;
-    font-weight: 700;
+    font-weight: 400;
+    padding: 0.8rem;
+}
 
+.navbar .navbar-btn:hover {
+    background-color: #8F4A2C;
+    color: #F8F5EF;
+}
+
+.navbar .navbar-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Más espacio entre los links del menú */
+.menu.navbar-nav {
+    column-gap: 3rem;
+}
+
+/* Estilo base de todos los links del menú */
+.navbar .navbar-nav .nav-item,
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-nav li a {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #7A1F2D;
+}
+
+/* Estado activo (página actual) */
+.navbar .navbar-nav .nav-item.active,
+#inicio {
+    color: #8F4A2C;
+}
+
+/* Más espacio entre los links del menú */
+.menu.navbar-nav {
+    column-gap: 2 rem;   /* antes 2.5rem */
+}
+
+/* Iconos (búsqueda, carrito, usuario) */
+.navbar .navbar-btn svg {
+    width: 28px;   /* antes 28px */
+    height: 28px;
+}
+
+/* Iconos con más separación entre ellos */
+.iconos_navbar {
+    column-gap: 1rem;
+}
+
+/* ----------------*/
+/* Efecto de subrayado animado en los links del menú */
+.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+
+
+.navbar .navbar-nav .nav-item a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7A1F2D;
+    transition: width 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-item:hover a::after {
+    width: 100%;
+}
+
+/* Página activa: línea fija, sin depender de hover */
+.navbar .navbar-nav .nav-item.active a::after {
+    width: 100%;
+    background-color: #8F4A2C;
+}
+
+
+/* Carrito */
+#cart-offcanvas {
+    background-color: #F8F5EF;
+}
+
+.cart-header {
+    background-color: #F8F5EF;
+    font-family: "Nunito", sans-serif;
+    color: #222222;
+    font-weight: bolder;
+}
+
+#cart-close {
+    font-size: 1.5rem;
+    color: #F8F5EF;
+}
+
+.cart-content {
+    /* background-color: #7A1F2D; */
+    font-family: "Nunito", sans-serif;
+    color: #222222;
+    font-size: 1rem;
+}
+
+.cart-footer {
+    background-color: #F8F5EF;
+    font-family: "Nunito", sans-serif;
+    color: #222222;
+}
+
+.cart-item-image {
+    width: 10rem;
+    height: auto;
+    border-radius: 3rem;
 
 }
 
-.botonNav:hover {
-    background-color: #8F4A2C;
+.cart-items {
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+}
+
+.btn-offcanva {
+    background-color: #7A1F2D;
     color: #F8F5EF;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: .3rem;
+    border: none;
+}
+
+#cart-continue {
+    background-color: #7A1F2D;
+    font-family: "Nunito", sans-serif;
+    color: #F8F5EF;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+/* El administrador se reconoce sin sustituir el icono de cuenta. */
+.navbar .navbar-btn-admin {
+    color: #7A1F2D;
+    position: relative;
+}
+
+.navbar .navbar-btn-admin::after {
+    content: "Admin";
+    position: absolute;
+    right: -8px;
+    bottom: -10px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: #7A1F2D;
+    color: #fff;
+    font-size: .58rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.account-menu-container {
+    position: relative;
+}
+
+.account-menu {
+    position: absolute;
+    z-index: 1100;
+    top: calc(100% + .5rem);
+    right: 0;
+    min-width: 185px;
+    padding: .4rem 0;
+    border: 1px solid #D8C7A1;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(34, 34, 34, .15);
+}
+
+.account-menu a,
+.account-menu button,
+.account-logout-mobile {
+    display: block;
+    width: 100%;
+    padding: .55rem 1rem;
+    border: 0;
+    background: transparent;
+    color: #222;
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+}
+
+.account-menu a:hover,
+.account-menu button:hover,
+.account-logout-mobile:hover {
+    background: #F8F5EF;
+    color: #7A1F2D;
+}
+
+.account-menu button,
+.account-logout-mobile {
+    color: #7A1F2D;
 }

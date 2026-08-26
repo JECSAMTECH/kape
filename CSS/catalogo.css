@@ -227,3 +227,6 @@ background-color: var(--color-guinda);
 .card-body i{
     color: var(--color-marron-badge) !important;
 }
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
+}
