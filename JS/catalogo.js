@@ -1,3 +1,4 @@
+/*
 const botones = document.querySelectorAll('.btn-filtro');
 
 botones.forEach(boton => {
@@ -7,3 +8,4 @@ botones.forEach(boton => {
     });
 });
 
+*/
