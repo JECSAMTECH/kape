@@ -112,12 +112,14 @@
 
 /* Más espacio entre los links del menú */
 .menu.navbar-nav {
-    column-gap: 2 rem;   /* antes 2.5rem */
+    column-gap: 2 rem;
+    /* antes 2.5rem */
 }
 
 /* Iconos (búsqueda, carrito, usuario) */
 .navbar .navbar-btn svg {
-    width: 28px;   /* antes 28px */
+    width: 28px;
+    /* antes 28px */
     height: 28px;
 }
 
@@ -153,4 +155,65 @@
 .navbar .navbar-nav .nav-item.active a::after {
     width: 100%;
     background-color: #8F4A2C;
+}
+
+
+/* Carrito */
+#cart-offcanvas {
+    background-color: #F8F5EF;
+}
+
+.cart-header {
+    background-color: #F8F5EF;
+    font-family: "Nunito", sans-serif;
+    color: #222222;
+    font-weight: bolder;
+}
+
+#cart-close {
+    font-size: 1.5rem;
+    color: #F8F5EF;
+}
+
+.cart-content {
+    /* background-color: #7A1F2D; */
+    font-family: "Nunito", sans-serif;
+    color: #222222;
+    font-size: 1rem;
+}
+
+.cart-footer {
+    background-color: #F8F5EF;
+    font-family: "Nunito", sans-serif;
+    color: #222222;
+}
+
+.cart-item-image {
+    width: 10rem;
+    height: auto;
+    border-radius: 3rem;
+
+}
+
+.cart-items {
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+}
+
+.btn-offcanva {
+    background-color: #7A1F2D;
+    color: #F8F5EF;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: .3rem;
+    border: none;
+}
+
+#cart-continue {
+    background-color: #7A1F2D;
+    font-family: "Nunito", sans-serif;
+    color: #F8F5EF;
+    font-size: 1.2rem;
+    font-weight: bolder;
 }
