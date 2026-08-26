@@ -28,6 +28,9 @@
 </head>
 
 <body>
+    <!--Navbar-->
+    <div id="navbarInject"></div>
+
     <section class="py-4">
         <div class="container">
 
@@ -188,12 +191,28 @@
             </div>
 
         </div>
-    </section>
 
+    </section>
+    <!-- Footer -->
+    <div id="footerInject"></div>
+    <!-- ^^^^^^ -->
 
     <script src="../JS/itemsController.js"></script>
     <script src="../JS/Producto.js"></script>
     <script src="../JS/agregarProducto.js"></script>
+    <script type="module" src="../JS/script.js"></script>
+
+    <script>
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Error al cargar el footer');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('footerInject').innerHTML = data;
+            })
+            .catch(error => console.error(error));
+    </script>
 </body>
 
 </html>
