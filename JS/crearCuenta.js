@@ -61,6 +61,16 @@ function ValidarForm(event) {
         if (emailValido == false) {
             appendAlert('Comprueba que tu correo electrónico sea valido. ejemplo@correo.com')
             esValido = false;
+        } else {
+// Verificación del correo en el localStorage
+            const usuariosExistentes = JSON.parse(localStorage.getItem("usuarios")) || [];
+            const correoRepetido = usuariosExistentes.some(
+                (usuario) => usuario.email.toLowerCase() === email.toLowerCase()
+            );
+            if (correoRepetido) {
+                appendAlert('Correo asociado a una cuenta que ya existe.')
+                esValido = false;
+            }
         }
     } else {
         appendAlert('El correo electrónico es obligatorio.')
