@@ -3,19 +3,7 @@
 #7A1F2D Vino
 #F8F5EF Blanco Roto
 #8F4A2C Cobre
- */
 
-/* Base: 1rem = 10px en todo el sitio */
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
 
 /* NavBar general */
 .navbar {
@@ -33,7 +21,7 @@ html {
 .menu-mobile-item {
     color: #7A1F2D;
     font-family: "Sora", sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 500;
 }
 
@@ -51,7 +39,7 @@ html {
 
 /* Logo */
 .logo {
-    width: 20rem;
+    width: 14rem;
     height: auto;
 }
 
@@ -111,7 +99,7 @@ html {
 .navbar .navbar-nav .nav-link,
 .navbar .navbar-nav li a {
     font-family: "Nunito", sans-serif;
-    font-size: 1.9rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #7A1F2D;
 }
@@ -124,18 +112,18 @@ html {
 
 /* Más espacio entre los links del menú */
 .menu.navbar-nav {
-    column-gap: 3rem;   /* antes 2.5rem */
+    column-gap: 2 rem;   /* antes 2.5rem */
 }
 
 /* Iconos (búsqueda, carrito, usuario) */
 .navbar .navbar-btn svg {
-    width: 32px;   /* antes 28px */
-    height: 32px;
+    width: 28px;   /* antes 28px */
+    height: 28px;
 }
 
 /* Iconos con más separación entre ellos */
 .iconos_navbar {
-    column-gap: 1.5rem;
+    column-gap: 1rem;
 }
 
 /* ----------------*/
