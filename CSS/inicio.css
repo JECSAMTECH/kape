@@ -489,3 +489,21 @@
         font-size: 1rem;
     }
 }
+.article-catalog a {
+    color: inherit;            /* Hereda el color del texto de su contenedor padre */
+    text-decoration: none;     /* Quita la línea por defecto si la tuviera */
+    border-bottom: 1px solid currentColor; /* Le pone una línea sutil abajo del mismo color del texto */
+    padding-bottom: 2px;       /* Opcional: separa un poquito la línea del texto */
+}
+
+/* Opcional: Si quieres que al pasar el mouse por encima cambie o se mantenga bien */
+.article-catalog a:hover {
+    opacity: 0.8;              /* Hace que baje un poquito la opacidad al pasar el cursor */
+}
+.hero-button--collection,
+.hero-button--history {
+    text-decoration: none;
+}
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
+}
