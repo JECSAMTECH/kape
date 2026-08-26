@@ -23,6 +23,19 @@ function ValidarForm(event) {
         alertPlaceholder.append(wrapper)
     }
 
+    // Alerta visual de éxito utilizando los estilos de Bootstrap
+    const appendSuccess = (message) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-success alert-dismissible" role="alert" >`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
 // Limpiamos alertas previas para que no se acumulen en cada submit
     alertPlaceholder.innerHTML = '';
 
@@ -133,7 +146,15 @@ function ValidarForm(event) {
         const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
         usuarios.push(usuario);
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+        // Alerta de éxito
+        appendSuccess('Cuenta creada correctamente');
+
+        // Limpiar todos los campos del formulario
+        document.getElementById("registroForm").reset();
+
     }
+
 
     return esValido;
 }
