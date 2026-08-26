@@ -5,6 +5,35 @@
 const CART_STORAGE_KEY = "kape_cart";
 
 let cart = loadCart();
+let actualizarCarritoUI = null;
+
+
+export function addToCart(product) {
+
+    const existingProduct =
+        cart.find(item => item.id === product.id);
+
+    if (existingProduct) {
+
+        existingProduct.quantity += 1;
+
+    } else {
+
+        cart.push({
+            ...product,
+            quantity: 1
+        });
+
+    }
+
+    saveCart();
+
+    if (actualizarCarritoUI) {
+        actualizarCarritoUI();
+    }
+}
+
+
 
 
 // ======================================================
@@ -146,40 +175,6 @@ export function iniciarCarrito() {
     // AGREGAR PRODUCTO
     // ==================================================
 
-    function addToCart(product) {
-
-        const existingProduct =
-            cart.find(
-                item => item.id === product.id
-            );
-
-
-        if (existingProduct) {
-
-            existingProduct.quantity += 1;
-
-        } else {
-
-            cart.push({
-
-                ...product,
-
-                quantity: 1
-
-            });
-
-        }
-
-
-        saveCart();
-
-        updateCart();
-
-
-        // Abrir carrito automáticamente
-        bootstrapCart.show();
-
-    }
 
 
     // ==================================================
@@ -252,6 +247,20 @@ export function iniciarCarrito() {
         updateCartSubtotal();
 
     }
+
+    actualizarCarritoUI = updateCart;
+
+    //función temporal
+    function agregarYActualizar(product) {
+
+        addToCart(product);
+
+        updateCart();
+
+        bootstrapCart.show();
+
+    }
+
 
 
     // ==================================================
@@ -512,31 +521,31 @@ export function iniciarCarrito() {
     // PRUEBA TEMPORAL
     // ==================================================
 
-    addToCart({
+    //     addToCart({
 
-        id: 1,
+    //         id: 1,
 
-        name: "Café de prueba 1",
+    //         name: "Café de prueba 1",
 
-        price: 50,
+    //         price: 50,
 
-        image:
-            "../assets/images/producto/producto.jpeg"
+    //         image:
+    //             "../assets/images/producto/producto.jpeg"
 
-    });
+    //     });
 
-    addToCart({
+    //     addToCart({
 
-        id: 2,
+    //         id: 2,
 
-        name: "Café de prueba 2",
+    //         name: "Café de prueba 2",
 
-        price: 30,
+    //         price: 30,
 
-        image:
-            "../assets/images/producto/producto.jpeg"
+    //         image:
+    //             "../assets/images/producto/producto.jpeg"
 
-    });
+    //     });
 
 }
 
