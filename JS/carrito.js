@@ -257,18 +257,6 @@ export function iniciarCarrito() {
 
     actualizarCarritoUI = updateCart;
 
-    //función temporal
-    function agregarYActualizar(product) {
-
-        addToCart(product);
-
-        updateCart();
-
-        bootstrapCart.show();
-
-    }
-
-
 
     // ==================================================
     // RENDERIZAR PRODUCTOS
