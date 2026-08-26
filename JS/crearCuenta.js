@@ -125,7 +125,9 @@ function ValidarForm(event) {
             email: email,
             telefono: telefono,
             fechaRegistro: new Date().toISOString(),
-            password: password
+            password: password,
+            // El registro público nunca asigna privilegios administrativos.
+            rol: "usuario"
         };
 
         const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
