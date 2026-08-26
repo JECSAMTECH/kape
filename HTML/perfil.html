@@ -254,18 +254,18 @@
         <!--FOOTER-->
 
         <!-- Footer-->
-    <div id="footerInject"></div>
+        <div id="footerInject"></div>
         <script>
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Error al cargar el footer');
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('footerInject').innerHTML = data;
-            })
-            .catch(error => console.error(error));
-    </script>
+            fetch('footer.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Error al cargar el footer');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footerInject').innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        </script>
 
 </body>
 
