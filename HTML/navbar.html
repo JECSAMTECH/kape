@@ -170,7 +170,7 @@
 
 
         <!-- CONTENIDO -->
-        <div class="cart-content">
+        <div class="cart-content d-flex">
 
 
             <!-- MENSAJE CARRITO VACÍO -->
@@ -202,7 +202,7 @@
 
 
             <!-- LISTA DE PRODUCTOS -->
-            <div id="cart-items" class="cart-items">
+            <div id=" cart-items" class="cart-items">
             </div>
 
         </div>
@@ -210,8 +210,11 @@
 
         <!-- FOOTER DEL CARRITO-->
 
-        <div class="cart-footer">
-
+        <div class="cart-footer d-flex align-items-center gap-3 mb-3 p-2">
+            <!-- Botón checkout -->
+            <button id="cart-checkout" class="cart-checkout btn-offcanva" type="button">
+                Finalizar compra
+            </button>
             <div class="cart-summary">
 
                 <span>
@@ -224,20 +227,13 @@
 
             </div>
 
-            <button id="cart-checkout" class="cart-checkout" type="button">
-                Finalizar compra
-            </button>
-
         </div>
 
 
-        <!-- Botón checkout -->
-        <button id="cart-checkout" class="cart-checkout" type="button">
-
-            Finalizar compra
-
-        </button>
-
+        <!-- Close -->
+        <button id="cart-continue" type="button" class="btn-offcanva" data-bs-dismiss="offcanvas"
+            aria-label="Cerrar carrito">
+            Seguir Comprando</button>
         </div>
 
     </aside>
