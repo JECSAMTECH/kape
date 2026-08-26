@@ -217,3 +217,66 @@
     font-size: 1.2rem;
     font-weight: bolder;
 }
+
+/* El administrador se reconoce sin sustituir el icono de cuenta. */
+.navbar .navbar-btn-admin {
+    color: #7A1F2D;
+    position: relative;
+}
+
+.navbar .navbar-btn-admin::after {
+    content: "Admin";
+    position: absolute;
+    right: -8px;
+    bottom: -10px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: #7A1F2D;
+    color: #fff;
+    font-size: .58rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.account-menu-container {
+    position: relative;
+}
+
+.account-menu {
+    position: absolute;
+    z-index: 1100;
+    top: calc(100% + .5rem);
+    right: 0;
+    min-width: 185px;
+    padding: .4rem 0;
+    border: 1px solid #D8C7A1;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(34, 34, 34, .15);
+}
+
+.account-menu a,
+.account-menu button,
+.account-logout-mobile {
+    display: block;
+    width: 100%;
+    padding: .55rem 1rem;
+    border: 0;
+    background: transparent;
+    color: #222;
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+}
+
+.account-menu a:hover,
+.account-menu button:hover,
+.account-logout-mobile:hover {
+    background: #F8F5EF;
+    color: #7A1F2D;
+}
+
+.account-menu button,
+.account-logout-mobile {
+    color: #7A1F2D;
+}
