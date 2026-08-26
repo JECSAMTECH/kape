@@ -289,3 +289,6 @@ h6 {
 #navbarInject .nav-link {
     font-weight: 400 !important;
 }
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
+}
