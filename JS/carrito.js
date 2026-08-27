@@ -10,10 +10,11 @@ let actualizarCarritoUI = null;
 
 export function addToCart(product, quantity = 1) {
 
-    const existingProduct =
-        cart.find(
-            item => item.id === product.id
-        );
+    const existingProduct = cart.find(
+    item =>
+        item.id === product.id &&
+        item.molienda === product.molienda
+);
 
     if (existingProduct) {
 
@@ -136,22 +137,21 @@ export function iniciarCarrito() {
 
 
     // Verificar que existan los elementos
-    if (
-        !cartButton ||
-        !cartOffcanvas ||
-        !cartItems ||
-        !cartEmpty ||
-        !cartCount ||
-        !cartSubtotal ||
-        !cartCheckout
-    ) {
+    const missing = [];
+    if (!cartButton) missing.push("cart-button");
+    if (!cartOffcanvas) missing.push("cart-offcanvas");
+    if (!cartItems) missing.push("cart-items");
+    if (!cartEmpty) missing.push("cart-empty");
+    if (!cartCount) missing.push("cart-count");
+    if (!cartSubtotal) missing.push("cart-subtotal");
+    if (!cartCheckout) missing.push("cart-checkout");
 
+    if (missing.length > 0) {
         console.error(
-            "No se encontraron todos los elementos del carrito."
+            "No se encontraron todos los elementos del carrito. Faltan:",
+            missing.join(", ")
         );
-
         return;
-
     }
 
 
@@ -159,17 +159,30 @@ export function iniciarCarrito() {
     // BOOTSTRAP OFFCANVAS
     // ==================================================
 
-    const bootstrapCart =
-        window.bootstrap?.Offcanvas
-            ?.getOrCreateInstance(cartOffcanvas);
+    let bootstrapCart = null;
+    try {
+        if (window.bootstrap?.Offcanvas) {
+            bootstrapCart = window.bootstrap.Offcanvas.getOrCreateInstance(cartOffcanvas);
+        }
+    } catch (e) {
+        console.warn("Bootstrap Offcanvas aviso:", e.message);
+    }
 
     function abrirCarrito() {
-        if (bootstrapCart) {
-            bootstrapCart.show();
-            return;
+        if (!bootstrapCart && window.bootstrap?.Offcanvas) {
+            try {
+                bootstrapCart = window.bootstrap.Offcanvas.getOrCreateInstance(cartOffcanvas);
+            } catch (e) {}
         }
 
-        // Respaldo cuando Bootstrap todavía no está disponible.
+        if (bootstrapCart) {
+            try {
+                bootstrapCart.show();
+                return;
+            } catch (e) {}
+        }
+
+        // Respaldo cuando Bootstrap todavía no está disponible o falla.
         cartOffcanvas.classList.add("show");
         cartOffcanvas.style.visibility = "visible";
         cartOffcanvas.setAttribute("aria-modal", "true");
@@ -178,8 +191,10 @@ export function iniciarCarrito() {
 
     function cerrarCarrito() {
         if (bootstrapCart) {
-            bootstrapCart.hide();
-            return;
+            try {
+                bootstrapCart.hide();
+                return;
+            } catch (e) {}
         }
 
         cartOffcanvas.classList.remove("show");
@@ -193,14 +208,12 @@ export function iniciarCarrito() {
     // ABRIR CARRITO DESDE EL BOTÓN
     // ==================================================
 
-    cartButton.addEventListener(
-        "click",
-        () => {
-
+    document.addEventListener("click", (event) => {
+        if (event.target.closest("#cart-button")) {
+            event.preventDefault();
             abrirCarrito();
-
         }
-    );
+    });
 
     document.getElementById("cart-close")
         ?.addEventListener("click", cerrarCarrito);
@@ -219,17 +232,13 @@ export function iniciarCarrito() {
     // ELIMINAR PRODUCTO
     // ==================================================
 
-    function removeFromCart(productId) {
-
+    function removeFromCart(productId, molienda) {
         cart = cart.filter(
-            item => item.id !== productId
+            item.id === productId &&
+            item.molienda === molienda
         );
-
-
         saveCart();
-
         updateCart();
-
     }
 
 
@@ -237,38 +246,22 @@ export function iniciarCarrito() {
     // CAMBIAR CANTIDAD
     // ==================================================
 
-    function changeQuantity(
-        productId,
-        change
-    ) {
-
-        const product =
-            cart.find(
-                item => item.id === productId
-            );
-
-
+    function changeQuantity(productId, molienda, change) {
+        const product = cart.find(
+            item =>
+                item.id === productId &&
+                item.molienda === molienda
+        );
         if (!product) {
             return;
         }
-
-
         product.quantity += change;
-
-
         if (product.quantity <= 0) {
-
-            removeFromCart(productId);
-
+            removeFromCart(productId, molienda);
             return;
-
         }
-
-
         saveCart();
-
         updateCart();
-
     }
 
 
@@ -320,9 +313,8 @@ export function iniciarCarrito() {
                 "cart-item";
 
 
-            cartItem.dataset.productId =
-                product.id;
-
+            cartItem.dataset.productId = product.id;
+            cartItem.dataset.molienda = product.molienda;
 
             cartItem.innerHTML = `
                 <div class="d-flex align-items-center gap-3 mb-3 p-2">
@@ -335,7 +327,7 @@ export function iniciarCarrito() {
 
                     <div class="cart-item-info">
 
-                        <h3 class="cart-item-name">
+                        <h3 class="cart-item-grind">
                             ${product.name}
                         </h3>
 
@@ -466,7 +458,8 @@ export function iniciarCarrito() {
                 Number(
                     cartItem.dataset.productId
                 );
-
+            
+            const molienda = cartItem.dataset.molienda;
 
             const action =
                 button.dataset.action;
@@ -478,6 +471,7 @@ export function iniciarCarrito() {
 
                     changeQuantity(
                         productId,
+                        molienda,
                         1
                     );
 
@@ -488,6 +482,7 @@ export function iniciarCarrito() {
 
                     changeQuantity(
                         productId,
+                        molienda,
                         -1
                     );
 
