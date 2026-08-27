@@ -220,6 +220,7 @@ body {
     align-items: center;
     gap: 14px;
     margin-top: 32px;
+    border: none !important;
 }
 
 .producto-cantidad {
@@ -242,6 +243,12 @@ body {
 .cantidad-numero {
     font-size: 15px;
     font-weight: 600;
+}
+
+.cantidad-producto {
+    width: 65px;
+    text-align: center;
+    border-radius: 0.5rem;
 }
 
 .producto-agregar-boton {
@@ -316,4 +323,7 @@ body {
     .producto-agregar-boton {
         flex-basis: 100%;
     }
+}
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
 }

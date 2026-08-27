@@ -5,6 +5,42 @@
 const CART_STORAGE_KEY = "kape_cart";
 
 let cart = loadCart();
+let actualizarCarritoUI = null;
+
+
+export function addToCart(product, quantity = 1) {
+
+    const existingProduct =
+        cart.find(
+            item => item.id === product.id
+        );
+
+    if (existingProduct) {
+
+        existingProduct.quantity += quantity;
+
+    } else {
+
+        cart.push({
+
+            ...product,
+
+            quantity
+
+        });
+
+    }
+
+    saveCart();
+
+    if (actualizarCarritoUI) {
+        actualizarCarritoUI();
+    }
+
+}
+
+
+
 
 
 // ======================================================
@@ -124,8 +160,33 @@ export function iniciarCarrito() {
     // ==================================================
 
     const bootstrapCart =
-        bootstrap.Offcanvas
-            .getOrCreateInstance(cartOffcanvas);
+        window.bootstrap?.Offcanvas
+            ?.getOrCreateInstance(cartOffcanvas);
+
+    function abrirCarrito() {
+        if (bootstrapCart) {
+            bootstrapCart.show();
+            return;
+        }
+
+        // Respaldo cuando Bootstrap todavía no está disponible.
+        cartOffcanvas.classList.add("show");
+        cartOffcanvas.style.visibility = "visible";
+        cartOffcanvas.setAttribute("aria-modal", "true");
+        cartOffcanvas.removeAttribute("aria-hidden");
+    }
+
+    function cerrarCarrito() {
+        if (bootstrapCart) {
+            bootstrapCart.hide();
+            return;
+        }
+
+        cartOffcanvas.classList.remove("show");
+        cartOffcanvas.style.visibility = "";
+        cartOffcanvas.removeAttribute("aria-modal");
+        cartOffcanvas.setAttribute("aria-hidden", "true");
+    }
 
 
     // ==================================================
@@ -136,50 +197,22 @@ export function iniciarCarrito() {
         "click",
         () => {
 
-            bootstrapCart.show();
+            abrirCarrito();
 
         }
     );
+
+    document.getElementById("cart-close")
+        ?.addEventListener("click", cerrarCarrito);
+
+    document.getElementById("cart-continue")
+        ?.addEventListener("click", cerrarCarrito);
 
 
     // ==================================================
     // AGREGAR PRODUCTO
     // ==================================================
 
-    function addToCart(product) {
-
-        const existingProduct =
-            cart.find(
-                item => item.id === product.id
-            );
-
-
-        if (existingProduct) {
-
-            existingProduct.quantity += 1;
-
-        } else {
-
-            cart.push({
-
-                ...product,
-
-                quantity: 1
-
-            });
-
-        }
-
-
-        saveCart();
-
-        updateCart();
-
-
-        // Abrir carrito automáticamente
-        bootstrapCart.show();
-
-    }
 
 
     // ==================================================
@@ -252,6 +285,8 @@ export function iniciarCarrito() {
         updateCartSubtotal();
 
     }
+
+    actualizarCarritoUI = updateCart;
 
 
     // ==================================================
@@ -512,31 +547,31 @@ export function iniciarCarrito() {
     // PRUEBA TEMPORAL
     // ==================================================
 
-    addToCart({
+    //     addToCart({
 
-        id: 1,
+    //         id: 1,
 
-        name: "Café de prueba 1",
+    //         name: "Café de prueba 1",
 
-        price: 50,
+    //         price: 50,
 
-        image:
-            "../assets/images/producto/producto.jpeg"
+    //         image:
+    //             "../assets/images/producto/producto.jpeg"
 
-    });
+    //     });
 
-    addToCart({
+    //     addToCart({
 
-        id: 2,
+    //         id: 2,
 
-        name: "Café de prueba 2",
+    //         name: "Café de prueba 2",
 
-        price: 30,
+    //         price: 30,
 
-        image:
-            "../assets/images/producto/producto.jpeg"
+    //         image:
+    //             "../assets/images/producto/producto.jpeg"
 
-    });
+    //     });
 
 }
 

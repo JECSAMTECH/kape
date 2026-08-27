@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi perfil</title>
-
+    <link rel="icon" type="image/x-icon" href="../assets/images/IcoLogo1.png">
     <!--BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -51,13 +51,13 @@
                             <a class="nav-link" href="#"><i class="bi bi-person"></i> Mi Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-clock-history"></i> Historial de Pedidos</a>
+                            <a class="nav-link" href="#order-history"><i class="bi bi-clock-history"></i> Historial de Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-credit-card"></i> Métodos de Pago</a>
+                            <a class="nav-link" href="#metodoPago"><i class="bi bi-credit-card"></i> Métodos de Pago</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-geo-alt"></i> Direcciones</a>
+                            <a class="nav-link" href="#infoCliente"><i class="bi bi-info-circle"></i> Información</a>
                         </li>
                         <li class="nav-item mt-2 pt-1">
                             <a class="nav-link cerrar-sesion" href="#"><i class="bi bi-box-arrow-right"></i> Cerrar
@@ -94,7 +94,7 @@
                 </div>
 
                 <!-- SECCIÓN: Historial de Pedidos -->
-                <section class="order-history">
+                <section id="order-history">
                     <!-- Encabezado con "Ver todos" -->
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h2>Historial de pedidos</h2>
@@ -110,8 +110,8 @@
                             </div>
                             <!-- Columna izquierda: información y botones -->
                             <div class="col-6 col-sm-7 infoybotones">
-                                <div class="order-title">Caturra Lavado - Huila</div>
-                                <div class="order-meta">Pedido #KAPE-9421 • 12 de Mayo, 2024</div>
+                                <div class="order-title">Brisa Descafeinada</div>
+                                <div class="order-meta">Pedido #KAPE-9421 • 12 de Julio, 2026</div>
                             </div>
                             <!-- Badge de estado  -->
                             <div class="col-3 col-sm-3 text-end btn-entregado">
@@ -121,14 +121,12 @@
                         <!-- Fila inferior: precio y botones apilados -->
                         <div class="row mt-2 justify-content-end">
                             <div class="col-4 col-sm-3">
-                                <div class="order-price">$430 MX</div>
+                                <div class="order-price">$250 MX</div>
                             </div>
                             <div class="col-8 col-sm-7 text-end">
                                 <div class="order-actions">
-                                    <a href="#" class="btn btn-detalle ">Ver
-                                        Detalle</a>
-                                    <a href="#" class="btn btn-com-res">Dejar comentario /
-                                        Reseña</a>
+                                    <a href="../HTML/producto.html" class="btn btn-detalle ">Ver Detalle</a>
+                                    <a href="../HTML/reseña.html" class="btn btn-com-res">Dejar comentario / Reseña</a>
                                 </div>
                             </div>
                         </div>
@@ -142,8 +140,8 @@
                                     style="max-width:8rem;">
                             </div>
                             <div class="col-6 col-sm-7 infoybotones">
-                                <div class="order-title">Kit de Barista Pro</div>
-                                <div class="order-meta">Pedido #KAPE-9580 • 24 de Mayo, 2024</div>
+                                <div class="order-title">Montaña de Oro</div>
+                                <div class="order-meta">Pedido #KAPE-9580 • 24 de Julio, 2026</div>
                             </div>
                             <div class="col-3 col-sm-3 text-end btn-encamino">
                                 <span class="badge-encamino"> EN CAMINO </span>
@@ -151,12 +149,12 @@
                         </div>
                         <div class="row mt-2 justify-content-end">
                             <div class="col-4 col-sm-3">
-                                <div class="order-price">$990 MX</div>
+                                <div class="order-price">$220 MX</div>
                             </div>
                             <div class="col-8 col-sm-7 text-end">
                                 <div class="order-actions">
-                                    <a href="#" class="btn btn-detalle">Rastrear Pedido</a>
-                                    <a href="#" class="btn btn-com-res">Reseña (Al recibir)</a>
+                                    <a href="/HTML/producto.html" class="btn btn-detalle">Ver Detalle</a>
+                                    <a href="/HTML/reseña.html" class="btn btn-com-res">Dejar comentario / Reseña</a>
                                 </div>
                             </div>
                         </div>
@@ -170,8 +168,8 @@
                                     style="max-width:8REM;">
                             </div>
                             <div class="col-6 col-sm-7 infoybotones">
-                                <div class="order-title">Bourbon Rosado - Pitalito</div>
-                                <div class="order-meta">Pedido #KAPE-8812 • 15 de Abril, 2024</div>
+                                <div class="order-title">Noche de Chiapas</div>
+                                <div class="order-meta">Pedido #KAPE-8812 • 15 de Agosto, 2026</div>
                             </div>
                             <div class="col-3 col-sm-3 text-end btn-entregado">
                                 <span class="badge">ENTREGADO</span>
@@ -181,12 +179,12 @@
                         <!-- Fila inferior: precio y botones apilados -->
                         <div class="row mt-2 justify-content-end">
                             <div class="col-4 col-sm-3">
-                                <div class="order-price">$500 MX</div>
+                                <div class="order-price">$280 MX</div>
                             </div>
                             <div class="col-8 col-sm-7 text-end">
                                 <div class="order-actions">
-                                    <a href="#" class="btn btn-detalle">Volver a Comprar</a>
-                                    <a href="#" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                                    <a href="/HTML/producto.html" class="btn btn-detalle ">Ver Detalle</a>
+                                    <a href="/HTML/reseña.html" class="btn btn-com-res">Dejar comentario / Reseña</a>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +195,7 @@
                 <section class="user-info-payment">
                     <div class="row g-4">
                         <!-- Columna izquierda: MI INFORMACIÓN -->
-                        <div class="col-md-6">
+                        <div id="infoCliente" class="col-md-6">
                             <div class="info-card">
                                 <h6 class="info-title">MI INFORMACIÓN
                                     <i class="bi bi-pencil-square ms-1 text-end"></i>
@@ -218,7 +216,7 @@
                         </div>
 
                         <!-- Columna derecha: MÉTODOS DE PAGO -->
-                        <div class="col-md-6">
+                        <div id="metodoPago" class="col-md-6">
                             <div class="info-card">
                                 <h6 class="info-title">MÉTODOS DE PAGO
                                     <i class="bi bi-plus-circle ms-1 text-end"></i>
@@ -255,18 +253,6 @@
 
         <!-- Footer-->
         <div id="footerInject"></div>
-        <script>
-            fetch('footer.html')
-                .then(response => {
-                    if (!response.ok) throw new Error('Error al cargar el footer');
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('footerInject').innerHTML = data;
-                })
-                .catch(error => console.error(error));
-        </script>
-
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
