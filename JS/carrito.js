@@ -11,10 +11,10 @@ let actualizarCarritoUI = null;
 export function addToCart(product, quantity = 1) {
 
     const existingProduct = cart.find(
-    item =>
-        item.id === product.id &&
-        item.molienda === product.molienda
-);
+        item =>
+            item.id === product.id &&
+            item.molienda === product.molienda
+    );
 
     if (existingProduct) {
 
@@ -172,14 +172,14 @@ export function iniciarCarrito() {
         if (!bootstrapCart && window.bootstrap?.Offcanvas) {
             try {
                 bootstrapCart = window.bootstrap.Offcanvas.getOrCreateInstance(cartOffcanvas);
-            } catch (e) {}
+            } catch (e) { }
         }
 
         if (bootstrapCart) {
             try {
                 bootstrapCart.show();
                 return;
-            } catch (e) {}
+            } catch (e) { }
         }
 
         // Respaldo cuando Bootstrap todavía no está disponible o falla.
@@ -194,7 +194,7 @@ export function iniciarCarrito() {
             try {
                 bootstrapCart.hide();
                 return;
-            } catch (e) {}
+            } catch (e) { }
         }
 
         cartOffcanvas.classList.remove("show");
@@ -234,12 +234,15 @@ export function iniciarCarrito() {
 
     function removeFromCart(productId, molienda) {
         cart = cart.filter(
-            item.id === productId &&
-            item.molienda === molienda
+            item =>
+                item.id !== productId ||
+                item.molienda !== molienda
         );
+
         saveCart();
         updateCart();
     }
+
 
 
     // ==================================================
@@ -458,7 +461,7 @@ export function iniciarCarrito() {
                 Number(
                     cartItem.dataset.productId
                 );
-            
+
             const molienda = cartItem.dataset.molienda;
 
             const action =
@@ -492,10 +495,12 @@ export function iniciarCarrito() {
                 case "remove":
 
                     removeFromCart(
-                        productId
+                        productId,
+                        molienda
                     );
 
                     break;
+
 
             }
 
