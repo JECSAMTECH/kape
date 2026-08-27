@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 const cafes = [
     {
         id_cafe:1,
@@ -155,6 +156,34 @@ if (cafe) {
 }else{
     console.log("error, este producto no existe.");
 }
+
+const botonAgregar = document.querySelector(".producto-agregar-boton");
+botonAgregar.addEventListener("click", () => {
+    const cantidad = Number(
+        document.querySelector(".cantidad-producto").value
+    );
+    const botonMoliendaSeleccionada = document.querySelector(".molienda-seleccionada");
+    const molienda = botonMoliendaSeleccionada.textContent.trim();
+    const productoCarrito = {
+        id: cafe.id_cafe,
+        name: cafe.nombre,
+        price: cafe.precio,
+        image: cafe.imagen,
+        molienda: molienda
+    };
+    addToCart(productoCarrito, cantidad);
+});
+// botones molienda, cuál seleccionó el cliente
+const botonesMolienda = document.querySelectorAll(".molienda-boton");
+botonesMolienda.forEach(boton => {
+    boton.addEventListener("click", () => {
+        botonesMolienda.forEach(boton => {
+            boton.classList.remove("molienda-seleccionada");
+        });
+        boton.classList.add("molienda-seleccionada");
+    });
+});
+
 
 //console.log(cafe);
 

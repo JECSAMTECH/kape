@@ -10,10 +10,11 @@ let actualizarCarritoUI = null;
 
 export function addToCart(product, quantity = 1) {
 
-    const existingProduct =
-        cart.find(
-            item => item.id === product.id
-        );
+    const existingProduct = cart.find(
+    item =>
+        item.id === product.id &&
+        item.molienda === product.molienda
+);
 
     if (existingProduct) {
 
@@ -231,17 +232,13 @@ export function iniciarCarrito() {
     // ELIMINAR PRODUCTO
     // ==================================================
 
-    function removeFromCart(productId) {
-
+    function removeFromCart(productId, molienda) {
         cart = cart.filter(
-            item => item.id !== productId
+            item.id === productId &&
+            item.molienda === molienda
         );
-
-
         saveCart();
-
         updateCart();
-
     }
 
 
@@ -249,38 +246,22 @@ export function iniciarCarrito() {
     // CAMBIAR CANTIDAD
     // ==================================================
 
-    function changeQuantity(
-        productId,
-        change
-    ) {
-
-        const product =
-            cart.find(
-                item => item.id === productId
-            );
-
-
+    function changeQuantity(productId, molienda, change) {
+        const product = cart.find(
+            item =>
+                item.id === productId &&
+                item.molienda === molienda
+        );
         if (!product) {
             return;
         }
-
-
         product.quantity += change;
-
-
         if (product.quantity <= 0) {
-
-            removeFromCart(productId);
-
+            removeFromCart(productId, molienda);
             return;
-
         }
-
-
         saveCart();
-
         updateCart();
-
     }
 
 
@@ -332,9 +313,8 @@ export function iniciarCarrito() {
                 "cart-item";
 
 
-            cartItem.dataset.productId =
-                product.id;
-
+            cartItem.dataset.productId = product.id;
+            cartItem.dataset.molienda = product.molienda;
 
             cartItem.innerHTML = `
                 <div class="d-flex align-items-center gap-3 mb-3 p-2">
@@ -347,7 +327,7 @@ export function iniciarCarrito() {
 
                     <div class="cart-item-info">
 
-                        <h3 class="cart-item-name">
+                        <h3 class="cart-item-grind">
                             ${product.name}
                         </h3>
 
@@ -478,7 +458,8 @@ export function iniciarCarrito() {
                 Number(
                     cartItem.dataset.productId
                 );
-
+            
+            const molienda = cartItem.dataset.molienda;
 
             const action =
                 button.dataset.action;
@@ -490,6 +471,7 @@ export function iniciarCarrito() {
 
                     changeQuantity(
                         productId,
+                        molienda,
                         1
                     );
 
@@ -500,6 +482,7 @@ export function iniciarCarrito() {
 
                     changeQuantity(
                         productId,
+                        molienda,
                         -1
                     );
 
