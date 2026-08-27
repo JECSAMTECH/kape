@@ -38,7 +38,7 @@
 
 
 import { iniciarNavbar } from "./navbar.js";
-import { iniciarCarrito } from "./carrito.js";
+import { iniciarCarrito, addToCart } from "./carrito.js";
 
 
 async function cargarNavbar() {
