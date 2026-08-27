@@ -1,5 +1,5 @@
 import { iniciarNavbar } from "./navbar.js";
-import { iniciarCarrito } from "./carrito.js";
+import { iniciarCarrito, addToCart } from "./carrito.js";
 
 const pathLower = window.location.pathname.toLowerCase();
 const esIndexRaiz = pathLower.endsWith("/index.html") || pathLower.endsWith("/") || pathLower === "" || pathLower.endsWith("kape/");
