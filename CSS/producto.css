@@ -324,3 +324,6 @@ body {
         flex-basis: 100%;
     }
 }
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
+}
