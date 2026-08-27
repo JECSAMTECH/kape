@@ -2,78 +2,78 @@ import { addToCart } from "./carrito.js";
 
 
 // ======================================================
-// PRODUCTO
+// PRODUCTO DE PRUEBA
 // ======================================================
 
-const producto = {
-    id: 1,
-    name: "Cafe Prueba 1",
-    price: 430.12,
-    image: "../assets/images/catalogo/02.png"
-};
+// const producto = {
+//     id: 1,
+//     name: "Cafe Prueba 1",
+//     price: 430.12,
+//     image: "../assets/images/catalogo/02.png"
+// };
 
 
 // ======================================================
 // INICIALIZAR PÁGINA DE PRODUCTO
 // ======================================================
 
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
 
-    const cantidadInput =
-        document.querySelector(".cantidad-producto");
+//     const cantidadInput =
+//         document.querySelector(".cantidad-producto");
 
-    const agregarButton =
-        document.querySelector(".producto-agregar-boton");
-
-
-    if (!cantidadInput || !agregarButton) {
-
-        console.error(
-            "No se encontraron los elementos del producto."
-        );
-
-        return;
-
-    }
+//     const agregarButton =
+//         document.querySelector(".producto-agregar-boton");
 
 
-    // ==================================================
-    // AGREGAR AL CARRITO
-    // ==================================================
+//     if (!cantidadInput || !agregarButton) {
 
-    agregarButton.addEventListener("click", () => {
+//         console.error(
+//             "No se encontraron los elementos del producto."
+//         );
 
-        const cantidad =
-            Number(cantidadInput.value);
+//         return;
 
-
-        if (
-            !Number.isInteger(cantidad) ||
-            cantidad < 1 ||
-            cantidad > 10
-        ) {
-
-            alert(
-                "Selecciona una cantidad válida."
-            );
-
-            return;
-
-        }
+//     }
 
 
-        addToCart(
-            producto,
-            cantidad
-        );
+// ==================================================
+// AGREGAR AL CARRITO
+// ==================================================
 
-    });
+// agregarButton.addEventListener("click", () => {
 
-});
+//     const cantidad =
+//         Number(cantidadInput.value);
+
+
+//     if (
+//         !Number.isInteger(cantidad) ||
+//         cantidad < 1 ||
+//         cantidad > 10
+//     ) {
+
+//         alert(
+//             "Selecciona una cantidad válida."
+//         );
+
+//         return;
+
+//     }
+
+
+//     addToCart(
+//         producto,
+//         cantidad
+//     );
+
+// });
+
+// });
 
 const cafes = [
     {
-        id_cafe:1,
+        id_cafe: 1,
         nombre: "Montaña de Oro",
         descripcion: "Café de cuerpo intenso y aroma dulce.",
         imagen: "../assets/images/catalogo/01.png",
@@ -85,7 +85,7 @@ const cafes = [
         stock: 15
     },
     {
-        id_cafe:2,
+        id_cafe: 2,
         nombre: "Brisa Descafeinada",
         descripcion: "Café suave y equilibrado, perfecto para cualquier hora.",
         imagen: "../assets/images/catalogo/02.png",
@@ -97,7 +97,7 @@ const cafes = [
         stock: 10
     },
     {
-        id_cafe:3,
+        id_cafe: 3,
         nombre: "Noche de Chiapas",
         descripcion: "Café profundo con notas dulces y especiadas.",
         imagen: "../assets/images/catalogo/03.png",
@@ -109,7 +109,7 @@ const cafes = [
         stock: 8
     },
     {
-        id_cafe:4,
+        id_cafe: 4,
         nombre: "Veracruz Reserva",
         descripcion: "Café aromático con acidez equilibrada.",
         imagen: "../assets/images/catalogo/04.png",
@@ -121,7 +121,7 @@ const cafes = [
         stock: 20
     },
     {
-        id_cafe:5,
+        id_cafe: 5,
         nombre: "Sierra Dulce",
         descripcion: "Café dulce y ligero con notas frutales.",
         imagen: "../assets/images/catalogo/03.png",
@@ -133,7 +133,7 @@ const cafes = [
         stock: 12
     },
     {
-        id_cafe:6,
+        id_cafe: 6,
         nombre: "Kápe Intenso",
         descripcion: "Perfil fuerte pensado para los amantes del café intenso.",
         imagen: "../assets/images/catalogo/06.png",
@@ -153,7 +153,7 @@ const idCafe = Number(parametros.get("id"));
 const cafe = cafes.find(cafe => cafe.id_cafe === idCafe);
 if (cafe) {
     mostrarCafe(cafe);
-}else{
+} else {
     console.log("error, este producto no existe.");
 }
 
