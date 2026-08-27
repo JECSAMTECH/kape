@@ -1,0 +1,118 @@
+const form = document.querySelector("#checkout-form");
+
+form.addEventListener("invalid", function (event) {
+
+    const input = event.target;
+
+    if (input.validity.valueMissing) {
+
+        // Radio buttons
+        if (input.name === "payment-method") {
+            input.setCustomValidity("Selecciona un método de pago.");
+        }
+
+        else if (input.name === "shipping-method") {
+            input.setCustomValidity("Selecciona un método de envío.");
+        }
+
+        // Shipping information
+        else if (input.placeholder === "Nombre") {
+            input.setCustomValidity("Por favor, ingresa tu nombre.");
+        }
+
+        else if (input.placeholder === "Apellido") {
+            input.setCustomValidity("Por favor, ingresa tu apellido.");
+        }
+
+        else if (input.placeholder === "Dirección") {
+            input.setCustomValidity("Por favor, ingresa tu dirección.");
+        }
+
+        else if (input.placeholder === "Ciudad") {
+            input.setCustomValidity("Por favor, ingresa tu ciudad.");
+        }
+
+        else if (input.placeholder === "Código Postal") {
+            input.setCustomValidity("Por favor, ingresa tu código postal.");
+        }
+
+        // Card information
+        else if (input.placeholder === "**** **** **** 4242") {
+            input.setCustomValidity("Por favor, ingresa tu número de tarjeta.");
+        }
+
+        else if (input.placeholder === "MM/AA") {
+            input.setCustomValidity("Por favor, ingresa la fecha de vencimiento.");
+        }
+
+        else if (input.placeholder === "CVV") {
+            input.setCustomValidity("Por favor, ingresa el código de seguridad.");
+        }
+
+        else {
+            input.setCustomValidity("Este campo es obligatorio.");
+        }
+
+    }
+
+    else if (input.validity.patternMismatch) {
+
+        if (input.placeholder === "**** **** **** 4242") {
+            input.setCustomValidity("El número de tarjeta debe contener 16 dígitos.");
+        }
+
+        else if (input.placeholder === "MM/AA") {
+            input.setCustomValidity("La fecha debe tener el formato MM/AA.");
+        }
+
+        else if (input.placeholder === "CVV") {
+            input.setCustomValidity("El código de seguridad debe contener 3 dígitos.");
+        }
+
+        else if (input.placeholder === "Código Postal") {
+            input.setCustomValidity("El código postal no tiene un formato válido.");
+        }
+
+        else {
+            input.setCustomValidity("El formato ingresado no es válido.");
+        }
+    }
+
+}, true);
+
+
+// Clear custom validation when typing
+form.addEventListener("input", function (event) {
+    event.target.setCustomValidity("");
+});
+
+
+// Clear custom validation when selecting a radio button
+form.addEventListener("change", function (event) {
+
+    if (event.target.type === "radio") {
+
+        const radios = form.querySelectorAll(
+            `input[name="${event.target.name}"]`
+        );
+
+        radios.forEach(function (radio) {
+            radio.setCustomValidity("");
+        });
+    }
+});
+
+const expirationInput = document.querySelector(
+    '[placeholder="MM/AA"]'
+);
+
+expirationInput.addEventListener("input", function () {
+
+    let value = expirationInput.value.replace(/\D/g, "");
+
+    if (value.length > 2) {
+        value = value.slice(0, 2) + "/" + value.slice(2);
+    }
+
+    expirationInput.value = value;
+});

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS/pago.css">
+    <link rel="stylesheet" href="../CSS/normalize.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../CSS/pago.css">
+
+    <title>Pago</title>
+</head>
+
+<body>
+
+    <div class="my-container">
+
+        <!-- Logo -->
+        <div class="logo-container">
+            <img class="logo" src="../IMG/transparent_logo.png" alt="Logo Käpe">
+        </div>
+
+        <!-- Checkout steps -->
+        <div class="checkout-steps">
+
+            <div class="checkout-step completed">
+                <div class="step-circle">✓</div>
+                <span class="step-title">INFORMACIÓN</span>
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="checkout-step completed">
+                <div class="step-circle">✓</div>
+                <span class="step-title">ENVÍO/MÉTODO DE PAGO</span>
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="checkout-step active">
+                <div class="step-circle">3</div>
+                <span class="step-title">PAGO</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <main class="main-container my-container">
+
+        <!-- LEFT -->
+        <div class="main-first-section">
+
+            <section class="main-first-section-container payment-review">
+
+                <h2 class="heading-two text-center">
+                    Revisa tu pedido
+                </h2>
+
+                <p class="review-description">
+                    Verifica que toda la información sea correcta
+                    antes de realizar el pago.
+                </p>
+
+
+                <!-- Shipping -->
+                <div class="review-card">
+
+                    <div class="review-card-header">
+
+                        <div class="review-title">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>Dirección de envío</h3>
+                        </div>
+
+                        <a href="finalizarCompra.html">
+                            Editar
+                        </a>
+
+                    </div>
+
+                    <div class="review-card-content">
+
+                        <strong id="nombre-cliente"></strong>
+                        <strong id="apellido-cliente"></strong>
+
+                        <p id="direccion-cliente">
+
+                        </p>
+
+                        <p id="ciudad-cliente">
+
+                        </p>
+
+                        <p id="codigo-postal-cliente"> 
+
+                        </p>
+
+                        <p id="pais-cliente">
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Payment method -->
+                <div class="review-card">
+
+                    <div class="review-card-header">
+
+                        <div class="review-title">
+                            <i class="bi bi-credit-card"></i>
+                            <h3>Método de pago</h3>
+                        </div>
+
+                        <a href="finalizarCompra.html">
+                            Cambiar
+                        </a>
+
+                    </div>
+
+                    <div class="selected-payment">
+
+                        <div class="selected-payment-icon">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+
+                        <div>
+
+                            <strong id="metodo-pago">
+
+                            </strong>
+
+                            <p id="detalles-pago">
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Shipping method -->
+                <div class="review-card">
+
+                    <div class="review-card-header">
+
+                        <div class="review-title">
+                            <i class="bi bi-truck"></i>
+                            <h3>Método de envío</h3>
+                        </div>
+
+                        <a href="finalizarCompra.html">
+                            Cambiar
+                        </a>
+
+                    </div>
+
+                    <div class="shipping-review">
+
+                        <div>
+
+                            <strong id="metodo-envio">
+                                Envío estándar
+                            </strong>
+
+                            <p id="entrega-estimada">
+                                
+                            </p>
+
+                        </div>
+
+                        <strong>
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Security -->
+                <div class="payment-security">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    <div>
+
+                        <strong>
+                            Compra segura
+                        </strong>
+
+                        <p>
+                            Tus datos están protegidos y
+                            procesamos tu compra de forma segura.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="main-second-section">
+
+            <div class="main-second-section-container">
+
+                <div class="order-summary">
+
+                    <div class="order-summary-header">
+
+                        <h2 class="heading-two text-center">
+                            Resumen
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Product -->
+                    <div class="summary-product">
+
+                        <img src="#" alt="Café">
+
+                        <div>
+
+                            <strong>
+
+                            </strong>
+
+                            <p>
+                                Cantidad:
+                            </p>
+
+                        </div>
+
+                        <strong>
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-divider"></div>
+
+
+                    <div class="order-summary-details">
+
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span></span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="order-summary-details-total">
+
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="confirm-purchase">
+
+                        <div class="confirm-purchase-button">
+
+                            <a href="#">
+                                Realizar Pago
+                            </a>
+
+                        </div>
+
+                        <div class="confirm-purchase-details">
+
+                            Al confirmar aceptas nuestros
+                            términos y condiciones.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-shipping-info">
+
+                <div class="secure-checkout">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-shield-check-icon lucide-shield-check">
+                        <path
+                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    <label>
+                        Secure Checkout
+                    </label>
+
+                </div>
+
+
+                <div class="secure-checkout">
+
+                    <i class="bi bi-truck"></i>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#7A1F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-truck-icon lucide-truck">
+                        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+                        <path d="M15 18H9" />
+                        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+                        <circle cx="17" cy="18" r="2" />
+                        <circle cx="7" cy="18" r="2" />
+                    </svg>
+                    <label>
+                        Plastic-free shipping
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../JS/pago.js"></script>
+
+</body>
+
+</html>

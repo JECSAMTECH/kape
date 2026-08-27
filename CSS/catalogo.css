@@ -161,7 +161,7 @@ background-color: var(--color-guinda);
 
 .btn-agregar {
     /*background-color: #722231;*/
-    border: 1px solid #722231;
+    border: 1px solid #8C4327; ;
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     letter-spacing: 0.3px;
@@ -170,8 +170,8 @@ background-color: var(--color-guinda);
 
 /* Estado Hover (al pasar el cursor) */
 .btn-agregar:hover {
-    background-color: #551924; 
-    border-color: #551924;
+    background-color: #8C4327 !important; 
+    border-color: #8C4327; ;
     color: #ffffff;
     transform: translateY(-1px); 
     box-shadow: 0 4px 12px rgba(114, 34, 49, 0.3) !important;
@@ -180,8 +180,8 @@ background-color: var(--color-guinda);
 /* Estado Focus/Active (al hacer clic) */
 .btn-agregar:active,
 .btn-agregar:focus {
-    background-color: #42131c !important;
-    border-color: #42131c !important;
+    background-color: #8C4327 !important;
+    border-color: #8C4327 !important;
     box-shadow: 0 0 0 0.25rem rgba(114, 34, 49, 0.4) !important;
 }
 
@@ -226,4 +226,7 @@ background-color: var(--color-guinda);
 /* Iconos */
 .card-body i{
     color: var(--color-marron-badge) !important;
+}
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
 }

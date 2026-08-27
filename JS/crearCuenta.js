@@ -8,7 +8,8 @@ document.getElementById("telefono").addEventListener("input", function (e) {
 });
 
 // Alerta visual de error utilizando los estilos de Bootstrap
-function ValidarForm() {
+function ValidarForm(event) {
+    event.preventDefault(); // Evita que el formulario se envíe automáticamente
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
     const appendAlert = (message) => {
         const wrapper = document.createElement('div')
@@ -22,7 +23,20 @@ function ValidarForm() {
         alertPlaceholder.append(wrapper)
     }
 
- // Limpiamos alertas previas para que no se acumulen en cada submit
+    // Alerta visual de éxito utilizando los estilos de Bootstrap
+    const appendSuccess = (message) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-success alert-dismissible" role="alert" >`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+    }
+
+// Limpiamos alertas previas para que no se acumulen en cada submit
     alertPlaceholder.innerHTML = '';
 
 //Definimos las variables de los campos del formulario
@@ -60,6 +74,16 @@ function ValidarForm() {
         if (emailValido == false) {
             appendAlert('Comprueba que tu correo electrónico sea valido. ejemplo@correo.com')
             esValido = false;
+        } else {
+// Verificación del correo en el localStorage
+            const usuariosExistentes = JSON.parse(localStorage.getItem("usuarios")) || [];
+            const correoRepetido = usuariosExistentes.some(
+                (usuario) => usuario.email.toLowerCase() === email.toLowerCase()
+            );
+            if (correoRepetido) {
+                appendAlert('Correo asociado a una cuenta que ya existe.')
+                esValido = false;
+            }
         }
     } else {
         appendAlert('El correo electrónico es obligatorio.')
@@ -107,24 +131,30 @@ function ValidarForm() {
     esValido = false;
 }
 
-    return esValido;
-
 // Guardar en localStorage solo si todo es válido
     if (esValido) {
         const usuario = {
             nombre: nombre,
             email: email,
             telefono: telefono,
-            fechaRegistro: new Date().toISOString()
-            // No incluir password aquí ya que es un dato sensible
+            fechaRegistro: new Date().toISOString(),
+            password: password,
+            // El registro público nunca asigna privilegios administrativos.
+            rol: "usuario"
         };
 
- // Traer la lista existente, o crear una vacía si no hay nada
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        usuarios.push(usuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    usuarios.push(usuario);
+        // Alerta de éxito
+        appendSuccess('Cuenta creada correctamente');
 
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        // Limpiar todos los campos del formulario
+        document.getElementById("registroForm").reset();
 
-}
+    }
+
+
+    return esValido;
 }
