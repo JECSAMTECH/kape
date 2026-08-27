@@ -142,17 +142,6 @@
         crossorigin="anonymous"></script>
     <script src="../JS/reseña.js"></script>
 
-    <script>
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Error al cargar el footer');
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('footerInject').innerHTML = data;
-            })
-            .catch(error => console.error(error));
-    </script>
     <script type="module" src="../JS/script.js"></script>
 </body>
 

@@ -233,19 +233,6 @@
     <script src="../JS/reviews.js"></script>
     <!-- Footer-->
     <div id="footerInject"></div>
-    <script>
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Error al cargar el footer');
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('footerInject').innerHTML = data;
-            })
-            .catch(error => console.error(error));
-    </script>
-
-
     <script type="module" src="../JS/script.js"></script>
     <!-- Script Agregar producto a carrito -->
     <script type="module" src="../JS/producto.js"></script>
