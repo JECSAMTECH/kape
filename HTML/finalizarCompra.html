@@ -66,7 +66,7 @@
         </div>
     </div>
 
-    <main class="main-container my-container">
+   <form class="main-container my-container" id="checkout-form" action="pago.html" method="get">
         <div class="main-first-section">
 
             <section class="main-first-section-container">
@@ -76,39 +76,58 @@
                     <div class="name-fields">
                         <div class="field name-field">
                             <label class="regular-font-size" for="">Nombre</label>
-                            <input type="text" placeholder="Nombre">
+                            <input type="text" placeholder="Nombre" required>
                         </div>
                         <div class="field">
                             <label class="regular-font-size" for="">Apellido</label>
-                            <input type="text" placeholder="Apellido">
+                            <input type="text" placeholder="Apellido" required>
                         </div>
                     </div>
 
                     <div class="address-field">
                         <div class="field">
                             <label class="regular-font-size" for="">Dirección</label>
-                            <input type="text" placeholder="Dirección">
+                            <input type="text" placeholder="Dirección" required>
                         </div>
                     </div>
 
                     <div class="city-zip-country-fields">
                         <div class="field city-field">
                             <label class="regular-font-size" for="">Ciudad</label>
-                            <input type="text" placeholder="Ciudad">
+                            <input type="text" placeholder="Ciudad" required>
                         </div>
 
                         <div class="field zip-field">
                             <label class="regular-font-size" for="">Código Postal</label>
-                            <input type="number" placeholder="Código Postal">
+                            <input type="text" maxlength="10" placeholder="Código Postal" inputmode="numeric" pattern="[0-9]{10}" required>
                         </div>
 
                         <div class="field">
                             <label class="regular-font-size" for="">País</label>
-                            <select name="country" id="country">
+                            <select class="countries" name="country" id="country" required>
+                                <option value="" selected disabled>--Selecciona--</option>
                                 <option value="argentina">Argentina</option>
                                 <option value="brasil">Brasil</option>
+                                <option value="canada">Canadá</option>
                                 <option value="chile">Chile</option>
+                                <option value="colombia">Colombia</option>
+                                <option value="costa-rica">Costa Rica</option>
+                                <option value="cuba">Cuba</option>
+                                <option value="ecuador">Ecuador</option>
+                                <option value="el-salvador">El Salvador</option>
+                                <option value="estados-unidos">Estados Unidos</option>
+                                <option value="guatemala">Guatemala</option>
+                                <option value="honduras">Honduras</option>
+                                <option value="jamaica">Jamaica</option>
+                                <option value="mexico">México</option>
+                                <option value="nicaragua">Nicaragua</option>
+                                <option value="panama">Panamá</option>
+                                <option value="paraguay">Paraguay</option>
+                                <option value="peru">Perú</option>
+                                <option value="puerto-rico">Puerto Rico</option>
+                                <option value="republica-dominicana">República Dominicana</option>
                                 <option value="uruguay">Uruguay</option>
+                                <option value="venezuela">Venezuela</option>
                             </select>
                         </div>
 
@@ -125,7 +144,7 @@
                     <div class="field-option-container">
                         <label class="payment-method">
                             <div class="payment-method-details">
-                                <input type="radio" name="payment-method" value="wallet">
+                                <input type="radio" name="payment-method" value="wallet" required>
                                 <span class="payment-method__name">
                                     Transferencia Bancaria
                                 </span>
@@ -177,7 +196,7 @@
                         </div>
 
                         <div class="number-card-input">
-                            <input type="number" placeholder="**** **** **** 4242">
+                            <input type="text" maxlength="16" inputmode="numeric" pattern="[0-9]{16}" placeholder="**** **** **** 4242" required>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="#7A1F2D" stroke-width="2" stroke-linecap="round"
@@ -197,7 +216,7 @@
                                 <label class="label-style regular-font-size" for="">Fecha de vencimiento</label>
                             </div>
 
-                            <input class="field" type="text" placeholder="MM/AA">
+                            <input class="field" type="text" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" placeholder="MM/AA" required>
                         </div>
 
                         <div class="field card-cvv">
@@ -205,7 +224,7 @@
                                 <label class="label-style regular-font-size" for="">Código de seguridad</label>
                             </div>
 
-                            <input class="field" type="number" placeholder="CVV">
+                            <input class="field" type="text" maxlength="3" pattern="[0-9]{3}" inputmode="numeric" placeholder="CVV" required>
                         </div>
                     </div>
 
@@ -221,7 +240,7 @@
                     <div class="field-option-container">
                         <label class="payment-method">
                             <div class="payment-method-details">
-                                <input type="radio" name="shipping-method" value="wallet">
+                                <input type="radio" name="shipping-method" value="wallet" required>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="#7A1F2D" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-truck-icon lucide-truck">
@@ -246,7 +265,8 @@
 
 
                             <div class="shipping-details">
-                                <p class="shipping-details-paragraph shipping-details-paragraph--one">3 - 5 días hábiles</p>
+                                <p class="shipping-details-paragraph shipping-details-paragraph--one">3 - 5 días hábiles
+                                </p>
                                 <p class="shipping-details-paragraph shipping-details-paragraph--two">$35.00 MXM</p>
                             </div>
 
@@ -276,7 +296,8 @@
 
 
                             <div class="shipping-details">
-                                <p class="shipping-details-paragraph shipping-details-paragraph--one">1 - 2 días hábiles</p>
+                                <p class="shipping-details-paragraph shipping-details-paragraph--one">1 - 2 días hábiles
+                                </p>
                                 <p class="shipping-details-paragraph shipping-details-paragraph--two">$35.00 MXM</p>
                             </div>
 
@@ -303,7 +324,7 @@
                                         Express
                                     </div>
                                     <span class="shipping-method__details">
-                                        Entrega premium y seguimiento especial
+                                        Entrega premium con atención especial
                                     </span>
                                 </div>
                             </div>
@@ -346,7 +367,7 @@
 
                     <div class="confirm-purchase">
                         <div class="confirm-purchase-button">
-                            <a href="pago.html">Confirmar Compra</a>
+                            <button type="submit">Confirmar Compra</button>
                         </div>
                         <div class="confirm-purchase-details">
                             <label for="">Prices include VAT and artisanal packaging.</label>
@@ -384,7 +405,7 @@
 
             </div>
         </div> <!-- End of the second main section -->
-    </main>
+   </form>
 
 
 
@@ -392,6 +413,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="../JS/validationEnEspanol""></script>
 </body>
 
 </html>
