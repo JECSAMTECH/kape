@@ -1,7 +1,10 @@
 import { iniciarNavbar } from "./navbar.js";
 import { iniciarCarrito } from "./carrito.js";
 
-const estaEnHtml = window.location.pathname.includes("/HTML/");
+const pathLower = window.location.pathname.toLowerCase();
+const esIndexRaiz = pathLower.endsWith("/index.html") || pathLower.endsWith("/") || pathLower === "" || pathLower.endsWith("kape/");
+const estaEnHtml = pathLower.includes("/html/") || (!esIndexRaiz && pathLower.endsWith(".html"));
+
 const rutaComponentes = estaEnHtml ? "." : "./HTML";
 const rutaEstilos = estaEnHtml ? "../CSS" : "./CSS";
 
@@ -19,7 +22,7 @@ function cargarBootstrap() {
     return new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.id = "bootstrap-component-js";
-        script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js";
+        script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
         script.addEventListener("load", resolve, { once: true });
         script.addEventListener("error", () => reject(new Error("No se pudo cargar Bootstrap.")), { once: true });
         document.head.append(script);
@@ -33,9 +36,15 @@ function cargarEstilo(id, archivo) {
     enlace.id = id;
     enlace.rel = "stylesheet";
     enlace.href = `${rutaEstilos}/${archivo}`;
+
     enlace.addEventListener("error", () => {
-        console.error(`No se pudo cargar el estilo ${archivo}.`);
+        const rutasAlt = [`./CSS/${archivo}`, `../CSS/${archivo}`, `/CSS/${archivo}`];
+        const siguiente = rutasAlt.find(r => r !== enlace.href);
+        if (siguiente) {
+            enlace.href = siguiente;
+        }
     }, { once: true });
+
     document.head.append(enlace);
 }
 
@@ -55,10 +64,41 @@ async function cargarComponente(contenedorId, archivo, estiloId, estilo) {
 
     cargarEstilo(estiloId, estilo);
 
-    const respuesta = await fetch(`${rutaComponentes}/${archivo}`);
-    if (!respuesta.ok) throw new Error(`No se pudo cargar ${archivo}.`);
+    const rutasCandidatas = [
+        `${rutaComponentes}/${archivo}`,
+        `./${archivo}`,
+        `./HTML/${archivo}`,
+        `/HTML/${archivo}`
+    ];
+    const rutasUnicas = [...new Set(rutasCandidatas)];
 
-    contenedor.innerHTML = await respuesta.text();
+    let htmlTexto = null;
+    for (const ruta of rutasUnicas) {
+        try {
+            const respuesta = await fetch(ruta);
+            if (respuesta.ok) {
+                const text = await respuesta.text();
+                const cleanText = text.trim().toLowerCase();
+                if (text && text.trim().length > 0 && !cleanText.startsWith("<!doctype") && !cleanText.startsWith("<html")) {
+                    htmlTexto = text;
+                    break;
+                }
+            }
+        } catch (e) {
+            // Probar siguiente ruta
+        }
+    }
+
+    if (!htmlTexto) {
+        console.error(`No se pudo cargar el componente ${archivo} desde ninguna ruta.`);
+        return false;
+    }
+
+    // Limpiar cualquier script inyectado por Live Server dentro de los fragmentos HTML (p. ej. dentro de los SVGs)
+    htmlTexto = htmlTexto.replace(/<!-- Code injected by live-server -->[\s\S]*?<\/script>/gi, "")
+                         .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
+
+    contenedor.innerHTML = htmlTexto;
     return true;
 }
 
