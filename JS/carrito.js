@@ -160,8 +160,33 @@ export function iniciarCarrito() {
     // ==================================================
 
     const bootstrapCart =
-        bootstrap.Offcanvas
-            .getOrCreateInstance(cartOffcanvas);
+        window.bootstrap?.Offcanvas
+            ?.getOrCreateInstance(cartOffcanvas);
+
+    function abrirCarrito() {
+        if (bootstrapCart) {
+            bootstrapCart.show();
+            return;
+        }
+
+        // Respaldo cuando Bootstrap todavía no está disponible.
+        cartOffcanvas.classList.add("show");
+        cartOffcanvas.style.visibility = "visible";
+        cartOffcanvas.setAttribute("aria-modal", "true");
+        cartOffcanvas.removeAttribute("aria-hidden");
+    }
+
+    function cerrarCarrito() {
+        if (bootstrapCart) {
+            bootstrapCart.hide();
+            return;
+        }
+
+        cartOffcanvas.classList.remove("show");
+        cartOffcanvas.style.visibility = "";
+        cartOffcanvas.removeAttribute("aria-modal");
+        cartOffcanvas.setAttribute("aria-hidden", "true");
+    }
 
 
     // ==================================================
@@ -172,10 +197,16 @@ export function iniciarCarrito() {
         "click",
         () => {
 
-            bootstrapCart.show();
+            abrirCarrito();
 
         }
     );
+
+    document.getElementById("cart-close")
+        ?.addEventListener("click", cerrarCarrito);
+
+    document.getElementById("cart-continue")
+        ?.addEventListener("click", cerrarCarrito);
 
 
     // ==================================================
