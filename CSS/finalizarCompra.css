@@ -33,9 +33,26 @@ html {
 }
 
 input::placeholder {
-    font-size: 1.2rem;
-    /* Adjust size as needed */
+    font-size: 1.5rem;
     color: #888888;
+}
+
+input[type="radio"] {
+  accent-color: #800020; 
+  width: 1.2rem;        
+  
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .regular-font-size {
@@ -197,6 +214,11 @@ input::placeholder {
     border: .5px solid var(--copper);
     background: transparent;
     height: 3rem;
+}
+
+.countries{
+    font-size: 1.5rem;
+    background: transparent;
 }
 
 /*  The three form Fields  */
@@ -434,6 +456,15 @@ input::placeholder {
     border-radius: 1rem;
 }
 
+.confirm-purchase-button button{
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--white);
+    font-weight: 600;
+
+}
+
 .confirm-purchase-button:hover{
     background-color: var(--copper);
 }
@@ -465,6 +496,7 @@ input::placeholder {
 
 .shipping-details-paragraph {
     margin: 0;
+    text-align: end;
 }
 
 .shipping-details-paragraph--one {
