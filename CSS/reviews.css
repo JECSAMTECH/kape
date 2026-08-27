@@ -1,0 +1,89 @@
+
+.opiniones-resumen h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212529;
+}
+
+.promedio-estrellas {
+    font-size: 1.25rem;
+    color: #ffc107;
+}
+
+.promedio-calificacion {
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.total-calificaciones {
+    font-size: 0.6rem;
+    color: #555b60;
+}
+
+.rating-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.rating-label {
+    width: 80px;
+    flex-shrink: 0;
+    color: #6c757d;
+}
+
+.rating-percentage {
+    width: 40px;
+    flex-shrink: 0;
+    text-align: right;
+    color: #6c757d;
+}
+
+.rating-row .progress {
+    height: 16px;
+}
+
+.rating-row .progress-bar {
+    background-color: #ffc107;
+}
+
+.opiniones-nota {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* avatar */
+.avatar-review {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    background-color: #6f4e37;
+    color: white;
+}
+
+.avatar-review i {
+    font-size: 1.1rem;
+}
+
+.comentario-resenia  {
+    font-size: .9rem;
+}
+
+.fecha-resenia{
+    color: #454441;
+    font-size: .9rem;
+}
+
+.titulo-resenia{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #373a3e;
+}
+.estrellas-resenia{
+    color: #373a3e;
+}
+.nombre-usuario{
+    font-size: .9rem;
+}

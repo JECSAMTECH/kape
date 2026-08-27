@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
 
     <link rel="preload" href="./CSS/normalize.css">
     <link rel="stylesheet" href="./CSS/normalize.css">
 
     <link rel="preload" href="./CSS/inicio.css">
     <link rel="stylesheet" href="./CSS/inicio.css">
+
+    <!-- navbar.css ya no se enlaza aquí: viene inyectado dentro de navbar.html -->
 
     <!-- Tipográfia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,12 +34,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Kape </title>
 
     <!--    -->
 </head>
 
 <body>
+    <!-- Navbar (inyectado por JS/script.js) -->
+    <div id="navbarInject"></div>
 
     <section class="hero-section">
         <div class="hero-content">
@@ -51,8 +54,8 @@
                 preservar el alma de cada finca.
             </p>
             <div class="hero-buttons">
-                <button class="hero-button--collection">Explorar Colección</button>
-                <button class="hero-button--history">Nuestra Historia</button>
+            <a href="/HTML/catalogo.html" class="hero-button--collection">Explorar Colección</a>
+            <a href="/HTML/nosotros.html" class="hero-button--history">Nuestra Historia</a>
             </div>
         </div>
     </section>
@@ -68,19 +71,18 @@
             </div>
 
             <div class="main-featured-product">
-                <div class="main-featured-product--image">
-                    <img src="./IMG/coffee.png" alt="coffee image">
-                </div>
-                <div class="main-coffee-details">
-                    <h3>Espresso Bourbon Rojo</h3>
-                    <p>$430.05</p>
-                </div>
-                <p class="main-featured-product-text">
-                    Notas de chocolate amargo, cereza negra y un final
-                    sedoso. Finca La Esperanza, 1800m.
-                </p>
-                <a href="">Añadir al carrito →</a>
+            <div class="main-featured-product--image">
+            <img src="../assets/images/catalogo/06.png" alt="Kápe Intenso image">
             </div>
+            <div class="main-coffee-details">
+                <h3>Kápe Intenso</h3>
+                <p>$290</p>
+            </div>
+            <p class="main-featured-product-text">
+                Perfil fuerte pensado para los amantes del café intenso con notas a cacao, nuez y caramelo.
+            </p>
+            <a href="">Añadir al carrito →</a>
+        </div>
 
         </section>
 
@@ -88,36 +90,34 @@
         <article class="article-section">
 
             <div class="article-catalog">
-                <button>Ver todo el catálogo</button>
+            <a href="/HTML/catalogo.html" class="catalog-button">Ver todo el catálogo</a>
             </div>
 
             <div class="article-coffees">
-                <div class="article-cuturra">
-                    <div class="article-coffee-image">
-                        <img src="./IMG/panama.png" alt="coffee cuturra image">
-                    </div>
+    <!-- Producto 1: Montaña de Oro -->
+    <div class="article-cuturra">
+        <div class="article-coffee-image">
+            <img src="../assets/images/catalogo/01.png" alt="Montaña de Oro image">
+        </div>
+        <div class="article-coffee-details">
+            <p class="article-coffee-edition">Tueste Medio</p>
+            <p class="article-coffee-name">Montaña de Oro</p>
+            <p class="article-coffee-price">$250</p>
+        </div>
+    </div>
 
-                    <div class="article-coffee-details">
-                        <p class="article-coffee-edition">Edición Limitada</p>
-                        <p class="article-coffee-name">Geisha Panameño</p>
-                        <p class="article-coffee-price">$737.37</p>
-                    </div>
-                </div>
-
-                <div class="article-panama">
-                    <div class="article-coffee-image">
-                        <img src="./IMG/cultura.png" alt="coffee panama image">
-                    </div>
-
-                    <div class="article-coffee-details">
-                        <p class="article-coffee-edition">Tueste Medio</p>
-                        <p class="article-coffee-name">Caturra Lavado</p>
-                        <p class="article-coffee-price">$331.82</p>
-                    </div>
-
-                </div>
-
-            </div> <!--  article-coffees  -->
+    <!-- Producto 2: Brisa Descafeinada -->
+    <div class="article-panama">
+        <div class="article-coffee-image">
+            <img src="../assets/images/catalogo/02.png" alt="Brisa Descafeinada image">
+        </div>
+        <div class="article-coffee-details">
+            <p class="article-coffee-edition">Tueste Medio</p>
+            <p class="article-coffee-name">Brisa Descafeinada</p>
+            <p class="article-coffee-price">$220</p>
+        </div>
+    </div>
+</div> <!--  article-coffees  -->
 
             <div class="article-subscription">
                 <h2>Suscripción Kápe</h2>
@@ -131,11 +131,17 @@
         </article>
     </main>
 
+    <!-- Footer-->
+    <div id="footerInject"></div>
+    <!-- ^^^^^^ -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script src="./JS/scrips.js"></script>
+    <!-- Carga el navbar (fetch a HTML/navbar.html) -->
+    <script type="module" src="./JS/script.js"></script>
+
 </body>
 
 </html>

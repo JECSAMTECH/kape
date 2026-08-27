@@ -43,6 +43,18 @@ input[type="radio"] {
   
 }
 
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .regular-font-size {
     font-size: 1.7rem;
 }
@@ -204,6 +216,11 @@ input[type="radio"] {
     height: 3rem;
 }
 
+.countries{
+    font-size: 1.5rem;
+    background: transparent;
+}
+
 /*  The three form Fields  */
 
 .name-fields,
@@ -320,7 +337,7 @@ input[type="radio"] {
     flex-direction: column;
 }
 
-@media (min-width: 425px) {
+@media (min-width: 361px) {
     .payment-method__icon {
         display: flex;
         flex-direction: row;
@@ -368,7 +385,6 @@ input[type="radio"] {
     height: 3rem;
     border: .5px solid var(--copper);
     background: transparent;
-    font-size: 1.5rem;
 }
 
 .card-details {
@@ -440,6 +456,15 @@ input[type="radio"] {
     border-radius: 1rem;
 }
 
+.confirm-purchase-button button{
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--white);
+    font-weight: 600;
+
+}
+
 .confirm-purchase-button:hover{
     background-color: var(--copper);
 }
@@ -469,12 +494,9 @@ input[type="radio"] {
     align-items: center;
 }
 
-.shipping-details{
-    text-align: end;
-}
-
 .shipping-details-paragraph {
     margin: 0;
+    text-align: end;
 }
 
 .shipping-details-paragraph--one {

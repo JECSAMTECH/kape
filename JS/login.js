@@ -31,8 +31,20 @@ function iniciarSesion(emailIngresado, passwordIngresado) {
   const usuarioEncontrado = usuarios.find(usuario => usuario.email === emailIngresado); 
 
   if (usuarioEncontrado && usuarioEncontrado.password === passwordIngresado) {
-    // Redirigir a la página de inicio
-    window.location.href = "../src/index.html";
+    // Guardamos únicamente los datos necesarios para mantener la sesión en el frontend.
+    // El rol debe venir del backend cuando éste esté integrado; las cuentas existentes
+    // sin rol se tratan como usuarios regulares para conservar compatibilidad.
+    const sesion = {
+      nombre: usuarioEncontrado.nombre,
+      email: usuarioEncontrado.email,
+      rol: (usuarioEncontrado.rol || "usuario").toLowerCase()
+    };
+
+    localStorage.setItem("kapeSesion", JSON.stringify(sesion));
+
+    window.location.href = sesion.rol === "admin"
+      ? "./perfilAdmin.html"
+      : "./perfil.html";
   } else {
     // Mostrar mensaje de error
     alert("Correo electrónico o contraseña incorrectos.");
