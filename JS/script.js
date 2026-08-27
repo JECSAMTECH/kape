@@ -109,33 +109,9 @@ async function cargarNavbar() {
     if (!cargado) return;
 
     // Los botones sólo se enlazan después de insertar el navbar en el DOM.
-    const cargado = await cargarComponente(
-        "navbarInject", "navbar.html", "navbar-component-css", "navbar.css"
-    );
-    if (!cargado) return;
-
-    // Los botones sólo se enlazan después de insertar el navbar en el DOM.
     iniciarNavbar();
     iniciarCarrito();
 
-    // Bootstrap mejora los componentes visuales, pero no debe impedir que los
-    // botones del navbar y el carrito queden activos si el CDN tarda o falla.
-    cargarBootstrap().catch(error => console.error(error));
-}
-
-function cargarFooter() {
-    cargarEstiloExterno(
-        "bootstrap-icons-component-css",
-        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    );
-
-    return cargarComponente(
-        "footerInject", "footer.html", "footer-component-css", "footer.css"
-    );
-}
-
-Promise.all([cargarNavbar(), cargarFooter()])
-    .catch(error => console.error("Error al cargar los componentes compartidos:", error));
     // Bootstrap mejora los componentes visuales, pero no debe impedir que los
     // botones del navbar y el carrito queden activos si el CDN tarda o falla.
     cargarBootstrap().catch(error => console.error(error));
