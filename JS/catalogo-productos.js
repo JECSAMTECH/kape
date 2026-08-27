@@ -104,8 +104,8 @@ function mostrarCafes(listaCafes) {
                             <span class="fs-5 fw-bold text-dark">
                                 $${cafe.precio}
                             </span>
-                            <a href="#" class="btn btn-agregar">
-                                Agregar
+                            <a href="producto.html" class="btn btn-agregar">
+                                Ver detalle
                             </a>
                         </div>
                     </div>
