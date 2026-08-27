@@ -20,13 +20,13 @@
     <div class="pagina-producto">
 
         <!-- ===================== MIGAS (navegacion) ===================== -->
-        <nav class="migas-de-pan">
+        <!--<nav class="migas-de-pan">
             <a href="#">Inicio</a>
             <span class="migas-separador">·</span>
             <a href="#">Café de Especialidad</a>
             <span class="migas-separador">·</span>
             <span class="migas-actual">SORA</span>
-        </nav>
+        </nav>-->
 
         <!-- ===================== CONTENEDOR DEL PRODUCTO (columnas) ===================== -->
         <div class="producto-contenedor">
@@ -36,7 +36,7 @@
 
                 <!-- imagen principal del empaque -->
                 <div class="galeria-imagen-principal">
-                    <img src="../assets/images/catalogo/02.png" alt="Bolsa de café Sora 700" />
+                    <img id="producto-imagen" src="../assets/images/catalogo/02.png" alt="Bolsa de café Sora 700" />
                 </div>
 
                 <!-- miniaturas debajo de la imagen principal -->
@@ -54,14 +54,14 @@
             <div class="producto-informacion">
 
                 <!-- etiqueta pequeña arriba del titulo -->
-                <p class="producto-etiqueta">Edición de Origen Único</p>
+                <p class="producto-etiqueta" id="producto-etiqueta">Edición de Origen Único</p>
 
                 <!-- nombre del producto / marca -->
-                <h1 class="producto-titulo">SORA</h1>
+                <h1 class="producto-titulo" id="producto-nombre"></h1>
 
                 <!-- precio y calificacion en la misma linea -->
                 <div class="producto-precio-fila">
-                    <span class="producto-precio">$430.12</span>
+                    <span class="producto-precio" id="producto-precio">$430.12</span>
                     <span class="producto-estrellas">★★★★★</span>
                     <a href="#opiniones-seccion">
                         <span class="producto-resenas">(48 reseñas)</span>
@@ -76,16 +76,10 @@
                     </div>
                     <div class="producto-dato">
                         <p class="producto-dato-titulo">⚡ INTENSIDAD</p>
-                        <div class="producto-barra-intensidad">
+                        <div class="producto-barra-intensidad" id="producto-intensidad">
                             <span class="barra-llena"></span>
                             <span class="barra-llena"></span>
                             <span class="barra-llena"></span>
-                            <span class="barra-llena"></span>
-                            <span class="barra-llena"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
-                            <span class="barra-vacia"></span>
                             <span class="barra-vacia"></span>
                         </div>
                     </div>
@@ -95,11 +89,11 @@
                 <div class="producto-datos-fila">
                     <div class="producto-dato">
                         <p class="producto-dato-titulo">☕ TUESTE</p>
-                        <p class="producto-dato-valor">Medio-Claro (Artesanal)</p>
+                        <p class="producto-dato-valor" id="producto-tueste">Medio-Claro (Artesanal)</p>
                     </div>
                     <div class="producto-dato">
                         <p class="producto-dato-titulo">✿ NOTAS</p>
-                        <p class="producto-dato-valor">Jazmín, Bergamota, Miel</p>
+                        <p class="producto-dato-valor" id="producto-notas">Jazmín, Bergamota, Miel</p>
                     </div>
                 </div>
 
@@ -131,8 +125,8 @@
 
                 <!-- bloque de historia de la marca -->
                 <div class="producto-historia">
-                    <h2 class="historia-titulo">Nuestra Historia Sora</h2>
-                    <p class="historia-texto">
+                    <h2 class="historia-titulo">Nuestra Historia con <span id="historia-nombre"></span></h2>
+                    <p class="historia-texto" id="producto-descripcion">
                         Proveniente de alta montaña, Sora representa nuestra búsqueda de la perfección en el tueste.
                         Cada grano es seleccionado manualmente y procesado por vía húmeda para preservar su perfil
                         floral distintivo y su acidez brillante.
