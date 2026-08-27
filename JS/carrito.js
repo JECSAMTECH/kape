@@ -136,22 +136,21 @@ export function iniciarCarrito() {
 
 
     // Verificar que existan los elementos
-    if (
-        !cartButton ||
-        !cartOffcanvas ||
-        !cartItems ||
-        !cartEmpty ||
-        !cartCount ||
-        !cartSubtotal ||
-        !cartCheckout
-    ) {
+    const missing = [];
+    if (!cartButton) missing.push("cart-button");
+    if (!cartOffcanvas) missing.push("cart-offcanvas");
+    if (!cartItems) missing.push("cart-items");
+    if (!cartEmpty) missing.push("cart-empty");
+    if (!cartCount) missing.push("cart-count");
+    if (!cartSubtotal) missing.push("cart-subtotal");
+    if (!cartCheckout) missing.push("cart-checkout");
 
+    if (missing.length > 0) {
         console.error(
-            "No se encontraron todos los elementos del carrito."
+            "No se encontraron todos los elementos del carrito. Faltan:",
+            missing.join(", ")
         );
-
         return;
-
     }
 
 
@@ -159,17 +158,30 @@ export function iniciarCarrito() {
     // BOOTSTRAP OFFCANVAS
     // ==================================================
 
-    const bootstrapCart =
-        window.bootstrap?.Offcanvas
-            ?.getOrCreateInstance(cartOffcanvas);
+    let bootstrapCart = null;
+    try {
+        if (window.bootstrap?.Offcanvas) {
+            bootstrapCart = window.bootstrap.Offcanvas.getOrCreateInstance(cartOffcanvas);
+        }
+    } catch (e) {
+        console.warn("Bootstrap Offcanvas aviso:", e.message);
+    }
 
     function abrirCarrito() {
-        if (bootstrapCart) {
-            bootstrapCart.show();
-            return;
+        if (!bootstrapCart && window.bootstrap?.Offcanvas) {
+            try {
+                bootstrapCart = window.bootstrap.Offcanvas.getOrCreateInstance(cartOffcanvas);
+            } catch (e) {}
         }
 
-        // Respaldo cuando Bootstrap todavía no está disponible.
+        if (bootstrapCart) {
+            try {
+                bootstrapCart.show();
+                return;
+            } catch (e) {}
+        }
+
+        // Respaldo cuando Bootstrap todavía no está disponible o falla.
         cartOffcanvas.classList.add("show");
         cartOffcanvas.style.visibility = "visible";
         cartOffcanvas.setAttribute("aria-modal", "true");
@@ -178,8 +190,10 @@ export function iniciarCarrito() {
 
     function cerrarCarrito() {
         if (bootstrapCart) {
-            bootstrapCart.hide();
-            return;
+            try {
+                bootstrapCart.hide();
+                return;
+            } catch (e) {}
         }
 
         cartOffcanvas.classList.remove("show");
@@ -193,14 +207,12 @@ export function iniciarCarrito() {
     // ABRIR CARRITO DESDE EL BOTÓN
     // ==================================================
 
-    cartButton.addEventListener(
-        "click",
-        () => {
-
+    document.addEventListener("click", (event) => {
+        if (event.target.closest("#cart-button")) {
+            event.preventDefault();
             abrirCarrito();
-
         }
-    );
+    });
 
     document.getElementById("cart-close")
         ?.addEventListener("click", cerrarCarrito);
