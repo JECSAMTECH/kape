@@ -101,3 +101,18 @@ form.addEventListener("change", function (event) {
         });
     }
 });
+
+const expirationInput = document.querySelector(
+    '[placeholder="MM/AA"]'
+);
+
+expirationInput.addEventListener("input", function () {
+
+    let value = expirationInput.value.replace(/\D/g, "");
+
+    if (value.length > 2) {
+        value = value.slice(0, 2) + "/" + value.slice(2);
+    }
+
+    expirationInput.value = value;
+});
