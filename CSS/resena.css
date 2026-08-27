@@ -141,3 +141,6 @@ h1.titulocards, .titulocards {
   font-weight: 600;
   font-size: 0.9rem;
 }
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
+}
