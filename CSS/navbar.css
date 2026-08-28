@@ -112,12 +112,14 @@
 
 /* Más espacio entre los links del menú */
 .menu.navbar-nav {
-    column-gap: 2 rem;   /* antes 2.5rem */
+    column-gap: 2 rem;
+    /* antes 2.5rem */
 }
 
 /* Iconos (búsqueda, carrito, usuario) */
 .navbar .navbar-btn svg {
-    width: 28px;   /* antes 28px */
+    width: 28px;
+    /* antes 28px */
     height: 28px;
 }
 
@@ -206,6 +208,7 @@
     font-size: 1rem;
     border-radius: .3rem;
     border: none;
+    padding: .5rem;
 }
 
 #cart-continue {

@@ -1,5 +1,6 @@
 const cafes = [
     {
+        id_cafe:1,
         nombre: "Montaña de Oro",
         descripcion: "Café de cuerpo intenso y aroma dulce.",
         imagen: "../assets/images/catalogo/01.png",
@@ -11,6 +12,7 @@ const cafes = [
         stock: 15
     },
     {
+        id_cafe:2,
         nombre: "Brisa Descafeinada",
         descripcion: "Café suave y equilibrado, perfecto para cualquier hora.",
         imagen: "../assets/images/catalogo/02.png",
@@ -22,6 +24,7 @@ const cafes = [
         stock: 10
     },
     {
+        id_cafe:3,
         nombre: "Noche de Chiapas",
         descripcion: "Café profundo con notas dulces y especiadas.",
         imagen: "../assets/images/catalogo/03.png",
@@ -33,6 +36,7 @@ const cafes = [
         stock: 8
     },
     {
+        id_cafe:4,
         nombre: "Veracruz Reserva",
         descripcion: "Café aromático con acidez equilibrada.",
         imagen: "../assets/images/catalogo/04.png",
@@ -44,6 +48,7 @@ const cafes = [
         stock: 20
     },
     {
+        id_cafe:5,
         nombre: "Sierra Dulce",
         descripcion: "Café dulce y ligero con notas frutales.",
         imagen: "../assets/images/catalogo/03.png",
@@ -55,6 +60,7 @@ const cafes = [
         stock: 12
     },
     {
+        id_cafe:6,
         nombre: "Kápe Intenso",
         descripcion: "Perfil fuerte pensado para los amantes del café intenso.",
         imagen: "../assets/images/catalogo/06.png",
@@ -104,9 +110,9 @@ function mostrarCafes(listaCafes) {
                             <span class="fs-5 fw-bold text-dark">
                                 $${cafe.precio}
                             </span>
-                            <a href="#" class="btn btn-agregar">
-                                Agregar
-                            </a>
+                            <button onclick="verDetalles(${cafe.id_cafe})" class="btn btn-agregar">
+                                Ver detalle
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -133,3 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+function verDetalles(id_cafe) {
+    window.location.href = `producto.html?id=${id_cafe}`;
+}

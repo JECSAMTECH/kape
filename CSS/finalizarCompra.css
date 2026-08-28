@@ -33,9 +33,26 @@ html {
 }
 
 input::placeholder {
-    font-size: 1.2rem;
-    /* Adjust size as needed */
+    font-size: 1.5rem;
     color: #888888;
+}
+
+input[type="radio"] {
+    accent-color: #800020;
+    width: 1.2rem;
+
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .regular-font-size {
@@ -197,6 +214,11 @@ input::placeholder {
     border: .5px solid var(--copper);
     background: transparent;
     height: 3rem;
+}
+
+.countries {
+    font-size: 1.5rem;
+    background: transparent;
 }
 
 /*  The three form Fields  */
@@ -434,7 +456,16 @@ input::placeholder {
     border-radius: 1rem;
 }
 
-.confirm-purchase-button:hover{
+.confirm-purchase-button button {
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--white);
+    font-weight: 600;
+
+}
+
+.confirm-purchase-button:hover {
     background-color: var(--copper);
 }
 
@@ -465,6 +496,7 @@ input::placeholder {
 
 .shipping-details-paragraph {
     margin: 0;
+    text-align: end;
 }
 
 .shipping-details-paragraph--one {
@@ -484,4 +516,207 @@ input::placeholder {
 
 .shipping-method__details {
     font-size: 1.3rem;
+}
+
+
+/* ======================================================
+PRODUCTOS DEL RESUMEN
+====================================================== */
+
+.checkout-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Producto individual */
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    padding: 10px;
+
+    border-bottom: 1px solid rgba(122, 31, 45, 0.15);
+
+
+}
+
+/* Contenedor imagen + información */
+
+.checkout-item-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    min-width: 0;
+
+
+}
+
+/* Imagen del producto */
+
+.checkout-item-image {
+    width: 10rem;
+    height: auto;
+
+    min-width: 5rem;
+    max-width: auto;
+
+    object-fit: contain;
+
+    border-radius: 2rem;
+
+    background-color: #f5ebe6;
+
+
+}
+
+/* Información */
+
+.checkout-item-details {
+    min-width: 0;
+}
+
+.checkout-item-details h3 {
+    margin: 0 0 2rem;
+
+    font-size: 3rem;
+    font-weight: 600;
+
+    color: #7a1f2d;
+
+
+}
+
+.checkout-item-details p {
+    margin: 1rem 0;
+
+    font-size: 2rem;
+
+    color: #666;
+
+
+}
+
+/* Precio */
+
+.checkout-item-price {
+    white-space: nowrap;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    color: #7a1f2d;
+
+
+}
+
+/* ======================================================
+TOTALES
+====================================================== */
+
+.order-summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding-top: 12px;
+
+
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-row label {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.summary-row span {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.order-summary-details-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 15px;
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(122, 31, 45, 0.2);
+
+
+}
+
+.order-summary-details-total label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.order-summary-details-total strong {
+    font-size: 1.2rem;
+    color: #7a1f2d;
+}
+
+/* ======================================================
+CARRITO VACÍO
+====================================================== */
+
+.checkout-empty {
+    text-align: center;
+
+    margin: 25px 0;
+
+    color: #777;
+    font-size: 1.5rem;
+
+
+}
+
+/* ======================================================
+RESPONSIVE
+====================================================== */
+
+@media (max-width: 500px) {
+
+    .checkout-item {
+        padding: 1rem 0;
+    }
+
+
+    .checkout-item-image {
+        width: 2rem;
+        height: auto;
+
+        min-width: 1.5rem;
+        max-width: auto;
+    }
+
+
+    .checkout-item-details h3 {
+        font-size: 1rem;
+    }
+
+
+    .checkout-item-details p {
+        font-size: 1rem;
+    }
+
+
+    .checkout-item-price {
+        font-size: 1rem;
+    }
+
+
 }
