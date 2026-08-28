@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "./config.js";
+
 // Bloqueo en tiempo real, en el campo nombre no deja escribir números
 document.getElementById("nombre").addEventListener("input", function (e) {
     e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
@@ -147,7 +149,7 @@ async function ValidarForm(event) {
             numero: telefono
         }
 
-        const response = await fetch("http://localhost:8080/api/usuarios", {
+        const response = await fetch(`${API_BASE_URL}/usuarios`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
