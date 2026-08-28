@@ -1,16 +1,17 @@
 // Bloqueo en tiempo real, en el campo nombre no deja escribir números
 document.getElementById("nombre").addEventListener("input", function (e) {
     e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
-    });
+});
 // Bloqueo en tiempo real, en el campo teléfono no deja escribir letras y limita a 10 dígitos
 document.getElementById("telefono").addEventListener("input", function (e) {
     e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
 });
 
 // Alerta visual de error utilizando los estilos de Bootstrap
-function ValidarForm(event) {
+async function ValidarForm(event) {
     event.preventDefault(); // Evita que el formulario se envíe automáticamente
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    console.log(alertPlaceholder);
     const appendAlert = (message) => {
         const wrapper = document.createElement('div')
         wrapper.innerHTML = [
@@ -36,10 +37,10 @@ function ValidarForm(event) {
         alertPlaceholder.append(wrapper)
     }
 
-// Limpiamos alertas previas para que no se acumulen en cada submit
+    // Limpiamos alertas previas para que no se acumulen en cada submit
     alertPlaceholder.innerHTML = '';
 
-//Definimos las variables de los campos del formulario
+    //Definimos las variables de los campos del formulario
     const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const telefono = document.getElementById("telefono").value;
@@ -47,14 +48,14 @@ function ValidarForm(event) {
     const confirmPassword = document.getElementById("confirmPassword").value;
     const terms = document.getElementById("terms").checked;
 
-// Variable para determinar si el formulario es válido
+    // Variable para determinar si el formulario es válido
     let esValido = true;
 
-/**
- *Validación de campos obligatorios y formato de datos 
- **/    
+    /**
+     *Validación de campos obligatorios y formato de datos 
+     **/
 
- // Validación de nombre
+    // Validación de nombre
     if (nombre) {
         const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
         var nomValido = regex.test(nombre);
@@ -67,7 +68,7 @@ function ValidarForm(event) {
         esValido = false;
     }
 
-// Validación de correo electrónico
+    // Validación de correo electrónico
     if (email) {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var emailValido = regexEmail.test(email);
@@ -75,23 +76,26 @@ function ValidarForm(event) {
             appendAlert('Comprueba que tu correo electrónico sea valido. ejemplo@correo.com')
             esValido = false;
         } else {
-// Verificación del correo en el localStorage
+            // Verificación del correo en el localStorage (it's no longer used because the source of truth is Spring now)
+            /*
             const usuariosExistentes = JSON.parse(localStorage.getItem("usuarios")) || [];
             const correoRepetido = usuariosExistentes.some(
                 (usuario) => usuario.email.toLowerCase() === email.toLowerCase()
             );
+            
             if (correoRepetido) {
                 appendAlert('Correo asociado a una cuenta que ya existe.')
                 esValido = false;
             }
+            */
         }
     } else {
         appendAlert('El correo electrónico es obligatorio.')
         esValido = false;
     }
-    
-// Validación de teléfono
-     if (telefono) {
+
+    // Validación de teléfono
+    if (telefono) {
         const regex = /^[0-9]{10}$/;
         var telValido = regex.test(telefono);
         if (telValido == false) {
@@ -103,7 +107,7 @@ function ValidarForm(event) {
         esValido = false;
     }
 
-// Validación de contraseña
+    // Validación de contraseña
     if (password) {
         if (password.length < 8) {
             appendAlert('La contraseña debe tener al menos 8 caracteres.')
@@ -114,7 +118,7 @@ function ValidarForm(event) {
         esValido = false;
     }
 
-// Confirmación de contraseña
+    // Confirmación de contraseña
     if (confirmPassword) {
         if (confirmPassword !== password) {
             appendAlert('Las contraseñas no coinciden.')
@@ -125,36 +129,49 @@ function ValidarForm(event) {
         esValido = false;
     }
 
-// Validación de aceptación de términos y condiciones    
+    // Validación de aceptación de términos y condiciones    
     if (!terms) {
-    appendAlert('Debes aceptar los Términos y Condiciones y la Política de Privacidad.')
-    esValido = false;
-}
-
-// Guardar en localStorage solo si todo es válido
-    if (esValido) {
-        const usuario = {
-            nombre: nombre,
-            email: email,
-            telefono: telefono,
-            fechaRegistro: new Date().toISOString(),
-            password: password,
-            // El registro público nunca asigna privilegios administrativos.
-            rol: "usuario"
-        };
-
-        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-        usuarios.push(usuario);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-        // Alerta de éxito
-        appendSuccess('Cuenta creada correctamente');
-
-        // Limpiar todos los campos del formulario
-        document.getElementById("registroForm").reset();
-
+        appendAlert('Debes aceptar los Términos y Condiciones y la Política de Privacidad.')
+        esValido = false;
     }
 
+    // Guardar en localStorage solo si todo es válido (it's no longer valid because we do not store info inside localstorage)
 
-    return esValido;
+    // The JS object has to mirror the userRequest object from Spring
+    if (esValido) {
+        const usuarioRequest = {
+            nombre: nombre,
+            correo: email,
+            contrasenia: password,
+            confirmarContrasenia: confirmPassword,
+            numero: telefono
+        }
+
+        const response = await fetch("http://localhost:8080/api/usuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(usuarioRequest)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("SUCCESS BLOCK EXECUTED");
+            appendSuccess("Cuenta creada correctamente");
+            document.getElementById("registroForm").reset();
+
+            setTimeout(() => {
+                window.location.href = "inicioSesion.html";
+            }, 1500);
+        } else {
+            console.log("ERROR BLOCK EXECUTED");
+            console.log(data.message);
+            appendAlert(data.message);
+        }
+    }
+
 }
+
+document.getElementById("registroForm").addEventListener("submit", ValidarForm);

@@ -1,4 +1,3 @@
-
 :root {
     --coal: #222222;
     --sand: #D8C7A1;
@@ -44,7 +43,7 @@ img {
     max-width: 100%;
 }
 
-.regular-font-weight{
+.regular-font-weight {
     font-weight: 1.5rem;
 }
 
@@ -624,7 +623,7 @@ img {
 }
 
 
-.summary-product > div {
+.summary-product>div {
 
     flex: 1;
 }
@@ -968,7 +967,7 @@ img {
 }
 
 
-.shipping-review > strong {
+.shipping-review>strong {
 
     color: var(--wine);
 }
@@ -994,7 +993,7 @@ img {
 }
 
 
-.payment-security > i {
+.payment-security>i {
 
     color: var(--wine);
 
@@ -1447,4 +1446,17 @@ img {
     .summary-product {
         align-items: flex-start;
     }
+}
+
+.boton-limpio {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f8f8f8;
+    cursor: pointer;
+    outline: inherit;
 }

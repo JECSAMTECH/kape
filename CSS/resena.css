@@ -2,7 +2,7 @@
   --color-primario: #222222;
   --color-secundario: #D8C7A1;
   --color-terciario: #7A1F2D; /* Vino de los botones */
-  --color-cuaternario: #F8F5EF; /* Fondo general */
+  --color-cuaternario: #ffff; /* Fondo general */
   --color-texto: #8F4A2C;
 }
 
@@ -140,4 +140,7 @@ h1.titulocards, .titulocards {
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
+}
+#footerInject {
+    margin-top: 4rem; /* Espacio de separación antes de llegar al footer */
 }
