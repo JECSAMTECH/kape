@@ -1,8 +1,10 @@
+import { API_BASE_URL } from "./config.js";
+
 let cafes = [];
 
 async function obtenerCafes() {
     try {
-        const response = await fetch("http://localhost:8080/api/products");
+        const response = await fetch(`${API_BASE_URL}/products`);
         if (!response.ok) {
             throw new Error(`Error HTTP: ${response.status}`);
         }
@@ -103,3 +105,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 function verDetalles(idCafe) {
     window.location.href = `producto.html?id=${idCafe}`;
 }
+window.verDetalles = verDetalles;

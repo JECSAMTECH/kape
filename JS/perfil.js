@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "./config.js";
+
 let sesion;
 try {
     sesion = JSON.parse(localStorage.getItem("kapeSesion")) || {};
@@ -57,7 +59,7 @@ async function sincronizarConServidor() {
     if (!sesion || !sesion.idUsuario) return;
 
     try {
-        const response = await fetch(`http://localhost:8080/api/usuarios/${sesion.idUsuario}`);
+        const response = await fetch(`${API_BASE_URL}/usuarios/${sesion.idUsuario}`);
         if (response.ok) {
             const data = await response.json();
             if (data) {
@@ -165,7 +167,7 @@ if (formEditarInfo) {
         // Intento de actualización en backend si existe idUsuario
         if (sesion && sesion.idUsuario) {
             try {
-                const response = await fetch(`http://localhost:8080/api/usuarios/${sesion.idUsuario}`, {
+                const response = await fetch(`${API_BASE_URL}/usuarios/${sesion.idUsuario}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"

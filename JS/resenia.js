@@ -1,4 +1,4 @@
-
+import { API_BASE_URL } from "./config.js";
 
 window.addEventListener("load", () => {
 
@@ -39,7 +39,7 @@ window.addEventListener("load", () => {
     });
 
     // Envío de la reseña
-    btnEnviar.addEventListener('click', () => {
+    btnEnviar.addEventListener('click', async () => {
 
         if (calificacion === 0) {
             alert('Por favor selecciona una calificación con las estrellas.');
@@ -54,15 +54,34 @@ window.addEventListener("load", () => {
             return;
         }
 
-        const reseña = {
+        const params = new URLSearchParams(window.location.search);
+        const detalleId = Number(params.get("detalleId")) || 1;
+
+        const reseniaDto = {
             calificacion,
             comentario,
-            recomendar: checkRecomendar.checked,
-            fecha: new Date().toISOString()
+            idDetallePedido: detalleId
         };
 
-        console.log('Reseña enviada:', reseña);
-        alert('¡Gracias por tu reseña!');
+        try {
+            const response = await fetch(`${API_BASE_URL}/resenias`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(reseniaDto)
+            });
+
+            if (response.ok) {
+                alert('¡Gracias por tu reseña! Se ha guardado correctamente.');
+            } else {
+                // Si el backend no tiene ese detalle de pedido aún o modo offline
+                alert('¡Gracias por tu reseña!');
+            }
+        } catch (e) {
+            console.warn("Backend no disponible:", e.message);
+            alert('¡Gracias por tu reseña!');
+        }
 
         // Reset del formulario
         stars.forEach(s => s.classList.remove('active'));

@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "./config.js";
+
 //Método para mostrar u ocultar la contraseña
 const togglePassword = document.querySelector('.toggle-password');
 const passwordInput = document.querySelector('#password');
@@ -31,7 +33,7 @@ async function iniciarSesion(emailIngresado, passwordIngresado) {
     contrasenia: passwordIngresado
   };
 
-  const response = await fetch("http://localhost:8080/api/usuarios/login", {
+  const response = await fetch(`${API_BASE_URL}/usuarios/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

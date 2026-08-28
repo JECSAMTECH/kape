@@ -1,4 +1,5 @@
 import { addToCart } from "./carrito.js";
+import { API_BASE_URL } from "./config.js";
 
 let cafe = null;
 
@@ -16,7 +17,7 @@ const idCafe = Number(parametros.get("id"));
 async function obtenerCafe(id) {
     try {
         const response = await fetch(
-            `http://localhost:8080/api/products/${id}`
+            `${API_BASE_URL}/products/${id}`
         );
         if (!response.ok) {
             throw new Error(`Error HTTP: ${response.status}`);
