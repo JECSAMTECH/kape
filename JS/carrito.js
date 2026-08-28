@@ -11,10 +11,10 @@ let actualizarCarritoUI = null;
 export function addToCart(product, quantity = 1) {
 
     const existingProduct = cart.find(
-        item =>
-            item.id === product.id &&
-            item.molienda === product.molienda
-    );
+    item =>
+        item.id === product.id &&
+        item.molienda === product.molienda
+);
 
     if (existingProduct) {
 
@@ -461,6 +461,7 @@ export function iniciarCarrito() {
                 Number(
                     cartItem.dataset.productId
                 );
+            
 
             const molienda = cartItem.dataset.molienda;
 
