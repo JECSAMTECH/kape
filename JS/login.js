@@ -54,7 +54,7 @@ async function iniciarSesion(emailIngresado, passwordIngresado) {
 
     window.location.href = sesion.rol === "admin"
       ? "./perfilAdmin.html"
-      : "./perfil.html";
+      : "../index.html";
 
   } else {
 
