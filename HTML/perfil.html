@@ -198,20 +198,49 @@
                         <div id="infoCliente" class="col-md-6">
                             <div class="info-card">
                                 <h6 class="info-title">MI INFORMACIÓN
-                                    <i class="bi bi-pencil-square ms-1 text-end"></i>
+                                    <button id="btnEditarInfo" class="btn btn-link p-0 text-decoration-none btn-edit-pencil" type="button" aria-label="Editar información" title="Editar información">
+                                        <i class="bi bi-pencil-square ms-1"></i>
+                                    </button>
                                 </h6>
-                                <div class="info-item">
-                                    <span class="info-label">NOMBRE</span>
-                                    <span class="info-value">Mateo García Restrepo</span>
+
+                                <!-- Alerta para mensajes de actualización y validación -->
+                                <div id="infoAlertPlaceholder"></div>
+
+                                <!-- Vista de sólo lectura -->
+                                <div id="infoVista">
+                                    <div class="info-item">
+                                        <span class="info-label">NOMBRE</span>
+                                        <span class="info-value" id="infoNombre">Cargando...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">CORREO ELECTRÓNICO</span>
+                                        <span class="info-value" id="infoEmail">Cargando...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">TELÉFONO</span>
+                                        <span class="info-value" id="infoTelefono">Cargando...</span>
+                                    </div>
                                 </div>
-                                <div class="info-item">
-                                    <span class="info-label">CORREO ELECTRÓNICO</span>
-                                    <span class="info-value">mateo.garcia@gmail.com</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">TELÉFONO</span>
-                                    <span class="info-value">+57 312 456 7890</span>
-                                </div>
+
+                                <!-- Formulario de edición inline -->
+                                <form id="formEditarInfo" class="d-none mt-2" novalidate>
+                                    <div class="mb-2">
+                                        <label for="inputEditNombre" class="info-label mb-1">NOMBRE</label>
+                                        <input type="text" class="form-control form-control-sm info-input" id="inputEditNombre" placeholder="Ingresa tu nombre" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="inputEditEmail" class="info-label mb-1">CORREO ELECTRÓNICO</label>
+                                        <input type="email" class="form-control form-control-sm info-input" id="inputEditEmail" placeholder="ejemplo@correo.com" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputEditTelefono" class="info-label mb-1">TELÉFONO</label>
+                                        <input type="tel" class="form-control form-control-sm info-input" id="inputEditTelefono" placeholder="10 dígitos (ej. 5512345678)">
+                                    </div>
+                                    <div class="d-flex justify-content-end gap-2 pt-1">
+                                        <button type="button" id="btnCancelarEdicion" class="btn btn-outline-secondary btn-sm px-3">Cancelar</button>
+                                        <button type="submit" id="btnGuardarEdicion" class="btn btn-guardar-info btn-sm px-3">Guardar</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 
