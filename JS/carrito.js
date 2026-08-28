@@ -11,17 +11,10 @@ let actualizarCarritoUI = null;
 export function addToCart(product, quantity = 1) {
 
     const existingProduct = cart.find(
-<<<<<<< HEAD
     item =>
         item.id === product.id &&
         item.molienda === product.molienda
 );
-=======
-        item =>
-            item.id === product.id &&
-            item.molienda === product.molienda
-    );
->>>>>>> ac36fe23033a19aa004b808066587b1b2fe3217a
 
     if (existingProduct) {
 
@@ -241,17 +234,11 @@ export function iniciarCarrito() {
 
     function removeFromCart(productId, molienda) {
         cart = cart.filter(
-<<<<<<< HEAD
-            item.id === productId &&
-            item.molienda === molienda
-        );
-=======
             item =>
                 item.id !== productId ||
                 item.molienda !== molienda
         );
 
->>>>>>> ac36fe23033a19aa004b808066587b1b2fe3217a
         saveCart();
         updateCart();
     }
