@@ -1,6 +1,62 @@
-import { API_BASE_URL } from "./config.js";
+import { API_BASE_URL, normalizarRutaImagen } from "./config.js";
 
-window.addEventListener("load", () => {
+async function cargarProductoResenia() {
+    const params = new URLSearchParams(window.location.search);
+    const idCafe = params.get("id") || params.get("idCafe");
+    const numPedido = params.get("pedido") || params.get("num");
+
+    if (numPedido) {
+        const pedElem = document.getElementById("resenia-pedido-num");
+        if (pedElem) pedElem.textContent = `RESEÑA DEL PEDIDO #${numPedido}`;
+    }
+
+    if (!idCafe) {
+        // Cargar por defecto el primer café del catálogo si no se especificó ID
+        try {
+            const res = await fetch(`${API_BASE_URL}/products`);
+            if (res.ok) {
+                const cafes = await res.json();
+                if (Array.isArray(cafes) && cafes.length > 0) {
+                    mostrarInfoCafe(cafes[0]);
+                }
+            }
+        } catch (_) { }
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_BASE_URL}/products/${idCafe}`);
+        if (res.ok) {
+            const cafe = await res.json();
+            mostrarInfoCafe(cafe);
+        }
+    } catch (e) {
+        console.warn("No se pudo cargar el café para la reseña:", e);
+    }
+}
+
+function mostrarInfoCafe(cafe) {
+    if (!cafe) return;
+    const imgElem = document.getElementById("resenia-producto-img");
+    const nombreElem = document.getElementById("resenia-producto-nombre");
+    const tuesteElem = document.getElementById("resenia-producto-tueste");
+
+    if (imgElem) {
+        imgElem.src = normalizarRutaImagen(cafe.imagenCafe);
+        imgElem.alt = cafe.nombreCafe || "Café";
+    }
+    if (nombreElem && cafe.nombreCafe) {
+        nombreElem.textContent = cafe.nombreCafe;
+    }
+    if (tuesteElem) {
+        const tueste = cafe.tuesteCafe || "Tueste Medio";
+        const notas = cafe.notasCataCafe ? ` • ${cafe.notasCataCafe}` : "";
+        tuesteElem.textContent = `${tueste}${notas}`;
+    }
+}
+
+function initResenia() {
+    cargarProductoResenia();
 
     const stars = document.querySelectorAll('.stars svg');
     const textarea = document.getElementById('comentario');
@@ -15,9 +71,7 @@ window.addEventListener("load", () => {
 
     // Selección de estrellas
     stars.forEach((star, index) => {
-
         star.addEventListener('click', () => {
-
             // quitar selección anterior
             stars.forEach(s => s.classList.remove('active'));
 
@@ -28,29 +82,27 @@ window.addEventListener("load", () => {
 
             calificacion = index + 1;
         });
-
     });
 
     // Contador de caracteres y validación de mínimo
-    textarea.addEventListener('input', () => {
+    textarea?.addEventListener('input', () => {
         const longitud = textarea.value.length;
-        contador.textContent = `${longitud} / ${MAX_CARACTERES}`;
-        minCaracteres.classList.toggle('text-danger', longitud > 0 && longitud < MIN_CARACTERES);
+        if (contador) contador.textContent = `${longitud} / ${MAX_CARACTERES}`;
+        if (minCaracteres) minCaracteres.classList.toggle('text-danger', longitud > 0 && longitud < MIN_CARACTERES);
     });
 
     // Envío de la reseña
-    btnEnviar.addEventListener('click', async () => {
-
+    btnEnviar?.addEventListener('click', async () => {
         if (calificacion === 0) {
             alert('Por favor selecciona una calificación con las estrellas.');
             return;
         }
 
-        const comentario = textarea.value.trim();
+        const comentario = textarea?.value.trim() || "";
 
         if (comentario.length < MIN_CARACTERES) {
             alert(`Tu comentario debe tener al menos ${MIN_CARACTERES} caracteres.`);
-            textarea.focus();
+            textarea?.focus();
             return;
         }
 
@@ -75,7 +127,6 @@ window.addEventListener("load", () => {
             if (response.ok) {
                 alert('¡Gracias por tu reseña! Se ha guardado correctamente.');
             } else {
-                // Si el backend no tiene ese detalle de pedido aún o modo offline
                 alert('¡Gracias por tu reseña!');
             }
         } catch (e) {
@@ -86,10 +137,15 @@ window.addEventListener("load", () => {
         // Reset del formulario
         stars.forEach(s => s.classList.remove('active'));
         calificacion = 0;
-        textarea.value = '';
-        contador.textContent = `0 / ${MAX_CARACTERES}`;
-        minCaracteres.classList.remove('text-danger');
-        checkRecomendar.checked = false;
+        if (textarea) textarea.value = '';
+        if (contador) contador.textContent = `0 / ${MAX_CARACTERES}`;
+        if (minCaracteres) minCaracteres.classList.remove('text-danger');
+        if (checkRecomendar) checkRecomendar.checked = false;
     });
+}
 
-});
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initResenia);
+} else {
+    initResenia();
+}

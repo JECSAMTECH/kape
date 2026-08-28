@@ -100,93 +100,11 @@
                         <h2>Historial de pedidos</h2>
                         <a href="#" class="text-decoration-none ver-todos">Ver todos</a>
                     </div>
-                    <!-- Pedido 1 -->
-                    <div class="order-item">
-                        <div class="row align-items-center g-2">
-                            <!-- Columna izquierda: imagen del producto -->
-                            <div class="col-3 col-sm-2">
-                                <img src="../assets/images/perfil/01.png" alt="Producto" class="img-fluid rounded"
-                                    style="max-width:8rem;">
-                            </div>
-                            <!-- Columna izquierda: información y botones -->
-                            <div class="col-6 col-sm-7 infoybotones">
-                                <div class="order-title">Brisa Descafeinada</div>
-                                <div class="order-meta">Pedido #KAPE-9421 • 12 de Julio, 2026</div>
-                            </div>
-                            <!-- Badge de estado  -->
-                            <div class="col-3 col-sm-3 text-end btn-entregado">
-                                <span class="badge"> ENTREGADO </span>
-                            </div>
-                        </div>
-                        <!-- Fila inferior: precio y botones apilados -->
-                        <div class="row mt-2 justify-content-end">
-                            <div class="col-4 col-sm-3">
-                                <div class="order-price">$250 MX</div>
-                            </div>
-                            <div class="col-8 col-sm-7 text-end">
-                                <div class="order-actions">
-                                    <a href="./producto.html" class="btn btn-detalle ">Ver Detalle</a>
-                                    <a href="./resenia.html" class="btn btn-com-res">Dejar comentario / Reseña</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pedido 2 -->
-                    <div class="order-item">
-                        <div class="row align-items-center g-2">
-                            <div class="col-3 col-sm-2">
-                                <img src="../assets/images/perfil/02.png" alt="Producto" class="img-fluid rounded"
-                                    style="max-width:8rem;">
-                            </div>
-                            <div class="col-6 col-sm-7 infoybotones">
-                                <div class="order-title">Montaña de Oro</div>
-                                <div class="order-meta">Pedido #KAPE-9580 • 24 de Julio, 2026</div>
-                            </div>
-                            <div class="col-3 col-sm-3 text-end btn-encamino">
-                                <span class="badge-encamino"> EN CAMINO </span>
-                            </div>
-                        </div>
-                        <div class="row mt-2 justify-content-end">
-                            <div class="col-4 col-sm-3">
-                                <div class="order-price">$220 MX</div>
-                            </div>
-                            <div class="col-8 col-sm-7 text-end">
-                                <div class="order-actions">
-                                    <a href="./producto.html" class="btn btn-detalle">Ver Detalle</a>
-                                    <a href="./resenia.html" class="btn btn-com-res">Dejar comentario / Reseña</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pedido 3 -->
-                    <div class="order-item">
-                        <div class="row align-items-center g-2">
-                            <div class="col-3 col-sm-2">
-                                <img src="../assets/images/perfil/03.png" alt="Producto" class="img-fluid rounded"
-                                    style="max-width:8REM;">
-                            </div>
-                            <div class="col-6 col-sm-7 infoybotones">
-                                <div class="order-title">Noche de Chiapas</div>
-                                <div class="order-meta">Pedido #KAPE-8812 • 15 de Agosto, 2026</div>
-                            </div>
-                            <div class="col-3 col-sm-3 text-end btn-entregado">
-                                <span class="badge">ENTREGADO</span>
-                            </div>
-                        </div>
-
-                        <!-- Fila inferior: precio y botones apilados -->
-                        <div class="row mt-2 justify-content-end">
-                            <div class="col-4 col-sm-3">
-                                <div class="order-price">$280 MX</div>
-                            </div>
-                            <div class="col-8 col-sm-7 text-end">
-                                <div class="order-actions">
-                                    <a href="./producto.html" class="btn btn-detalle ">Ver Detalle</a>
-                                    <a href="./resenia.html" class="btn btn-com-res">Dejar comentario / Reseña</a>
-                                </div>
-                            </div>
+                    <!-- Pedidos cargados dinámicamente desde el backend -->
+                    <div id="order-list">
+                        <div class="text-center text-muted py-4">
+                            <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                            Cargando pedidos...
                         </div>
                     </div>
                 </section>

@@ -1,5 +1,8 @@
-import { API_BASE_URL } from "./config.js";
+import { API_BASE_URL, normalizarRutaImagen } from "./config.js";
 
+// ======================================================
+// SESIÓN (localStorage no requiere DOM)
+// ======================================================
 let sesion;
 try {
     sesion = JSON.parse(localStorage.getItem("kapeSesion")) || {};
@@ -8,24 +11,15 @@ try {
     sesion = {};
 }
 
-// Elementos de la vista
-const nombreUsuarioElem = document.getElementById("nombreUsuario");
-const infoNombreElem = document.getElementById("infoNombre");
-const infoEmailElem = document.getElementById("infoEmail");
-const infoTelefonoElem = document.getElementById("infoTelefono");
+// Variables de referencia al DOM
+let nombreUsuarioElem, infoNombreElem, infoEmailElem, infoTelefonoElem;
+let btnEditarInfo, infoVista, formEditarInfo, btnCancelarEdicion, alertPlaceholder;
+let inputEditNombre, inputEditEmail, inputEditTelefono;
 
-// Elementos de edición
-const btnEditarInfo = document.getElementById("btnEditarInfo");
-const infoVista = document.getElementById("infoVista");
-const formEditarInfo = document.getElementById("formEditarInfo");
-const btnCancelarEdicion = document.getElementById("btnCancelarEdicion");
-const alertPlaceholder = document.getElementById("infoAlertPlaceholder");
+// ======================================================
+// FUNCIONES DE UI
+// ======================================================
 
-const inputEditNombre = document.getElementById("inputEditNombre");
-const inputEditEmail = document.getElementById("inputEditEmail");
-const inputEditTelefono = document.getElementById("inputEditTelefono");
-
-// Función para mostrar alertas en la tarjeta de información
 function mostrarAlerta(mensaje, tipo = "danger") {
     if (!alertPlaceholder) return;
     alertPlaceholder.innerHTML = `
@@ -37,58 +31,46 @@ function mostrarAlerta(mensaje, tipo = "danger") {
 }
 
 function limpiarAlerta() {
-    if (alertPlaceholder) {
-        alertPlaceholder.innerHTML = "";
-    }
+    if (alertPlaceholder) alertPlaceholder.innerHTML = "";
 }
 
-// Cargar información del usuario en la interfaz
 function cargarDatosUsuario() {
-    const nombre = sesion.nombre || "Mateo García Restrepo";
-    const email = sesion.email || sesion.correo || "mateo.garcia@gmail.com";
+    const nombre   = sesion.nombre || "Mateo García Restrepo";
+    const email    = sesion.email  || sesion.correo || "mateo.garcia@gmail.com";
     const telefono = sesion.telefono || sesion.numero || "+57 312 456 7890";
 
     if (nombreUsuarioElem) nombreUsuarioElem.textContent = sesion.nombre || "Mateo";
-    if (infoNombreElem) infoNombreElem.textContent = nombre;
-    if (infoEmailElem) infoEmailElem.textContent = email;
-    if (infoTelefonoElem) infoTelefonoElem.textContent = telefono;
+    if (infoNombreElem)    infoNombreElem.textContent    = nombre;
+    if (infoEmailElem)     infoEmailElem.textContent     = email;
+    if (infoTelefonoElem)  infoTelefonoElem.textContent  = telefono;
 }
 
-// Sincronizar datos con la base de datos si el backend está activo
 async function sincronizarConServidor() {
-    if (!sesion || !sesion.idUsuario) return;
-
+    if (!sesion?.idUsuario) return;
     try {
-        const response = await fetch(`${API_BASE_URL}/usuarios/${sesion.idUsuario}`);
-        if (response.ok) {
-            const data = await response.json();
-            if (data) {
-                sesion.nombre = data.nombre || sesion.nombre;
-                sesion.email = data.correo || sesion.email;
-                sesion.correo = data.correo || sesion.correo;
-                sesion.telefono = data.numero || sesion.telefono;
-                sesion.numero = data.numero || sesion.numero;
-                localStorage.setItem("kapeSesion", JSON.stringify(sesion));
-                cargarDatosUsuario();
-            }
+        const res = await fetch(`${API_BASE_URL}/usuarios/${sesion.idUsuario}`);
+        if (res.ok) {
+            const data = await res.json();
+            sesion.nombre   = data.nombre  || sesion.nombre;
+            sesion.email    = data.correo  || sesion.email;
+            sesion.correo   = data.correo  || sesion.correo;
+            sesion.telefono = data.numero  || sesion.telefono;
+            sesion.numero   = data.numero  || sesion.numero;
+            localStorage.setItem("kapeSesion", JSON.stringify(sesion));
+            cargarDatosUsuario();
         }
     } catch (e) {
-        // Modo offline / sin conexión con backend
-        console.debug("Backend no disponible para sincronización inicial:", e.message);
+        console.debug("sincronizarConServidor: backend no disponible —", e.message);
     }
 }
 
-// Alternar entre modo lectura y modo edición
 function activarModoEdicion() {
     limpiarAlerta();
     if (!formEditarInfo || !infoVista) return;
-
-    // Rellenar los inputs con los valores actuales
-    inputEditNombre.value = (sesion.nombre) ? sesion.nombre : (infoNombreElem?.textContent || "");
-    inputEditEmail.value = (sesion.email || sesion.correo) ? (sesion.email || sesion.correo) : (infoEmailElem?.textContent || "");
-    const telActual = sesion.telefono || sesion.numero || (infoTelefonoElem?.textContent || "");
-    inputEditTelefono.value = telActual.replace(/\D/g, ""); // Solo dígitos en el input
-
+    inputEditNombre.value   = sesion.nombre || infoNombreElem?.textContent || "";
+    inputEditEmail.value    = sesion.email  || sesion.correo || infoEmailElem?.textContent || "";
+    const telActual = sesion.telefono || sesion.numero || infoTelefonoElem?.textContent || "";
+    inputEditTelefono.value = telActual.replace(/\D/g, "");
     infoVista.classList.add("d-none");
     formEditarInfo.classList.remove("d-none");
     inputEditNombre.focus();
@@ -97,134 +79,358 @@ function activarModoEdicion() {
 function desactivarModoEdicion() {
     limpiarAlerta();
     if (!formEditarInfo || !infoVista) return;
-
     formEditarInfo.classList.add("d-none");
     infoVista.classList.remove("d-none");
 }
 
-// Validaciones en tiempo real para inputs de edición
-if (inputEditNombre) {
-    inputEditNombre.addEventListener("input", (e) => {
+// ======================================================
+// HISTORIAL DE PEDIDOS DINÁMICO
+// ======================================================
+async function cargarPedidosUsuario() {
+    const contenedor = document.getElementById("order-list");
+    if (!contenedor) {
+        console.warn("perfil.js — #order-list no encontrado");
+        return;
+    }
+
+    let pedidos = [];
+
+    // 1. Intentar cargar desde el backend si hay un usuario autenticado
+    if (sesion?.idUsuario) {
+        try {
+            const resPedidos = await fetch(`${API_BASE_URL}/pedidos/usuario/${sesion.idUsuario}`);
+            if (resPedidos.ok) {
+                const data = await resPedidos.json();
+                if (Array.isArray(data) && data.length > 0) {
+                    pedidos = data;
+                }
+            }
+        } catch (e) {
+            console.debug("No se pudieron cargar pedidos del backend:", e.message);
+        }
+    }
+
+    // 2. Si el backend tiene pedidos, renderizarlos
+    if (pedidos.length > 0) {
+        let html = "";
+        for (const pedido of pedidos) {
+            let detalles = [];
+            try {
+                const resD = await fetch(`${API_BASE_URL}/detalles-pedido/pedido/${pedido.idPedido}`);
+                if (resD.ok) detalles = await resD.json();
+            } catch (_) { }
+
+            const mapa = {
+                PENDIENTE: { cls: "btn-encamino",  etq: "PENDIENTE",  badge: "badge-encamino" },
+                EN_CAMINO: { cls: "btn-encamino",  etq: "EN CAMINO",  badge: "badge-encamino" },
+                ENTREGADO: { cls: "btn-entregado", etq: "ENTREGADO",  badge: "badge" },
+                CANCELADO: { cls: "btn-entregado", etq: "CANCELADO",  badge: "badge" },
+            };
+            const est = mapa[pedido.estatus] || { cls: "btn-encamino", etq: pedido.estatus || "—", badge: "badge-encamino" };
+
+            const fecha = pedido.fechaPedido
+                ? new Date(pedido.fechaPedido).toLocaleDateString("es-MX", { day: "numeric", month: "long", year: "numeric" })
+                : "—";
+
+            if (detalles.length > 0) {
+                for (const det of detalles) {
+                    let nombre = `Producto #${det.cafeId}`;
+                    let imagen = "../assets/images/catalogo/01.png";
+                    try {
+                        const resCafe = await fetch(`${API_BASE_URL}/products/${det.cafeId}`);
+                        if (resCafe.ok) {
+                            const cafe = await resCafe.json();
+                            nombre = cafe.nombreCafe || nombre;
+                            imagen = normalizarRutaImagen(cafe.imagenCafe);
+                        }
+                    } catch (_) { }
+
+                    html += `
+                    <div class="order-item">
+                        <div class="row align-items-center g-2">
+                            <div class="col-3 col-sm-2">
+                                <img src="${imagen}" alt="${nombre}" class="img-fluid rounded" style="max-width:8rem; height:80px; object-fit:cover;">
+                            </div>
+                            <div class="col-6 col-sm-7 infoybotones">
+                                <div class="order-title">${nombre}</div>
+                                <div class="order-meta">Pedido #KAPE-${pedido.idPedido} • ${fecha}</div>
+                            </div>
+                            <div class="col-3 col-sm-3 text-end ${est.cls}">
+                                <span class="${est.badge}">${est.etq}</span>
+                            </div>
+                        </div>
+                        <div class="row mt-2 justify-content-end">
+                            <div class="col-4 col-sm-3">
+                                <div class="order-price">$${Number(det.precioUnitario || 0).toFixed(2)} MX</div>
+                            </div>
+                            <div class="col-8 col-sm-7 text-end">
+                                <div class="order-actions">
+                                    <a href="./producto.html?id=${det.cafeId}" class="btn btn-detalle">Ver Detalle</a>
+                                    <a href="./resenia.html?id=${det.cafeId}&num=${pedido.idPedido}&detalleId=${det.idDetallePedido || 1}" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                }
+            } else {
+                html += `
+                <div class="order-item">
+                    <div class="row align-items-center g-2">
+                        <div class="col-9 col-sm-10 infoybotones">
+                            <div class="order-title">Pedido #KAPE-${pedido.idPedido}</div>
+                            <div class="order-meta">${fecha} • $${Number(pedido.total || 0).toFixed(2)} MX</div>
+                        </div>
+                        <div class="col-3 col-sm-2 text-end ${est.cls}">
+                            <span class="${est.badge}">${est.etq}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2 justify-content-end">
+                        <div class="col-8 col-sm-7 text-end">
+                            <div class="order-actions">
+                                <a href="./resenia.html?num=${pedido.idPedido}" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        }
+        contenedor.innerHTML = html;
+        return;
+    }
+
+    // 3. Revisar compras locales en localStorage ("kape_orders")
+    try {
+        const localOrders = JSON.parse(localStorage.getItem("kape_orders")) || [];
+        if (Array.isArray(localOrders) && localOrders.length > 0) {
+            let html = "";
+            localOrders.forEach((ped, idx) => {
+                const fecha = ped.fecha
+                    ? new Date(ped.fecha).toLocaleDateString("es-MX", { day: "numeric", month: "long", year: "numeric" })
+                    : "Reciente";
+                const prods = ped.productos || [];
+
+                prods.forEach(prod => {
+                    const imgUrl = normalizarRutaImagen(prod.image);
+                    html += `
+                    <div class="order-item">
+                        <div class="row align-items-center g-2">
+                            <div class="col-3 col-sm-2">
+                                <img src="${imgUrl}" alt="${prod.name || 'Café'}" class="img-fluid rounded" style="max-width:8rem; height:80px; object-fit:cover;">
+                            </div>
+                            <div class="col-6 col-sm-7 infoybotones">
+                                <div class="order-title">${prod.name || 'Café Especial'}</div>
+                                <div class="order-meta">Pedido #${ped.id || 'KAPE-' + (1000 + idx)} • ${fecha}</div>
+                            </div>
+                            <div class="col-3 col-sm-3 text-end btn-entregado">
+                                <span class="badge">COMPLETADO</span>
+                            </div>
+                        </div>
+                        <div class="row mt-2 justify-content-end">
+                            <div class="col-4 col-sm-3">
+                                <div class="order-price">$${Number(prod.price || 0).toFixed(2)} MX</div>
+                            </div>
+                            <div class="col-8 col-sm-7 text-end">
+                                <div class="order-actions">
+                                    <a href="./producto.html?id=${prod.id || 1}" class="btn btn-detalle">Ver Detalle</a>
+                                    <a href="./resenia.html?id=${prod.id || 1}&num=${ped.id || '100' + idx}&detalleId=${idx + 1}" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                });
+            });
+            contenedor.innerHTML = html;
+            return;
+        }
+    } catch (_) { }
+
+    // 4. Si no hay pedidos previos, consultar los cafés reales del catálogo de la base de datos
+    try {
+        let cafesCatalogo = [];
+        try {
+            const resCafes = await fetch(`${API_BASE_URL}/products`);
+            if (resCafes.ok) {
+                cafesCatalogo = await resCafes.json();
+            }
+        } catch (_) { }
+
+        if (Array.isArray(cafesCatalogo) && cafesCatalogo.length > 0) {
+            const pedidosEjemplo = [
+                { cafe: cafesCatalogo[0], num: "KAPE-9421", fecha: "12 de Julio, 2026", estatusCls: "btn-entregado", badgeCls: "badge", estatusTxt: "ENTREGADO" },
+                { cafe: cafesCatalogo[1 % cafesCatalogo.length], num: "KAPE-9580", fecha: "24 de Julio, 2026", estatusCls: "btn-encamino", badgeCls: "badge-encamino", estatusTxt: "EN CAMINO" },
+                { cafe: cafesCatalogo[2 % cafesCatalogo.length], num: "KAPE-8812", fecha: "15 de Agosto, 2026", estatusCls: "btn-entregado", badgeCls: "badge", estatusTxt: "ENTREGADO" }
+            ];
+
+            let html = "";
+            pedidosEjemplo.forEach((item, index) => {
+                const c = item.cafe;
+                const imgUrl = normalizarRutaImagen(c.imagenCafe);
+                html += `
+                <div class="order-item">
+                    <div class="row align-items-center g-2">
+                        <div class="col-3 col-sm-2">
+                            <img src="${imgUrl}" alt="${c.nombreCafe}" class="img-fluid rounded" style="max-width:8rem; height:80px; object-fit:cover;">
+                        </div>
+                        <div class="col-6 col-sm-7 infoybotones">
+                            <div class="order-title">${c.nombreCafe}</div>
+                            <div class="order-meta">Pedido #${item.num} • ${item.fecha}</div>
+                        </div>
+                        <div class="col-3 col-sm-3 text-end ${item.estatusCls}">
+                            <span class="${item.badgeCls}">${item.estatusTxt}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2 justify-content-end">
+                        <div class="col-4 col-sm-3">
+                            <div class="order-price">$${Number(c.precioCafe || 250).toFixed(2)} MX</div>
+                        </div>
+                        <div class="col-8 col-sm-7 text-end">
+                            <div class="order-actions">
+                                <a href="./producto.html?id=${c.idCafe}" class="btn btn-detalle">Ver Detalle</a>
+                                <a href="./resenia.html?id=${c.idCafe}&num=${item.num}&detalleId=${index + 1}" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+            contenedor.innerHTML = html;
+            return;
+        }
+    } catch (_) { }
+
+    // 5. Fallback por defecto si no hay conexión
+    contenedor.innerHTML = `
+        <div class="order-item">
+            <div class="row align-items-center g-2">
+                <div class="col-3 col-sm-2">
+                    <img src="../assets/images/catalogo/Chiapas Reserva.png" alt="Chiapas Reserva" class="img-fluid rounded" style="max-width:8rem; height:80px; object-fit:cover;">
+                </div>
+                <div class="col-6 col-sm-7 infoybotones">
+                    <div class="order-title">Chiapas Reserva</div>
+                    <div class="order-meta">Pedido #KAPE-9421 • 12 de Julio, 2026</div>
+                </div>
+                <div class="col-3 col-sm-3 text-end btn-entregado">
+                    <span class="badge">ENTREGADO</span>
+                </div>
+            </div>
+            <div class="row mt-2 justify-content-end">
+                <div class="col-4 col-sm-3">
+                    <div class="order-price">$250.00 MX</div>
+                </div>
+                <div class="col-8 col-sm-7 text-end">
+                    <div class="order-actions">
+                        <a href="./producto.html?id=1" class="btn btn-detalle">Ver Detalle</a>
+                        <a href="./resenia.html?id=1&num=KAPE-9421&detalleId=1" class="btn btn-com-res">Dejar comentario / Reseña</a>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+}
+
+// ======================================================
+// ARRANQUE SEGURO
+// ======================================================
+function initPerfil() {
+    // Asignar referencias del DOM
+    nombreUsuarioElem   = document.getElementById("nombreUsuario");
+    infoNombreElem      = document.getElementById("infoNombre");
+    infoEmailElem       = document.getElementById("infoEmail");
+    infoTelefonoElem    = document.getElementById("infoTelefono");
+    btnEditarInfo       = document.getElementById("btnEditarInfo");
+    infoVista           = document.getElementById("infoVista");
+    formEditarInfo      = document.getElementById("formEditarInfo");
+    btnCancelarEdicion  = document.getElementById("btnCancelarEdicion");
+    alertPlaceholder    = document.getElementById("infoAlertPlaceholder");
+    inputEditNombre     = document.getElementById("inputEditNombre");
+    inputEditEmail      = document.getElementById("inputEditEmail");
+    inputEditTelefono   = document.getElementById("inputEditTelefono");
+
+    // Inicializar datos del perfil
+    cargarDatosUsuario();
+    sincronizarConServidor();
+    cargarPedidosUsuario();
+
+    // Validación en tiempo real del formulario de edición
+    inputEditNombre?.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
     });
-}
-
-if (inputEditTelefono) {
-    inputEditTelefono.addEventListener("input", (e) => {
+    inputEditTelefono?.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(0, 10);
     });
-}
 
-// Event Listeners para edición
-if (btnEditarInfo) {
-    btnEditarInfo.addEventListener("click", () => {
-        if (formEditarInfo.classList.contains("d-none")) {
+    // Botón Editar perfil
+    btnEditarInfo?.addEventListener("click", () => {
+        if (formEditarInfo?.classList.contains("d-none")) {
             activarModoEdicion();
         } else {
             desactivarModoEdicion();
         }
     });
-}
 
-if (btnCancelarEdicion) {
-    btnCancelarEdicion.addEventListener("click", desactivarModoEdicion);
-}
+    // Botón Cancelar edición
+    btnCancelarEdicion?.addEventListener("click", desactivarModoEdicion);
 
-// Guardar los datos editados
-if (formEditarInfo) {
-    formEditarInfo.addEventListener("submit", async function (event) {
+    // Guardar datos del perfil editado
+    formEditarInfo?.addEventListener("submit", async (event) => {
         event.preventDefault();
         limpiarAlerta();
 
-        const nombreNuevo = inputEditNombre.value.trim();
-        const emailNuevo = inputEditEmail.value.trim();
+        const nombreNuevo   = inputEditNombre.value.trim();
+        const emailNuevo    = inputEditEmail.value.trim();
         const telefonoNuevo = inputEditTelefono.value.trim();
 
-        // Validaciones
         if (!nombreNuevo) {
             mostrarAlerta("El nombre no puede estar vacío.");
             return;
         }
-
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailNuevo || !regexEmail.test(emailNuevo)) {
             mostrarAlerta("Por favor ingresa un correo electrónico válido.");
             return;
         }
-
         if (telefonoNuevo && telefonoNuevo.length !== 10) {
-            mostrarAlerta("El teléfono debe contener exactamente 10 dígitos numéricos.");
+            mostrarAlerta("El teléfono debe tener exactamente 10 dígitos.");
             return;
         }
 
-        // Deshabilitar botón durante el guardado
         const submitBtn = document.getElementById("btnGuardarEdicion");
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Guardando...";
-        }
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Guardando..."; }
 
-        // Intento de actualización en backend si existe idUsuario
-        if (sesion && sesion.idUsuario) {
+        if (sesion?.idUsuario) {
             try {
-                const response = await fetch(`${API_BASE_URL}/usuarios/${sesion.idUsuario}`, {
+                await fetch(`${API_BASE_URL}/usuarios/${sesion.idUsuario}`, {
                     method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        nombre: nombreNuevo,
-                        correo: emailNuevo,
-                        numero: telefonoNuevo
-                    })
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ nombre: nombreNuevo, correo: emailNuevo, numero: telefonoNuevo })
                 });
-
-                if (!response.ok) {
-                    const resData = await response.json().catch(() => null);
-                    if (resData && resData.message) {
-                        console.warn("Aviso del servidor:", resData.message);
-                    }
-                }
             } catch (err) {
-                console.debug("Backend no disponible para PUT, guardando localmente:", err.message);
+                console.debug("PUT backend no disponible:", err.message);
             }
         }
 
-        // Actualizar objeto sesión en localStorage
-        sesion.nombre = nombreNuevo;
-        sesion.email = emailNuevo;
-        sesion.correo = emailNuevo;
+        sesion.nombre   = nombreNuevo;
+        sesion.email    = emailNuevo;
+        sesion.correo   = emailNuevo;
         sesion.telefono = telefonoNuevo;
-        sesion.numero = telefonoNuevo;
+        sesion.numero   = telefonoNuevo;
         localStorage.setItem("kapeSesion", JSON.stringify(sesion));
 
-        // Actualizar UI
         cargarDatosUsuario();
         desactivarModoEdicion();
         mostrarAlerta("Información actualizada correctamente.", "success");
-
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Guardar";
-        }
-
-        // Quitar la alerta de éxito después de 4 segundos
-        setTimeout(() => {
-            limpiarAlerta();
-        }, 4000);
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Guardar"; }
+        setTimeout(limpiarAlerta, 4000);
     });
-}
 
-// Inicialización
-cargarDatosUsuario();
-sincronizarConServidor();
-
-// Cerrar sesión
-const cerrarSesionBtn = document.querySelector(".cerrar-sesion");
-if (cerrarSesionBtn) {
-    cerrarSesionBtn.addEventListener("click", function (evento) {
-        evento.preventDefault();
+    // Cerrar sesión
+    document.querySelector(".cerrar-sesion")?.addEventListener("click", (e) => {
+        e.preventDefault();
         localStorage.removeItem("kapeSesion");
         window.location.href = "/index.html";
     });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPerfil);
+} else {
+    initPerfil();
 }

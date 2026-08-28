@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config.js";
+import { API_BASE_URL, normalizarRutaImagen } from "./config.js";
 
 let cafes = [];
 
@@ -25,7 +25,7 @@ function mostrarCafes(listaCafes) {
             <div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch">
                 <div class="card card-producto border-0 shadow-sm w-100 position-relative">
                     <img 
-                        src="${cafe.imagenCafe}" 
+                        src="${normalizarRutaImagen(cafe.imagenCafe)}" 
                         class="card-img-top" 
                         alt="${cafe.nombreCafe}"
                     >
