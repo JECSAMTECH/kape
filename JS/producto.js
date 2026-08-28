@@ -1,5 +1,5 @@
 import { addToCart } from "./carrito.js";
-import { API_BASE_URL } from "./config.js";
+import { API_BASE_URL, normalizarRutaImagen } from "./config.js";
 
 let cafe = null;
 
@@ -133,9 +133,10 @@ function mostrarCafe(cafe) {
     document.getElementById("historia-nombre").textContent = cafe.nombreCafe;
 
     const imagen = document.getElementById("producto-imagen");
-    imagen.src = cafe.imagenCafe;
-    imagen.alt =
-        `Café ${cafe.nombreCafe}`;
+    if (imagen) {
+        imagen.src = normalizarRutaImagen(cafe.imagenCafe);
+        imagen.alt = `Café ${cafe.nombreCafe}`;
+    }
 
     mostrarIntensidad(
         cafe.intensidadCafe
