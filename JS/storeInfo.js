@@ -1,64 +1,109 @@
-
 const checkoutForm = document.querySelector("#checkout-form");
 
-checkoutForm.addEventListener("submit", function (event) {
+if (checkoutForm) {
 
-    const nombre = document.querySelector('[placeholder="Nombre"]').value;
-    console.log("Nombre:", nombre);
-    sessionStorage.setItem("nombre", nombre);
+    checkoutForm.addEventListener("submit", function (event) {
 
-    const apellido = document.querySelector('[placeholder="Apellido"]').value;
-    console.log("Apellido:", apellido);
-    sessionStorage.setItem("apellido", apellido);
+        // ==========================================
+        // INFORMACIÓN DE ENVÍO
+        // ==========================================
 
-    const direccion = document.querySelector('[placeholder="Dirección"]').value;
-    console.log("Dirección:", direccion);
-    sessionStorage.setItem("direccion", direccion);
+        const nombre =
+            document.querySelector('[placeholder="Nombre"]').value.trim();
 
-    const ciudad = document.querySelector('[placeholder="Ciudad"]').value;
-    console.log("Ciudad:", ciudad);
-    sessionStorage.setItem("ciudad", ciudad);
+        const apellido =
+            document.querySelector('[placeholder="Apellido"]').value.trim();
 
+        const direccion =
+            document.querySelector('[placeholder="Dirección"]').value.trim();
 
-    const codigoPostal = document.querySelector('[placeholder="Código Postal"]').value;
-    console.log("Código Postal:", codigoPostal);
-    sessionStorage.setItem("codigoPostal", codigoPostal);
+        const ciudad =
+            document.querySelector('[placeholder="Ciudad"]').value.trim();
 
+        const codigoPostal =
+            document.querySelector('[placeholder="Código Postal"]').value.trim();
 
-    const pais = document.querySelector("#country").value;
-    console.log("País:", pais);
-    sessionStorage.setItem("pais", pais);
-
-    const paymentMethod = document.querySelector(
-        'input[name="payment-method"]:checked'
-    ).value;
-    console.log("Método de pago:", paymentMethod);
-    sessionStorage.setItem("paymentMethod", paymentMethod);
+        const pais =
+            document.querySelector("#country").value;
 
 
-    const numeroTarjeta = document.querySelector(
-        '[placeholder="**** **** **** 4242"]'
-    ).value;
-    console.log("Número de tarjeta:", numeroTarjeta);
-    sessionStorage.setItem("numeroTarjeta", numeroTarjeta);
+        sessionStorage.setItem("nombre", nombre);
+        sessionStorage.setItem("apellido", apellido);
+        sessionStorage.setItem("direccion", direccion);
+        sessionStorage.setItem("ciudad", ciudad);
+        sessionStorage.setItem("codigoPostal", codigoPostal);
+        sessionStorage.setItem("pais", pais);
 
 
-    const fechaVencimiento = document.querySelector(
-        '[placeholder="MM/AA"]'
-    ).value;
-    console.log("Fecha de vencimiento:", fechaVencimiento);
-    sessionStorage.setItem("fechaVencimiento", fechaVencimiento);
+        // ==========================================
+        // MÉTODO DE PAGO
+        // ==========================================
+
+        const paymentSelected =
+            document.querySelector(
+                'input[name="payment-method"]:checked'
+            );
+
+        if (paymentSelected) {
+
+            sessionStorage.setItem(
+                "paymentMethod",
+                paymentSelected.value
+            );
+
+        }
 
 
-    const cvv = document.querySelector(
-        '[placeholder="CVV"]'
-    ).value;
-    console.log("CVV:", cvv);
-    sessionStorage.setItem("cvv", cvv);
+        // ==========================================
+        // TARJETA
+        // ==========================================
+        // NO guardamos número completo.
+        // NO guardamos CVV.
+        // Solo guardamos los últimos 4 dígitos.
 
-    const shippingMethod = document.querySelector(
-        'input[name="shipping-method"]:checked'
-    ).value;
-    console.log("Método de envío:", shippingMethod);
-    sessionStorage.setItem("shippingMethod", shippingMethod);
-});
+        const numeroTarjetaInput =
+            document.querySelector(
+                '[placeholder="**** **** **** 4242"]'
+            );
+
+        if (numeroTarjetaInput) {
+
+            const numeroTarjeta =
+                numeroTarjetaInput.value.replace(/\D/g, "");
+
+            if (numeroTarjeta.length >= 4) {
+
+                const ultimosCuatro =
+                    numeroTarjeta.slice(-4);
+
+                sessionStorage.setItem(
+                    "ultimosCuatroTarjeta",
+                    ultimosCuatro
+                );
+
+            }
+
+        }
+
+
+        // ==========================================
+        // MÉTODO DE ENVÍO
+        // ==========================================
+
+        const shippingSelected =
+            document.querySelector(
+                'input[name="shipping-method"]:checked'
+            );
+
+        if (shippingSelected) {
+
+            sessionStorage.setItem(
+                "shippingMethod",
+                shippingSelected.value
+            );
+
+        }
+
+    });
+
+}

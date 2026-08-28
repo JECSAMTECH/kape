@@ -260,6 +260,8 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
+        cargarDatosCheckout();
+
         mostrarProductos();
 
         configurarEnvio();
@@ -267,6 +269,121 @@ document.addEventListener(
         actualizarTotales();
 
     }
-
-
 );
+
+
+// ======================================================
+// RECUPERAR DATOS PREVIOS DEL CHECKOUT
+// ======================================================
+
+function cargarDatosCheckout() {
+
+    const nombre =
+        sessionStorage.getItem("nombre");
+
+    const apellido =
+        sessionStorage.getItem("apellido");
+
+    const direccion =
+        sessionStorage.getItem("direccion");
+
+    const ciudad =
+        sessionStorage.getItem("ciudad");
+
+    const codigoPostal =
+        sessionStorage.getItem("codigoPostal");
+
+    const pais =
+        sessionStorage.getItem("pais");
+
+    const paymentMethod =
+        sessionStorage.getItem("paymentMethod");
+
+    const shippingMethod =
+        sessionStorage.getItem("shippingMethod");
+
+
+    // ==========================================
+    // DATOS PERSONALES
+    // ==========================================
+
+    const inputNombre =
+        document.querySelector('[placeholder="Nombre"]');
+
+    const inputApellido =
+        document.querySelector('[placeholder="Apellido"]');
+
+    const inputDireccion =
+        document.querySelector('[placeholder="Dirección"]');
+
+    const inputCiudad =
+        document.querySelector('[placeholder="Ciudad"]');
+
+    const inputCodigoPostal =
+        document.querySelector('[placeholder="Código Postal"]');
+
+    const selectPais =
+        document.querySelector("#country");
+
+
+    if (inputNombre && nombre) {
+        inputNombre.value = nombre;
+    }
+
+    if (inputApellido && apellido) {
+        inputApellido.value = apellido;
+    }
+
+    if (inputDireccion && direccion) {
+        inputDireccion.value = direccion;
+    }
+
+    if (inputCiudad && ciudad) {
+        inputCiudad.value = ciudad;
+    }
+
+    if (inputCodigoPostal && codigoPostal) {
+        inputCodigoPostal.value = codigoPostal;
+    }
+
+    if (selectPais && pais) {
+        selectPais.value = pais;
+    }
+
+
+    // ==========================================
+    // MÉTODO DE PAGO
+    // ==========================================
+
+    if (paymentMethod) {
+
+        const paymentRadio =
+            document.querySelector(
+                `input[name="payment-method"][value="${paymentMethod}"]`
+            );
+
+        if (paymentRadio) {
+            paymentRadio.checked = true;
+        }
+
+    }
+
+
+    // ==========================================
+    // MÉTODO DE ENVÍO
+    // ==========================================
+
+    if (shippingMethod) {
+
+        const shippingRadio =
+            document.querySelector(
+                `input[name="shipping-method"][value="${shippingMethod}"]`
+            );
+
+        if (shippingRadio) {
+            shippingRadio.checked = true;
+        }
+
+    }
+
+}
